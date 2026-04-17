@@ -43,6 +43,8 @@ import { CrashSignalAdapter, SignalZone } from './crash-signal-adapter.js';
 import { PaperTradingEngine, CloseReason } from './engine/paper-trading-engine.js';
 import { propagationTracker } from './engine/propagation-tracker.js';
 import { PredictionLogger } from './crash-prediction-logger.js';
+import { LightGbmTrainingLogger, getTrainingLogger } from './ml/lightgbm-training-logger.js';
+import { getZScoreNormalizer } from './ml/zscore-normalizer.js';
 
 // Import Helius REST Service (Developer Plan Compatible)
 import { heliusRestService, MemecoinSignal } from './services/helius-rest-service.js';
@@ -983,6 +985,10 @@ class KasPAV4 {
   private ranking = rankingService;
   private bayesian = bayesianEngine;
   private helius = heliusRestService;
+
+  // LightGBM Training Data Logger
+  private trainingLogger: LightGbmTrainingLogger;
+  private zScoreNormalizer: ReturnType<typeof getZScoreNormalizer>;
   
   private currentTop10: ShortTarget[] = [];
   private currentPrices: Map<string, number> = new Map();
@@ -1012,6 +1018,10 @@ class KasPAV4 {
   constructor() {
     this.crashDetector = new MultiCoinCrashDetector();
     this.paperTrading = new PaperTradingV4(CONFIG.startingCapital);
+
+    // LightGBM Training Logger initialisieren
+    this.trainingLogger = getTrainingLogger();
+    this.zScoreNormalizer = getZScoreNormalizer();
   }
   
   async start(): Promise<void> {
@@ -1413,7 +1423,7 @@ class KasPAV4 {
           
           // 24h Test: Cycle Metrics loggen (inkl. 9 Metriken)
           this.paperTrading.logCycleMetrics(iteration, crashSignal, coin, decision, botProb, rawMetricsForCoin);
-          
+
           // Track latest crash signal for TOP COIN only (for WebSocket dashboard)
           if (index === 0) {
             this.latestCrashSignal = {
@@ -1473,11 +1483,74 @@ class KasPAV4 {
               decision.confidence = Math.min(0.99, decision.confidence + 0.15);
             }
           }
-          
+
+          // LightGBM Training: Logge ALLE Features (nach TFI Filter, mit vollständigen Daten)
+          if (rawMetricsForCoin && crashSignal) {
+            // Berechne Z-scores
+            const zScores = this.zScoreNormalizer.computeZScores(rawMetricsForCoin);
+
+            // Bot Detection Features (from botMetrics object directly)
+            const botMetricsData = this.botDetector.getMetrics();
+
+            // DexOB für TFI Daten
+            const dexOB = dexScreenerOrderBooks.get(coin.mint);
+            const dexBuyVol = dexOB?.buyVolume || 0;
+            const dexSellVol = dexOB?.sellVolume || 0;
+            const totalVol = dexBuyVol + dexSellVol;
+            const tfi = totalVol > 0 ? (dexBuyVol - dexSellVol) / totalVol : 0;
+            const tfiPressure = tfi > 0.1 ? 'buy' : tfi < -0.1 ? 'sell' : 'neutral';
+            const volumeRatio = totalVol > 0 ? dexBuyVol / totalVol : 0.5;
+
+            // Logge für LightGBM Training
+            this.trainingLogger.logCycle({
+              slot: Date.now(), // Use timestamp as slot proxy
+              symbol: coin.symbol,
+              rawMetrics: rawMetricsForCoin,
+              zScores: {
+                z_n: zScores.z_n,
+                z_PE: zScores.z_PE,
+                z_kappa: zScores.z_kappa,
+                z_fragmentation: zScores.z_fragmentation,
+                z_rt: zScores.z_rt,
+                z_bValue: zScores.z_bValue,
+                z_CTE: zScores.z_CTE,
+                z_SSI: zScores.z_SSI,
+                z_LFI: zScores.z_LFI,
+              },
+              crashProbability: crashSignal.crashProbability,
+              zone: crashSignal.zone,
+              confirmingMetrics: crashSignal.confirmingMetrics,
+              botMetrics: {
+                botProbability: botProb,
+                jitoBundleCount: botMetricsData.jitoBundleCount,
+                sandwichCount: botMetricsData.sandwichCount,
+                sniperCount: botMetricsData.sniperCount,
+                liquidationCount: botMetricsData.liquidationCount,
+                arbitrageCount: botMetricsData.arbitrageCount,
+                backrunCount: botMetricsData.backrunCount,
+                highPriorityTxCount: botMetricsData.highPriorityTxCount,
+                veryHighPriorityTxCount: botMetricsData.veryHighPriorityTxCount,
+                avgFee: botMetricsData.avgFee,
+              },
+              tfi: { tfi, pressure: tfiPressure, buyVolume: dexBuyVol, sellVolume: dexSellVol, volumeRatio },
+              velocity: velocitySignal,
+              price: coin.price,
+              priceChange24h: coin.priceChange24h || 0,
+              liquidity: 0, // coin.liquidity nicht verfügbar
+              volume24h: coin.volume24h || 0,
+              decision: { action: decision.action, confidence: decision.confidence || 0 },
+              kellyFraction: decision.kellyFraction,
+              positionSize: decision.positionSize,
+            });
+          }
+
           // 6. Execute if SHORT signal
           if (decision.action === 'SHORT' && decision.positionSize && decision.positionSize > 0) {
             const price = this.currentPrices.get(coin.symbol) || coin.price;
             this.paperTrading.openPosition(coin.symbol, decision.positionSize, price);
+
+            // LightGBM Training: Logge Trade OPEN
+            this.trainingLogger.logTradeOpen(coin.symbol, price, decision.positionSize, crashSignal.crashProbability);
           } else {
              // Forensic log for IGNORE/MONITOR
              this.paperTrading.logForensic({ symbol: coin.symbol, decision, crashSignal });
@@ -1536,7 +1609,10 @@ class KasPAV4 {
           if (shouldExit) {
             const pnl = this.paperTrading.closePosition(position.symbol, currentPrice);
             console.log(`[EXIT] ${position.symbol}: ${exitReason} | PnL: ${pnl >= 0 ? '+' : ''}${pnl.toFixed(4)} SOL | Held: ${holdingHours.toFixed(1)}h`);
-            
+
+            // LightGBM Training: Logge Trade EXIT
+            this.trainingLogger.logTradeExit(position.symbol, currentPrice, exitReason, position.entryPrice, holdingHours);
+
             // 24h Test: Log Trade (to trades.jsonl)
             this.paperTrading.logForensic({
               action: 'EXIT',

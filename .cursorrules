@@ -1,7 +1,52 @@
 # CURSOR RULES - KAS PA SYSTEM
-## Version: 4.2.1-STABILIZED
+## Version: 4.3.0-STABILIZED
 ## Status: PRODUCTION_READY
-## Last Updated: 2026-04-17 16:55 UTC
+## Last Updated: 2026-04-17 17:15 UTC
+
+---
+
+# PRÄAMBEL - AGENT ARBEITSWEISE UND PRINZIPIEN
+
+## Primärziel
+
+**EINZIGER ZWECK dieses Agents ist es, KAS PA langfristig, luftdicht und aussagekräftig zu betreiben und weiterzuentwickeln.**
+
+Jede Handlung, jede Analyse, jede Entscheidung muss diesem Ziel dienen.
+
+## Unveränderliche Arbeitsprinzipien
+
+### 1. AKRIBIE UND GEWISSENHAFTIGKEIT
+
+- **JEDE Codeänderung** wird auf Existierende Fehler geprüft (TypeScript, Lint, Runtime)
+- **JEDE Funktion** wird auf Nebeneffekte und Randfälle untersucht
+- **JEDE Annahme** wird explizit gemacht und hinterfragt
+- **NIEMALS** wird "das sollte funktionieren" akzeptiert - nur verifizierter Code
+- **NIEMALS** wird Code ohne Test/Lint-Prüfung als "fertig" markiert
+
+### 2. KONTEXT HYGIENE
+
+- **Overfitting vermeiden**: Nicht jede Iteration/Aussage wiederholen
+- **Kontextverwässerung verhindern**: Alte Informationen nicht immer wieder vorschalten wenn nicht relevant
+- **Halluzinationen erkennen**: Immer Fakten von Spekulation trennen, Unsicherheiten explizit markieren
+- **Keine Prosa**: Präzise, direkt, keine ausschweifenden Erklärungen
+
+### 3. SYSTEMATISCHE FEHLERBEHANDLUNG
+
+- **Kein Workaround ohne Diagnose**: Immer die Wurzel des Problems finden
+- **Keine Wiederholung**: Wenn etwas 3x nicht funktioniert, neue Strategie entwickeln
+- **Immer verifizieren**: Nach jeder Änderung das Ergebnis prüfen
+
+### 4. TRANSPARENZ
+
+- **Ehrliche Statusberichte**: Was funktioniert, was nicht, was unsicher ist
+- **Explizite Unsicherheiten**: "Ich bin mir nicht sicher" statt Scheinwissen
+- **Keine Vermutungen**: Alles was ich sage muss entweder verifiziert oder als Annahme gekennzeichnet sein
+
+### 5. KONSEQUENZ
+
+- **Lückenlos speichern**: Alle wichtigen Daten, Konfigurationen, Logs
+- **Dokumentation aktuell**: Nach jeder Änderung CursorRules und Code-Docs updaten
+- **Git als Quelle der Wahrheit**: Alles was zählt wird auf GitHub gesichert
 
 ---
 
@@ -286,6 +331,14 @@ if (crashSignal.zone === 'IMMEDIATE_SHORT' && posterior >= 0.5) {
 
 # VERIFIED BUGS & FIXES
 
+## v4.3 Stabilization (2026-04-17)
+
+| Feature | Location | Beschreibung |
+|---------|----------|--------------|
+| LightGBM Training Pipeline | ml/lightgbm-training-logger.ts | Vollständige Feature-Speicherung für Training |
+| Z-Score Normalizer | ml/zscore-normalizer.ts | Adaptive Z-Score Berechnung für alle 9 Metriken |
+| Training Data Integration | live-paper-trading-v4.ts |logCycle(), logTradeOpen(), logTradeExit() für lückenloses Training |
+
 ## v4.2.1 Stabilization (2026-04-17)
 
 | Bug | Location | Problem | Fix |
@@ -336,6 +389,9 @@ if (crashSignal.zone === 'IMMEDIATE_SHORT' && posterior >= 0.5) {
 │   │   └── engine/
 │   │       ├── paper-trading-engine.ts       # Paper trading engine
 │   │       └── propagation-tracker.ts       # SOTA Telemetry Engine
+│   │   └── ml/                               # LightGBM Training Pipeline
+│   │       ├── lightgbm-training-logger.ts  # Training Data Logger
+│   │       └── zscore-normalizer.ts         # Z-Score Berechnung
 │   └── package.json
 ├── dashboard/
 │   ├── src/
@@ -461,6 +517,42 @@ src/messaging/kafka/
 
 ---
 
-**CURSOR AGENT // KAS PA v4.2 STABILIZED**
+---
+
+# LIGHTGBM TRAINING DATA PIPELINE
+
+## Gesammelte Features (pro Cycle)
+
+| Kategorie | Features | Beschreibung |
+|-----------|----------|---------------|
+| Identifikation | timestamp, slot, cycleNumber, symbol | Zeitstempel und Symbol |
+| 9 Roh-Metriken | n, PE, kappa, fragmentation, rt, bValue, CTE, SSI, LFI | Unveränderte Crash-Metriken |
+| 9 Z-Scores | z_n, z_PE, z_kappa, z_fragmentation, z_rt, z_bValue, z_cte, z_ssi, z_lfi | Normalisierte Metriken für ML |
+| Bayesian Output | crashProbability, zone, confirmingMetrics | Model Output |
+| Bot Detection | botProbability, jitoBundleCount, sandwichCount, sniperCount, liquidationCount, arbitrageCount, backrunCount, highPriorityTxCount, veryHighPriorityTxCount, avgFee | Bot-Aktivität |
+| Order Flow | tfi, tfi_pressure, buyVolume, sellVolume, volumeRatio | Handelsfluss |
+| Velocity | priceChange1min, priceChange5min, acceleration, jerk, isFlashCrash | Preisdynamik |
+| Trade Outcome | tradeAction, tradeReason, pnlSol, pnlPercent, holdingHours | **LABELS für Training** |
+
+## Datenspeicherung
+
+```
+/data/trinity_apex/solana-stream/paper-trading/logs/lightgbm/
+```
+
+Format: JSONL (eine Zeile pro Cycle)
+
+## Labeling Strategy
+
+1. **PENDING**: Prediction erstellt, 24h Window läuft
+2. **TRUE_POSITIVE**: Short eröffnet + Preis DROP >= 3%
+3. **FALSE_POSITIVE**: Short eröffnet + Preis STAY/STEEIG
+4. **TRUE_NEGATIVE**: IGNORE Zone + kein Crash in 24h
+5. **FALSE_NEGATIVE**: IGNORE Zone + doch Crash in 24h
+
+---
+
+**CURSOR AGENT // KAS PA v4.3 STABILIZED**
 **STATUS: PRODUCTION READY**
-**LAST VALIDATION: 2026-04-16**
+**PRÄAMBEL: AKRIBIE + GEWISSENHAFTIGKEIT + TRANSPARENZ**
+**LAST VALIDATION: 2026-04-17**
