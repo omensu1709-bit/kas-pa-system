@@ -1,0 +1,90 @@
+name: Status Badge Updater
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Every hour
+  workflow_dispatch:
+
+jobs:
+  update-status:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate Status JSON
+        id: status
+        run: |
+          # This would normally fetch real data from the system
+          # For now, generate placeholder data
+
+          STATUS_FILE="status.json"
+
+          cat > $STATUS_FILE << 'EOF'
+          {
+            "updated": "TIMESTAMP",
+            "version": "4.3.0",
+            "milestone_progress": {
+              "M1": { "status": "in_progress", "progress": 60 },
+              "M2": { "status": "pending", "progress": 0 },
+              "M3": { "status": "pending", "progress": 0 },
+              "M4": { "status": "pending", "progress": 0 },
+              "M5": { "status": "pending", "progress": 0 },
+              "M6": { "status": "pending", "progress": 0 },
+              "M7": { "status": "pending", "progress": 0 },
+              "M8": { "status": "pending", "progress": 0 }
+            },
+            "system": {
+              "backend_running": false,
+              "websocket_port_8080": false,
+              "websocket_port_3000": false,
+              "lightgbm_logging": false
+            },
+            "data_collection": {
+              "cycles_collected": 0,
+              "trades_logged": 0,
+              "crash_labels_verified": 0
+            },
+            "next_deadline": {
+              "milestone": "M1",
+              "date": "2026-04-18",
+              "days_remaining": -1
+            }
+          }
+          EOF
+
+          sed -i "s/TIMESTAMP/$(date -u +%Y-%m-%dT%H:%M:%SZ)/g" $STATUS_FILE
+
+          echo "Status file created: $STATUS_FILE"
+          cat $STATUS_FILE
+
+          # Also create SVG badges
+          cat > "M1-badge.svg" << 'SVGEOF'
+          <svg xmlns="http://www.w3.org/2000/svg" width="120" height="20">
+            <linearGradient id="grad" x2="0" y2="100%">
+              <stop offset="0" stop-color="#f90" stop-opacity="1"/>
+              <stop offset="1" stop-color="#f90" stop-opacity="0.8"/>
+            </linearGradient>
+            <rect fill="url(#grad)" width="120" height="20" rx="3"/>
+            <text x="60" y="14" text-anchor="middle" fill="#fff" font-size="11">M1: 60%</text>
+          </svg>
+          SVGEOF
+
+          echo "Badge created: M1-badge.svg"
+
+      - name: Upload Status Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: status-json
+          path: status.json
+          retention-days: 1
+
+      - name: Commit Status Update
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+          # Only commit if there are changes
+          git add status.json 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "docs: Auto-update status [skip ci]"
+          git push || echo "Push skipped (no changes or credentials)"
