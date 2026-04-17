@@ -1,0 +1,78 @@
+Hier ist das vollständige technische Dossier sowie die Implementierungs-Architektur für deinen Visual Twin auf Basis von Perspective.js (FINOS).
+------------------------------
+## 🏁 Dossier: High-Performance Visual Twin mit Perspective.js## 1. Warum Perspective für dein Krypto-Tool?
+Im Gegensatz zu Chart-Bibliotheken (wie Chart.js oder Recharts), die bei >100 Updates pro Sekunde das UI einfrieren, wurde Perspective für institutionelle Handelsplattformen entwickelt.
+
+* WASM-Engine: Die gesamte Datenverarbeitung (Sortierung, Filterung, Aggregation deiner 3%-Short-Prognosen) findet in hochoptimiertem C++ im Browser statt.
+* Virtual DOM für Daten: Nur sichtbare Zellen werden gerendert. Du kannst 100.000+ Ticks im RAM halten, ohne dass der Browser laggt.
+* Relationales Streaming: Es verhält sich wie eine SQL-Datenbank, die "lebt".
+
+------------------------------
+## 2. Die Architektur (Lückenlos)
+Dein Setup besteht aus drei Schichten, um die gRPC-Latenz nicht durch das UI zu bremsen:
+
+   1. Data Source: Dein Krypto-Tool (Python/Go), das Chainstack & Helios Laserstream konsumiert.
+   2. Bridge (Node.js Proxy): Wandelt den binären gRPC-Stream in ein leichtgewichtiges JSON-Streaming-Format (WebSockets) um.
+   3. Frontend (Visual Twin): Eine React/Vite-App, die Perspective als WebWorker nutzt.
+
+------------------------------
+## 3. Implementierungs-Guide für den Cursor-Agent
+Kopiere diesen Befehl in Cursor (Composer/Chat), um die Kernstruktur zu generieren:
+## Cursor Prompt:
+
+Erstelle eine professionelle Vite-React App (TypeScript) mit @finos/perspective.
+Anforderungen für das Krypto-Short-Dashboard:
+1. Setup Perspective Worker: Initialisiere 'perspective.worker()' und erstelle eine Tabelle mit folgendem Schema:
+   - symbol (string), price (float), prediction (float), confidence (float), timestamp (datetime), latency_ms (float), status (string).
+2. WebSocket-Integration: Erstelle einen Hook 'useCryptoStream', der sich mit einem lokalen WebSocket (Port 8080) verbindet und 'table.update(data)' aufruft.
+3. UI-Komponenten:
+   - Nutze '<perspective-viewer>' als Hauptkomponente.
+   - Konfiguriere den Viewer standardmäßig auf 'datagrid' mit einer Sortierung nach 'timestamp' (desc).
+   - Erstelle ein zweites Perspective-Widget als 'Y-Bar' Chart, das die Trefferquote (Shorts > 3%) pro Symbol aggregiert.
+4. Performance: Nutze 'SharedArrayBuffer' Support in der vite.config.ts (Headers: Cross-Origin-Embedder-Policy: require-corp).
+5. Styling: Dunkles Fintech-Design mit Tailwind CSS.
+
+------------------------------
+## 4. Code-Snippet: Die gRPC-to-Perspective Bridge (Node.js)
+Da Perspective am besten mit flachen Datenobjekten arbeitet, muss dein Proxy die gRPC-Daten "flachklopfen". Dies ist der entscheidende Teil für die Echtzeit-Funktionskontrolle:
+
+// bridge.js - Der Datenturbo für deinen Zwillingconst WebSocket = require('ws');const wss = new WebSocket.Server({ port: 8080 });
+// Hier dockst du an deinen bestehenden gRPC-Stream anfunction handleGrpcStream(data) {
+    const payload = {
+        symbol: data.symbol,
+        price: data.price,
+        prediction: data.short_prob, // Dein 3% Short-Score
+        confidence: data.confidence,
+        timestamp: new Date().getTime(),
+        // Funktionskontrolle: Berechne Latenz vom Stream-Eingang bis zur Verarbeitung
+        latency_ms: Date.now() - data.chainstack_ts 
+    };
+
+    // Broadcast an alle offenen Dashboards
+    wss.clients.forEach(client => {
+        if (client.readyState === WebSocket.OPEN) {
+            client.send(JSON.stringify([payload])); // Perspective erwartet ein Array
+        }
+    });
+}
+
+------------------------------
+## 5. Profi-Features für die "Funktionskontrolle"
+Um zu sehen, ob das System "funktioniert" (dein Kernanliegen), musst du in Perspective folgende Views vorkonfigurieren:
+
+   1. Der Heat-Check: Erstelle eine "Expression-Column" in Perspective:
+   if ("prediction" > 0.03) { "ALERT" } else { "WAIT" }.
+   Lass den Viewer Zeilen rot färben, wenn "ALERT" aktiv ist.
+   2. System-Health Pivot: Erstelle eine Ansicht, die nach status gruppiert. Wenn gRPC-Fehler auftreten, siehst du sofort einen Balken mit "Connection Lost" oder "Dropped Ticks" anwachsen.
+   3. Latency Monitor: Ein Liniendiagramm über die Spalte latency_ms. Steigt die Linie über 500ms, weißt du, dass dein Helios-Stream oder deine Internetverbindung drosselt.
+
+------------------------------
+## 6. SOTA-Empfehlung für Deployment & Kosten
+
+* Frontend: Vercel (Free Tier) – extrem schnell für Static Assets.
+* Backend/Proxy: Ein lokaler Docker-Container oder eine günstige Hetzner-Instanz (< 5€), um den gRPC-Stream stabil zu halten.
+* Datenbank: Keine! Perspective hält alles im RAM des Browsers. Für historische Analysen nutze DuckDB (WASM) als Ergänzung – ebenfalls kostenlos und SOTA.
+
+Soll ich dir jetzt die spezifischen CSS-Klassen für das blinkende Alert-System in Tailwind generieren, damit deine Short-Signale sofort ins Auge springen?
+
+Ja

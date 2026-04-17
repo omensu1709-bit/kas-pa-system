@@ -1,0 +1,63 @@
+{
+  "timestamp": 1775902885037,
+  "results": [
+    {
+      "name": "Chainstack RPC",
+      "status": "REAL",
+      "value": {
+        "slot": 412487354
+      },
+      "source": "Chainstack API (nicht simuliert)",
+      "notes": "Slot ist im gültigen Solana Mainnet-Bereich"
+    },
+    {
+      "name": "Jupiter Price",
+      "status": "REAL",
+      "value": {
+        "price": 84.24781311925784,
+        "change24h": 0.9575886083041782
+      },
+      "source": "Jupiter API (nicht simuliert)",
+      "notes": "Preis ist im realistischen Bereich"
+    },
+    {
+      "name": "WebSocket Prediction",
+      "status": "REAL",
+      "value": {
+        "crashProbability": 0.01098694263059318,
+        "zone": "IGNORE",
+        "confirmingMetrics": 0,
+        "slot": 412487328
+      },
+      "source": "Backend WebSocket (nicht simuliert)",
+      "notes": "Prediction enthält echte Daten"
+    },
+    {
+      "name": "Preis-Match",
+      "status": "REAL",
+      "value": {
+        "wsPrice": 84.24226025927656,
+        "jupiterPrice": 84.25331689773317
+      },
+      "source": "Preise stimmen überein",
+      "notes": "Preis in WebSocket entspricht Jupiter API"
+    },
+    {
+      "name": "Bot Detection",
+      "status": "REAL",
+      "value": {
+        "jitoBundleCount": 0,
+        "highPriorityTxCount": 0,
+        "veryHighPriorityTxCount": 0,
+        "totalFees": 1454476,
+        "avgPriorityFee": 48482.53333333333,
+        "botProbability": 0.25,
+        "ephemeralWallets": 314,
+        "newWallets": 314,
+        "totalWalletsTracked": 314
+      },
+      "source": "Transaktionsanalyse (nicht simuliert)",
+      "notes": "Metriken basieren auf echten Solana-Transaktionen"
+    }
+  ]
+}

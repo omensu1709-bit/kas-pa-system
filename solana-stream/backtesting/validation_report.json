@@ -1,0 +1,51 @@
+{
+  "timestamp": null,
+  "events_processed": 6,
+  "total_snapshots": 0,
+  "criteria": [
+    {
+      "name": "PBO",
+      "value": 0.5,
+      "target": 0.05,
+      "passed": false
+    },
+    {
+      "name": "DSR",
+      "value": -0.5933886519369146,
+      "target": 0.0,
+      "passed": false
+    },
+    {
+      "name": "WFE",
+      "value": 107.3099999999997,
+      "target": 0.5,
+      "passed": true
+    },
+    {
+      "name": "Sharpe",
+      "value": 8.504474041289692,
+      "target": 1.0,
+      "passed": true
+    },
+    {
+      "name": "HitRate",
+      "value": 0.5835306302919084,
+      "target": 0.5,
+      "passed": true
+    },
+    {
+      "name": "MaxDrawdown",
+      "value": -0.7140000000000021,
+      "target": -0.3,
+      "passed": false
+    }
+  ],
+  "decision": "NO-GO",
+  "confidence": 0.5,
+  "recommendation": "Only 3/6 criteria met. Further development required.",
+  "next_steps": [
+    "PBO > 5%: Increase training data diversity or reduce model complexity",
+    "DSR <= 0: Adjust coefficients to improve out-of-sample stability",
+    "Max Drawdown > 30%: Implement stricter circuit breakers"
+  ]
+}

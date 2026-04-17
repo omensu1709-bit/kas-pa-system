@@ -1,0 +1,19 @@
+Zugangsdatenchainstack
+
+HTTPS endpoint
+https://solana-mainnet.core.chainstack.com
+WSS endpoint
+wss://solana-mainnet.core.chainstack.com
+Username
+friendly-mcclintock
+Password
+armed-stamp-reuse-grudge-armful-script
+Yellowstone gRPC
+gRPC endpoint
+yellowstone-solana-mainnet.core.chainstack.com
+x-token
+ac8087135c7768aba464e0d8a24bfba9
+Username
+friendly-mcclintock
+Password
+armed-stamp-reuse-grudge-armful-script

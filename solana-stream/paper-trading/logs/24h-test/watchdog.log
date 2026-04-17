@@ -1,0 +1,1095 @@
+[2026-04-16T19:43:45.585Z] [WATCHDOG] 🚀 KAS PA Backend Watchdog gestartet
+[2026-04-16T19:43:45.586Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:43:45.588Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2650952
+[2026-04-16T19:43:45.588Z] [WATCHDOG] ✅ Watchdog aktiv - prüfe alle 5000ms
+[2026-04-16T19:44:49.584Z] [WATCHDOG] ⚠️ Backend beendet - Code: null, Signal: SIGTERM
+[2026-04-16T19:44:49.584Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:44:50.643Z] [WATCHDOG] ⚠️ Backend PID 2650952 läuft nicht mehr!
+[2026-04-16T19:44:50.643Z] [WATCHDOG] 🔴 Restart #2 innerhalb von 10000ms
+[2026-04-16T19:44:50.643Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:44:55.648Z] [WATCHDOG] ⚠️ Backend PID 2650952 läuft nicht mehr!
+[2026-04-16T19:44:55.649Z] [WATCHDOG] 🔴 Restart #3 innerhalb von 10000ms
+[2026-04-16T19:44:55.649Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:44:59.588Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:44:59.613Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2651429
+[2026-04-16T19:44:59.981Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:44:59.994Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:44:59.994Z] [WATCHDOG] 🔴 Restart #4 innerhalb von 10000ms
+[2026-04-16T19:44:59.994Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:45:00.644Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:45:00.665Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2652551
+[2026-04-16T19:45:01.059Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:45:01.071Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:45:01.071Z] [WATCHDOG] 🔴 Restart #5 innerhalb von 10000ms
+[2026-04-16T19:45:01.071Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:45:05.654Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:45:05.673Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2658318
+[2026-04-16T19:45:06.072Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:45:06.085Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:45:06.085Z] [WATCHDOG] 🔴 Restart #6 innerhalb von 10000ms
+[2026-04-16T19:45:06.085Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:45:09.998Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:45:10.023Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2663278
+[2026-04-16T19:45:10.403Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:45:10.417Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:45:10.417Z] [WATCHDOG] 🔴 Restart #7 innerhalb von 10000ms
+[2026-04-16T19:45:10.417Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:45:10.675Z] [WATCHDOG] ⚠️ Backend PID 2663278 läuft nicht mehr!
+[2026-04-16T19:45:10.675Z] [WATCHDOG] 🔴 Restart #8 innerhalb von 10000ms
+[2026-04-16T19:45:10.675Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:45:11.072Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:45:11.088Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2664533
+[2026-04-16T19:45:11.464Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:45:11.478Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:45:11.478Z] [WATCHDOG] 🔴 Restart #9 innerhalb von 10000ms
+[2026-04-16T19:45:11.478Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:45:15.679Z] [WATCHDOG] ⚠️ Backend PID 2669157 läuft nicht mehr!
+[2026-04-16T19:45:15.679Z] [WATCHDOG] 🔴 Restart #10 innerhalb von 10000ms
+[2026-04-16T19:45:15.679Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:45:16.085Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:45:16.109Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2670421
+[2026-04-16T19:45:16.501Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:45:16.515Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:45:16.515Z] [WATCHDOG] 🔴 Restart #11 innerhalb von 10000ms
+[2026-04-16T19:45:16.515Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:45:20.421Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:45:20.432Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2675388
+[2026-04-16T19:45:20.675Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:45:20.693Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2675702
+[2026-04-16T19:45:20.828Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:45:20.842Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:45:20.842Z] [WATCHDOG] 🔴 Restart #12 innerhalb von 10000ms
+[2026-04-16T19:45:20.842Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:45:21.088Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:45:21.101Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:45:21.101Z] [WATCHDOG] 🔴 Restart #13 innerhalb von 10000ms
+[2026-04-16T19:45:21.101Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:45:21.479Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:45:21.500Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2676636
+[2026-04-16T19:45:21.884Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:45:21.897Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:45:21.898Z] [WATCHDOG] 🔴 Restart #14 innerhalb von 10000ms
+[2026-04-16T19:45:21.898Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:45:25.682Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:45:25.700Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2681459
+[2026-04-16T19:45:26.090Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:45:26.103Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:45:26.103Z] [WATCHDOG] 🔴 Restart #15 innerhalb von 10000ms
+[2026-04-16T19:45:26.103Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:45:26.516Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:45:26.537Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2682439
+[2026-04-16T19:45:26.916Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:45:26.929Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:45:26.929Z] [WATCHDOG] 🔴 Restart #16 innerhalb von 10000ms
+[2026-04-16T19:45:26.930Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:45:30.704Z] [WATCHDOG] ⚠️ Backend PID 2682439 läuft nicht mehr!
+[2026-04-16T19:45:30.704Z] [WATCHDOG] 🔴 Restart #17 innerhalb von 10000ms
+[2026-04-16T19:45:30.704Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:45:30.842Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:45:30.844Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2687390
+[2026-04-16T19:45:31.101Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:45:31.123Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2687699
+[2026-04-16T19:45:31.263Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:45:31.277Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:45:31.277Z] [WATCHDOG] 🔴 Restart #18 innerhalb von 10000ms
+[2026-04-16T19:45:31.277Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:45:31.509Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:45:31.523Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:45:31.523Z] [WATCHDOG] 🔴 Restart #19 innerhalb von 10000ms
+[2026-04-16T19:45:31.523Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:45:31.898Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:45:31.927Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2688613
+[2026-04-16T19:45:32.307Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:45:32.321Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:45:32.321Z] [WATCHDOG] 🔴 Restart #20 innerhalb von 10000ms
+[2026-04-16T19:45:32.321Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:45:35.707Z] [WATCHDOG] ⚠️ Backend PID 2688613 läuft nicht mehr!
+[2026-04-16T19:45:35.708Z] [WATCHDOG] 🔴 Restart #21 innerhalb von 10000ms
+[2026-04-16T19:45:35.708Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:45:36.104Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:45:36.122Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2693395
+[2026-04-16T19:45:36.502Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:45:36.517Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:45:36.517Z] [WATCHDOG] 🔴 Restart #22 innerhalb von 10000ms
+[2026-04-16T19:45:36.517Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:45:36.930Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:45:36.931Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2694388
+[2026-04-16T19:45:37.324Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:45:37.338Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:45:37.338Z] [WATCHDOG] 🔴 Restart #23 innerhalb von 10000ms
+[2026-04-16T19:45:37.338Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:45:40.707Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:45:40.727Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2698744
+[2026-04-16T19:45:41.111Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:45:41.126Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:45:41.126Z] [WATCHDOG] 🔴 Restart #24 innerhalb von 10000ms
+[2026-04-16T19:45:41.126Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:45:41.278Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:45:41.299Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2699421
+[2026-04-16T19:45:41.524Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:45:41.525Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2699734
+[2026-04-16T19:45:41.685Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:45:41.700Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:45:41.700Z] [WATCHDOG] 🔴 Restart #25 innerhalb von 10000ms
+[2026-04-16T19:45:41.700Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:45:41.936Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:45:41.950Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:45:41.950Z] [WATCHDOG] 🔴 Restart #26 innerhalb von 10000ms
+[2026-04-16T19:45:41.950Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:45:42.321Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:45:42.349Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2700668
+[2026-04-16T19:45:42.744Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:45:42.757Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:45:42.758Z] [WATCHDOG] 🔴 Restart #27 innerhalb von 10000ms
+[2026-04-16T19:45:42.758Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:45:45.710Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:45:45.711Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2704589
+[2026-04-16T19:45:46.107Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:45:46.122Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:45:46.122Z] [WATCHDOG] 🔴 Restart #28 innerhalb von 10000ms
+[2026-04-16T19:45:46.122Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:45:46.517Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:45:46.519Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2705539
+[2026-04-16T19:45:46.909Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:45:46.923Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:45:46.923Z] [WATCHDOG] 🔴 Restart #29 innerhalb von 10000ms
+[2026-04-16T19:45:46.923Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:45:47.339Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:45:47.360Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2706515
+[2026-04-16T19:45:47.736Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:45:47.750Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:45:47.750Z] [WATCHDOG] 🔴 Restart #30 innerhalb von 10000ms
+[2026-04-16T19:45:47.750Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:45:50.730Z] [WATCHDOG] ⚠️ Backend PID 2706515 läuft nicht mehr!
+[2026-04-16T19:45:50.730Z] [WATCHDOG] 🔴 Restart #31 innerhalb von 10000ms
+[2026-04-16T19:45:50.730Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:45:51.126Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:45:51.148Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2710913
+[2026-04-16T19:45:51.524Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:45:51.537Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:45:51.537Z] [WATCHDOG] 🔴 Restart #32 innerhalb von 10000ms
+[2026-04-16T19:45:51.537Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:45:51.701Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:45:51.708Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2711605
+[2026-04-16T19:45:51.950Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:45:51.952Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2711921
+[2026-04-16T19:45:52.107Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:45:52.121Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:45:52.121Z] [WATCHDOG] 🔴 Restart #33 innerhalb von 10000ms
+[2026-04-16T19:45:52.121Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:45:52.360Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:45:52.374Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:45:52.374Z] [WATCHDOG] 🔴 Restart #34 innerhalb von 10000ms
+[2026-04-16T19:45:52.374Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:45:52.757Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:45:52.759Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2712863
+[2026-04-16T19:45:53.161Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:45:53.175Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:45:53.175Z] [WATCHDOG] 🔴 Restart #35 innerhalb von 10000ms
+[2026-04-16T19:45:53.175Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:45:55.733Z] [WATCHDOG] ⚠️ Backend PID 2712863 läuft nicht mehr!
+[2026-04-16T19:45:55.733Z] [WATCHDOG] 🔴 Restart #36 innerhalb von 10000ms
+[2026-04-16T19:45:55.733Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:45:56.122Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:45:56.144Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2716726
+[2026-04-16T19:45:56.526Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:45:56.542Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:45:56.542Z] [WATCHDOG] 🔴 Restart #37 innerhalb von 10000ms
+[2026-04-16T19:45:56.542Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:45:56.923Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:45:56.950Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2717660
+[2026-04-16T19:45:57.324Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:45:57.338Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:45:57.338Z] [WATCHDOG] 🔴 Restart #38 innerhalb von 10000ms
+[2026-04-16T19:45:57.338Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:45:57.751Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:45:57.772Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2718655
+[2026-04-16T19:45:58.148Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:45:58.161Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:45:58.162Z] [WATCHDOG] 🔴 Restart #39 innerhalb von 10000ms
+[2026-04-16T19:45:58.162Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:00.733Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:00.751Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2722099
+[2026-04-16T19:46:01.124Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:01.137Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:01.137Z] [WATCHDOG] 🔴 Restart #40 innerhalb von 10000ms
+[2026-04-16T19:46:01.137Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:01.538Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:01.560Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2723054
+[2026-04-16T19:46:01.935Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:01.949Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:01.949Z] [WATCHDOG] 🔴 Restart #41 innerhalb von 10000ms
+[2026-04-16T19:46:01.949Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:02.121Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:02.140Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2723736
+[2026-04-16T19:46:02.374Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:02.388Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2724058
+[2026-04-16T19:46:02.540Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:02.555Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:02.555Z] [WATCHDOG] 🔴 Restart #42 innerhalb von 10000ms
+[2026-04-16T19:46:02.555Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:02.772Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:02.786Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:02.786Z] [WATCHDOG] 🔴 Restart #43 innerhalb von 10000ms
+[2026-04-16T19:46:02.786Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:03.176Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:03.177Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2724995
+[2026-04-16T19:46:03.577Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:03.591Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:03.591Z] [WATCHDOG] 🔴 Restart #44 innerhalb von 10000ms
+[2026-04-16T19:46:03.591Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:05.735Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:05.745Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2727952
+[2026-04-16T19:46:06.126Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:06.139Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:06.139Z] [WATCHDOG] 🔴 Restart #45 innerhalb von 10000ms
+[2026-04-16T19:46:06.139Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:06.542Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:06.543Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2728905
+[2026-04-16T19:46:06.952Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:06.966Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:06.966Z] [WATCHDOG] 🔴 Restart #46 innerhalb von 10000ms
+[2026-04-16T19:46:06.966Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:07.338Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:07.360Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2729873
+[2026-04-16T19:46:07.737Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:07.750Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:07.750Z] [WATCHDOG] 🔴 Restart #47 innerhalb von 10000ms
+[2026-04-16T19:46:07.750Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:08.162Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:08.183Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2730824
+[2026-04-16T19:46:08.559Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:08.572Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:08.573Z] [WATCHDOG] 🔴 Restart #48 innerhalb von 10000ms
+[2026-04-16T19:46:08.573Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:10.754Z] [WATCHDOG] ⚠️ Backend PID 2730824 läuft nicht mehr!
+[2026-04-16T19:46:10.754Z] [WATCHDOG] 🔴 Restart #49 innerhalb von 10000ms
+[2026-04-16T19:46:10.754Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:11.138Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:11.159Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2734275
+[2026-04-16T19:46:11.541Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:11.555Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:11.555Z] [WATCHDOG] 🔴 Restart #50 innerhalb von 10000ms
+[2026-04-16T19:46:11.555Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:11.950Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:11.976Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2735229
+[2026-04-16T19:46:12.350Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:12.364Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:12.364Z] [WATCHDOG] 🔴 Restart #51 innerhalb von 10000ms
+[2026-04-16T19:46:12.364Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:12.555Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:12.573Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2735947
+[2026-04-16T19:46:12.787Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:12.801Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2736239
+[2026-04-16T19:46:12.961Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:12.975Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:12.975Z] [WATCHDOG] 🔴 Restart #52 innerhalb von 10000ms
+[2026-04-16T19:46:12.975Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:13.191Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:13.204Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:13.204Z] [WATCHDOG] 🔴 Restart #53 innerhalb von 10000ms
+[2026-04-16T19:46:13.204Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:13.592Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:13.615Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2737180
+[2026-04-16T19:46:14.005Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:14.018Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:14.018Z] [WATCHDOG] 🔴 Restart #54 innerhalb von 10000ms
+[2026-04-16T19:46:14.018Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:15.755Z] [WATCHDOG] ⚠️ Backend PID 2737180 läuft nicht mehr!
+[2026-04-16T19:46:15.755Z] [WATCHDOG] 🔴 Restart #55 innerhalb von 10000ms
+[2026-04-16T19:46:15.755Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:16.139Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:16.158Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2740151
+[2026-04-16T19:46:16.537Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:16.551Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:16.551Z] [WATCHDOG] 🔴 Restart #56 innerhalb von 10000ms
+[2026-04-16T19:46:16.551Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:16.966Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:16.985Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2741132
+[2026-04-16T19:46:17.357Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:17.370Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:17.370Z] [WATCHDOG] 🔴 Restart #57 innerhalb von 10000ms
+[2026-04-16T19:46:17.370Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:17.750Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:17.769Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2742056
+[2026-04-16T19:46:18.150Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:18.163Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:18.163Z] [WATCHDOG] 🔴 Restart #58 innerhalb von 10000ms
+[2026-04-16T19:46:18.163Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:18.573Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:18.591Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2743024
+[2026-04-16T19:46:18.975Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:18.989Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:18.989Z] [WATCHDOG] 🔴 Restart #59 innerhalb von 10000ms
+[2026-04-16T19:46:18.989Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:20.756Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:20.775Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2745539
+[2026-04-16T19:46:21.148Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:21.162Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:21.162Z] [WATCHDOG] 🔴 Restart #60 innerhalb von 10000ms
+[2026-04-16T19:46:21.162Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:21.556Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:21.574Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2746479
+[2026-04-16T19:46:21.956Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:21.970Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:21.970Z] [WATCHDOG] 🔴 Restart #61 innerhalb von 10000ms
+[2026-04-16T19:46:21.970Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:22.365Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:22.383Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2747433
+[2026-04-16T19:46:22.760Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:22.773Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:22.774Z] [WATCHDOG] 🔴 Restart #62 innerhalb von 10000ms
+[2026-04-16T19:46:22.774Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:22.976Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:22.994Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2748158
+[2026-04-16T19:46:23.205Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:23.219Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2748444
+[2026-04-16T19:46:23.383Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:23.397Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:23.397Z] [WATCHDOG] 🔴 Restart #63 innerhalb von 10000ms
+[2026-04-16T19:46:23.398Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:23.616Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:23.629Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:23.629Z] [WATCHDOG] 🔴 Restart #64 innerhalb von 10000ms
+[2026-04-16T19:46:23.629Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:24.018Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:24.043Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2749390
+[2026-04-16T19:46:24.418Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:24.432Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:24.432Z] [WATCHDOG] 🔴 Restart #65 innerhalb von 10000ms
+[2026-04-16T19:46:24.432Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:25.756Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:25.768Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2751411
+[2026-04-16T19:46:26.162Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:26.175Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:26.175Z] [WATCHDOG] 🔴 Restart #66 innerhalb von 10000ms
+[2026-04-16T19:46:26.176Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:26.552Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:26.573Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2752352
+[2026-04-16T19:46:26.949Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:26.962Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:26.962Z] [WATCHDOG] 🔴 Restart #67 innerhalb von 10000ms
+[2026-04-16T19:46:26.962Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:27.371Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:27.392Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2753320
+[2026-04-16T19:46:27.763Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:27.777Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:27.777Z] [WATCHDOG] 🔴 Restart #68 innerhalb von 10000ms
+[2026-04-16T19:46:27.777Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:28.163Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:28.185Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2754244
+[2026-04-16T19:46:28.560Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:28.573Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:28.573Z] [WATCHDOG] 🔴 Restart #69 innerhalb von 10000ms
+[2026-04-16T19:46:28.573Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:28.989Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:29.011Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2755212
+[2026-04-16T19:46:29.388Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:29.401Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:29.401Z] [WATCHDOG] 🔴 Restart #70 innerhalb von 10000ms
+[2026-04-16T19:46:29.401Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:30.776Z] [WATCHDOG] ⚠️ Backend PID 2755212 läuft nicht mehr!
+[2026-04-16T19:46:30.776Z] [WATCHDOG] 🔴 Restart #71 innerhalb von 10000ms
+[2026-04-16T19:46:30.776Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:31.162Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:31.184Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2757721
+[2026-04-16T19:46:31.560Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:31.572Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:31.572Z] [WATCHDOG] 🔴 Restart #72 innerhalb von 10000ms
+[2026-04-16T19:46:31.572Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:31.971Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:31.992Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2758676
+[2026-04-16T19:46:32.361Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:32.374Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:32.374Z] [WATCHDOG] 🔴 Restart #73 innerhalb von 10000ms
+[2026-04-16T19:46:32.374Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:32.774Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:32.791Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2759624
+[2026-04-16T19:46:33.183Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:33.197Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:33.197Z] [WATCHDOG] 🔴 Restart #74 innerhalb von 10000ms
+[2026-04-16T19:46:33.197Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:33.397Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:33.418Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2760349
+[2026-04-16T19:46:33.630Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:33.631Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2760642
+[2026-04-16T19:46:33.809Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:33.823Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:33.823Z] [WATCHDOG] 🔴 Restart #75 innerhalb von 10000ms
+[2026-04-16T19:46:33.823Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:34.049Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:34.062Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:34.062Z] [WATCHDOG] 🔴 Restart #76 innerhalb von 10000ms
+[2026-04-16T19:46:34.062Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:34.433Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:34.434Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2761559
+[2026-04-16T19:46:34.826Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:34.840Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:34.840Z] [WATCHDOG] 🔴 Restart #77 innerhalb von 10000ms
+[2026-04-16T19:46:34.840Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:35.777Z] [WATCHDOG] ⚠️ Backend PID 2761559 läuft nicht mehr!
+[2026-04-16T19:46:35.777Z] [WATCHDOG] 🔴 Restart #78 innerhalb von 10000ms
+[2026-04-16T19:46:35.777Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:36.175Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:36.204Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2763620
+[2026-04-16T19:46:36.568Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:36.582Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:36.582Z] [WATCHDOG] 🔴 Restart #79 innerhalb von 10000ms
+[2026-04-16T19:46:36.582Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:36.963Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:36.964Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2764551
+[2026-04-16T19:46:37.357Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:37.371Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:37.371Z] [WATCHDOG] 🔴 Restart #80 innerhalb von 10000ms
+[2026-04-16T19:46:37.371Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:37.778Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:37.779Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2765513
+[2026-04-16T19:46:38.175Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:38.189Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:38.189Z] [WATCHDOG] 🔴 Restart #81 innerhalb von 10000ms
+[2026-04-16T19:46:38.189Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:38.573Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:38.595Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2766438
+[2026-04-16T19:46:38.972Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:38.986Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:38.986Z] [WATCHDOG] 🔴 Restart #82 innerhalb von 10000ms
+[2026-04-16T19:46:38.986Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:39.402Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:39.404Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2767400
+[2026-04-16T19:46:39.805Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:39.818Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:39.818Z] [WATCHDOG] 🔴 Restart #83 innerhalb von 10000ms
+[2026-04-16T19:46:39.818Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:40.777Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:40.798Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2769003
+[2026-04-16T19:46:41.174Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:41.187Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:41.187Z] [WATCHDOG] 🔴 Restart #84 innerhalb von 10000ms
+[2026-04-16T19:46:41.187Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:41.572Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:41.574Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2769941
+[2026-04-16T19:46:41.968Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:41.980Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:41.981Z] [WATCHDOG] 🔴 Restart #85 innerhalb von 10000ms
+[2026-04-16T19:46:41.981Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:42.375Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:42.386Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2770890
+[2026-04-16T19:46:42.771Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:42.785Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:42.785Z] [WATCHDOG] 🔴 Restart #86 innerhalb von 10000ms
+[2026-04-16T19:46:42.785Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:43.198Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:43.219Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2771858
+[2026-04-16T19:46:43.597Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:43.610Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:43.610Z] [WATCHDOG] 🔴 Restart #87 innerhalb von 10000ms
+[2026-04-16T19:46:43.611Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:43.824Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:43.828Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2772591
+[2026-04-16T19:46:44.063Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:44.064Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2772891
+[2026-04-16T19:46:44.233Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:44.248Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:44.248Z] [WATCHDOG] 🔴 Restart #88 innerhalb von 10000ms
+[2026-04-16T19:46:44.248Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:44.486Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:44.501Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:44.501Z] [WATCHDOG] 🔴 Restart #89 innerhalb von 10000ms
+[2026-04-16T19:46:44.501Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:44.840Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:44.862Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2773780
+[2026-04-16T19:46:45.233Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:45.247Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:45.247Z] [WATCHDOG] 🔴 Restart #90 innerhalb von 10000ms
+[2026-04-16T19:46:45.247Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:45.778Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:45.799Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2774896
+[2026-04-16T19:46:46.170Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:46.184Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:46.184Z] [WATCHDOG] 🔴 Restart #91 innerhalb von 10000ms
+[2026-04-16T19:46:46.184Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:46.582Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:46.609Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2775837
+[2026-04-16T19:46:46.986Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:47.000Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:47.000Z] [WATCHDOG] 🔴 Restart #92 innerhalb von 10000ms
+[2026-04-16T19:46:47.000Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:47.371Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:47.393Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2776767
+[2026-04-16T19:46:47.768Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:47.782Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:47.782Z] [WATCHDOG] 🔴 Restart #93 innerhalb von 10000ms
+[2026-04-16T19:46:47.782Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:48.189Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:48.191Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2777722
+[2026-04-16T19:46:48.589Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:48.604Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:48.604Z] [WATCHDOG] 🔴 Restart #94 innerhalb von 10000ms
+[2026-04-16T19:46:48.604Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:48.986Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:49.005Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2778662
+[2026-04-16T19:46:49.391Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:49.404Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:49.404Z] [WATCHDOG] 🔴 Restart #95 innerhalb von 10000ms
+[2026-04-16T19:46:49.404Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:49.819Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:49.820Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2779630
+[2026-04-16T19:46:50.230Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:50.243Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:50.243Z] [WATCHDOG] 🔴 Restart #96 innerhalb von 10000ms
+[2026-04-16T19:46:50.243Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:50.800Z] [WATCHDOG] ⚠️ Backend PID 2779630 läuft nicht mehr!
+[2026-04-16T19:46:50.800Z] [WATCHDOG] 🔴 Restart #97 innerhalb von 10000ms
+[2026-04-16T19:46:50.800Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:51.187Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:51.208Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2781212
+[2026-04-16T19:46:51.585Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:51.600Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:51.600Z] [WATCHDOG] 🔴 Restart #98 innerhalb von 10000ms
+[2026-04-16T19:46:51.600Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:51.980Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:52.003Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2782151
+[2026-04-16T19:46:52.377Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:52.390Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:52.390Z] [WATCHDOG] 🔴 Restart #99 innerhalb von 10000ms
+[2026-04-16T19:46:52.390Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:52.786Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:52.807Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2783101
+[2026-04-16T19:46:53.185Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:53.198Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:53.198Z] [WATCHDOG] 🔴 Restart #100 innerhalb von 10000ms
+[2026-04-16T19:46:53.198Z] [WATCHDOG] ⏳ Warte 10000ms vor Neustart...
+[2026-04-16T19:46:53.611Z] [WATCHDOG] 🔄 Starte Backend-Prozess...
+[2026-04-16T19:46:53.612Z] [WATCHDOG] ✅ Backend gestartet mit PID: 2784070
+[2026-04-16T19:46:54.014Z] [WATCHDOG] ❌ STDERR: node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    a
+[2026-04-16T19:46:54.029Z] [WATCHDOG] ⚠️ Backend beendet - Code: 1, Signal: null
+[2026-04-16T19:46:54.029Z] [WATCHDOG] 🔴 Restart #101 innerhalb von 10000ms
+[2026-04-16T19:46:54.029Z] [WATCHDOG] 🛑 FATAL: Zu viele Restarts (101). Stoppe Watchdog.
+[2026-04-16T19:46:54.029Z] [WATCHDOG] 🛑 Stoppe Watchdog...
+[2026-04-16T19:46:54.030Z] [WATCHDOG] 👋 Watchdog gestoppt
+ Restart #101 innerhalb von 10000ms
+[2026-04-16T19:46:54.029Z] [WATCHDOG] 🛑 FATAL: Zu viele Restarts (101). Stoppe Watchdog.
+[2026-04-16T19:46:54.029Z] [WATCHDOG] 🛑 Stoppe Watchdog...
+[2026-04-16T19:46:54.030Z] [WATCHDOG] 👋 Watchdog gestoppt

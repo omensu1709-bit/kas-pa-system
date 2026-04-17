@@ -1,0 +1,2 @@
+[WARN] 2026-04-12T23:10:33.468Z
+Low message rate: only 1 messages in 5s

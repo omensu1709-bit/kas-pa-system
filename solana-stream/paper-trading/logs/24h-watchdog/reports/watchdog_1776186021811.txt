@@ -1,0 +1,53 @@
+
+================================================================================
+WATCHDOG REPORT - 2026-04-14T17:00:21.811Z
+================================================================================
+Uptime: 19h 13m
+Total Checks: 39
+Issues Found: 39
+
+ISSUES:
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 2 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 2 messages in 5s
+  - Low message rate: only 2 messages in 5s
+  - Low message rate: only 2 messages in 5s
+  - Low message rate: only 2 messages in 5s
+  - Low message rate: only 2 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 2 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+
+RECOMMENDATIONS:
+  - Some checks failed - review alerts
+
+================================================================================

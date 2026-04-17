@@ -1,0 +1,27 @@
+
+================================================================================
+WATCHDOG REPORT - 2026-04-15T12:50:35.260Z
+================================================================================
+Uptime: 5h 30m
+Total Checks: 12
+Issues Found: 12
+
+ISSUES:
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+
+RECOMMENDATIONS:
+  - 3+ consecutive failures - consider restarting the backend
+  - Low message rate - verify WebSocket connection
+
+================================================================================

@@ -1,0 +1,242 @@
+/**
+ * Yellowstone gRPC Proto Definition
+ *
+ * For Chainstack Yellowstone gRPC Plugin
+ */
+
+syntax = "proto3";
+
+package geyser;
+
+option java_package = "com.solana.geyser";
+option java_multiple_files = true;
+
+// ============================================================================
+// Subscribe/Unsubscribe
+// ============================================================================
+
+message SubscribeRequest {
+  map<string, AccountSubscribeRequest> accounts = 1;
+  map<string, TransactionSubscribeRequest> transactions = 2;
+  map<string, BlockSubscribeRequest> blocks = 3;
+  map<string, SlotSubscribeRequest> slots = 4;
+}
+
+message UnsubscribeRequest {
+  map<string, int64> accounts = 1;
+  map<string, int64> transactions = 2;
+  map<string, int64> blocks = 3;
+  map<string, int64> slots = 4;
+}
+
+// ============================================================================
+// Account Subscribe
+// ============================================================================
+
+message AccountSubscribeRequest {
+  string account = 1;
+  GeyserSubscribeFilter filter = 2;
+}
+
+// ============================================================================
+// Transaction Subscribe
+// ============================================================================
+
+message TransactionSubscribeRequest {
+  string transaction_status = 1;
+  GeyserSubscribeFilter filter = 2;
+}
+
+// ============================================================================
+// Block Subscribe
+// ============================================================================
+
+message BlockSubscribeRequest {
+  GeyserSubscribeFilter filter = 1;
+  bool accounts = 2;
+  bool transactions = 3;
+  bool slots = 4;
+  bool blocks = 5;
+  bool perf_samples = 6;
+}
+
+// ============================================================================
+// Slot Subscribe
+// ============================================================================
+
+message SlotSubscribeRequest {
+}
+
+// ============================================================================
+// Subscribe Response
+// ============================================================================
+
+message SubscribeResponse {
+  oneof response {
+    AccountResponse account = 1;
+    TransactionResponse transaction = 2;
+    SlotResponse slot = 3;
+    BlockResponse block = 4;
+    PongResponse pong = 5;
+  }
+
+  message AccountResponse {
+    Account account = 1;
+    int64 subscription_id = 2;
+  }
+
+  message TransactionResponse {
+    Transaction transaction = 1;
+    int64 subscription_id = 2;
+  }
+
+  message SlotResponse {
+    SlotUpdate slot = 1;
+    int64 subscription_id = 2;
+  }
+
+  message BlockResponse {
+    CompactPerfBlock block = 1;
+    int64 subscription_id = 2;
+  }
+
+  message PongResponse {
+    int64 timestamp = 1;
+  }
+}
+
+// ============================================================================
+// Pong
+// ============================================================================
+
+message Ping {
+}
+
+message Pong {
+}
+
+// ============================================================================
+// Account
+// ============================================================================
+
+message Account {
+  string pubkey = 1;
+  bytes data = 2;
+  uint64 lamports = 3;
+  uint64 write_version = 4;
+  uint64 slot = 5;
+  bool is_bank = 6;
+}
+
+// ============================================================================
+// Transaction
+// ============================================================================
+
+message Transaction {
+  string signature = 1;
+  bool is_simple = 2;
+  uint64 slot = 3;
+  TransactionStatus status = 4;
+  repeated TransactionTokenBalance token_balances = 5;
+  repeated ParsedInstruction instructions = 6;
+  uint64 recent_blockhash = 7;
+}
+
+message TransactionStatus {
+  bool is_err = 1;
+  SolInstruction err_instruction = 2;
+}
+
+message TransactionTokenBalance {
+  string pubkey = 1;
+  string mint = 2;
+  int64 ui_token_amount = 3;
+}
+
+message ParsedInstruction {
+  string program_id = 1;
+  repeated ParsedAccount accounts = 2;
+  string data = 3;
+}
+
+message ParsedAccount {
+  string pubkey = 1;
+  string signer = 2;
+  string source = 3;
+  string destination = 4;
+}
+
+message SolInstruction {
+  int32 err_instruction_index = 1;
+  string err_instruction_error = 2;
+}
+
+// ============================================================================
+// Slot
+// ============================================================================
+
+message SlotUpdate {
+  enum SlotStatus {
+    CREATED = 0;
+    FETCHED = 1;
+    PROCESSED = 2;
+    DEFINED = 3;
+    COMPLETED = 4;
+    DEAD = 5;
+  }
+
+  SlotStatus status = 1;
+  uint64 slot = 2;
+  uint64 parent = 3;
+  uint64 root = 4;
+}
+
+// ============================================================================
+// Block
+// ============================================================================
+
+message CompactPerfBlock {
+  uint64 slot = 1;
+  int64 parent_slot = 2;
+  int64 exec_slot = 3;
+  int64 block_height = 4;
+  int64 blockhash = 5;
+  int64 previous_blockhash = 6;
+  bytes rewards = 7;
+  int64 num_blocks = 8;
+  int64 cluster_nodes = 9;
+}
+
+// ============================================================================
+// Filter
+// ============================================================================
+
+message GeyserSubscribeFilter {
+  message AccountFilter {
+    string program_id = 1;
+    repeated bytes account_pubkey = 2;
+  }
+
+  message Memcmp {
+    int64 offset = 1;
+    bytes bytes = 2;
+  }
+
+  message DataSlice {
+    int64 offset = 1;
+    int64 length = 2;
+  }
+
+  AccountFilter account_filter = 1;
+  repeated Memcmp memcmp = 2;
+  DataSlice data_slice = 3;
+}
+
+// ============================================================================
+// Service
+// ============================================================================
+
+service Geyser {
+  rpc Subscribe(SubscribeRequest) returns (stream SubscribeResponse);
+  rpc Ping(Ping) returns (Pong);
+}

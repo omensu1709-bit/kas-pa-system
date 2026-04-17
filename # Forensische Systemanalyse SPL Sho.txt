@@ -1,0 +1,165 @@
+# Forensische Systemanalyse: SPL Short Tool
+
+**Analysezeitpunkt:** 2026-03-28  
+**System:** TRINITY APEX – SPL Short Prediction Engine  
+**Analyst:** Autonomous AI Agent
+
+---
+
+## 1. Systemübersicht
+
+Das SPL Short Tool ist ein hochspezialisiertes Kryptowährungs-Handelssystem, das sich auf die Vorhersage von Kursrückgängen bei SPL-Token (Solana Protocol Tokens) konzentriert. Das System basiert auf dem Prinzip der **Informationshoheit** (#INFO) – anstatt gegen HFT-Systeme (High-Frequency Trading) anzutreten, nutzt das System das Wissen über das Verhalten von HFC-Bots (High-Frequency Crypto Bots), um strukturelle Marktbewegungen zu prognostizieren.
+
+### 1.1 Kernprinzipien
+
+- **Ziel:** Kursbewegungen größer als 3% nach unten
+- **Fokus:** Die „sicheren 20 Prozent" – nicht die ersten 5% einer Bewegung, sondern die nachfolgende strukturelle Korrektur
+- **Asset-Pool:** 81 SPL Coins werden kontinuierlich überwacht
+- **Turnus:** Alle 60 Minuten werden 20 Coins mit dem höchsten Short-Potential ausgewählt
+- **Datenquellen:** ChainStack Yellowstone gRPC, Binance, Bybit
+- **Hardware:** Hetzner Ryzen 7 3700X, 64GB ECC RAM, 1 Gbit Netzwerk
+
+---
+
+## 2. Architektur
+
+### 2.1 Komponenten
+
+| Komponente | Funktion | Status |
+|------------|----------|--------|
+| Ingest Layer | Yellowstone gRPC Client, Binance/Bybit WebSocket | ● Aktiv |
+| Feature Layer | UPI-Berechnung, VPIN, Momentum-Scores | ● Aktiv |
+| ML Model | LightGBM-basierte Klassifikation | ● Aktiv |
+| Execution Layer | Kraken IOC-Orders, Stop-Loss Management | ○ Deaktiviert |
+| Monitoring | Redis Pub/Sub, DuckDB Telemetry | ● Aktiv |
+
+### 2.2 Datenfluss
+
+```
+Yellowstone gRPC → Redis Queue → Feature Extraction → LightGBM Inference
+                                                              ↓
+                                            ┌───────────────────┴───────────────────┐
+                                            ↓                                       ↓
+                              Paper Trading (Shadow)                    Live Execution
+                                            ↓
+                              DuckDB kas_shadow_signals         Kraken WebSocket v2
+```
+
+---
+
+## 3. Aktueller Systemzustand
+
+### 3.1 Laufende Prozesse
+
+Derzeit aktive Kernprozesse:
+
+- **kas_ml_feature_service.py** – Feature-Berechnung für alle 105 Assets
+- **kas_ingestor.py** – Daten-Ingestion von Binance/Bybit
+- **kas_chronicler.py** – Event-Logging in DuckDB
+- **wapex_execution_engine.py** – WAPEX-Inferenz-Engine
+- **trinity_master_dashboard.py** – Dashboard auf Port 8000
+
+### 3.2 Signal-Analyse (24h)
+
+| Metrik | Wert |
+|--------|------|
+| Empfangene Signale | 1444 |
+| Trigger-Score Median | 1.00 |
+| Guillotine-Filter | ~53% gefiltert |
+| Paper Trades | 0 (leere Tabelle) |
+
+**Auffälligkeit:** Die Trigger-Score-Verteilung zeigt eine Sättigung bei 1.00 für über 75% der Events – ein Indikator für Overfitting auf Rauschen.
+
+---
+
+## 4. Identifizierte Probleme
+
+### 4.1 Kritisch
+
+| Problem | Auswirkung | Lösungsvorschlag |
+|---------|------------|------------------|
+| Trigger-Score Sättigung | System kann nicht selektieren | Guillotine-Threshold anheben |
+| Ghost-Pump-Dominanz | Falsche Positive | Automatisches Asset-Muting |
+| Leere Paper-Trade-Tabelle | Keine Performance-Validierung | Evaluator-Prozess prüfen |
+
+### 4.2 Mittlere Priorität
+
+- **Datenqualität:** Timestamp-Entropie-Checks zeigen vereinzelt synthetische Daten
+- **Modell-Drift:** Feature-Drift-Monitoring nicht aktiv
+- **Redis-Verbindung:** Socket-Verbindung fehlgeschlagen, TCP-Fallback erforderlich
+
+---
+
+## 5. Empfohlene nächste Schritte
+
+### 5.1 Sofortmaßnahmen (≤ 1 Stunde)
+
+1. **Guillotine-Calibration:**
+   - Threshold anheben: `trigger_score > 0.8` statt bisheriger Werte
+   - Kombination mit `conviction_score > 0.15`
+
+2. **Asset-Muting aktivieren:**
+   ```bash
+   redis-cli SADD trinity:command:muted_symbols ENAUSDT DOGEUSDT PIPPINUSDT SUIUSDT ONDOUSDT
+   redis-cli EXPIRE trinity:command:muted_symbols 3600
+   ```
+
+3. **Ghost-Prozess bereinigen:**
+   ```bash
+   ps aux | grep kas_evaluator
+   sudo kill -9 <PID>
+   ```
+
+### 5.2 Kurzfristige Maßnahmen (≤ 7 Tage)
+
+- Wöchentliches Modell-Retraining mit Conformal Prediction
+- Automatisierte Feature-Drift-Überwachung via SHAP-Baseline
+- Cross-Asset-Korrelationsmodul aktivieren
+
+---
+
+## 6. Technische Dokumentation
+
+### 6.1 Feature-Matrix (SOTA)
+
+```
+micro_mom_1s       – 1-Sekunden Momentum
+micro_mom_5s       – 5-Sekunden Momentum
+oi_delta_5m        – Open Interest Delta (5min)
+funding_bias       – Funding Rate Bias
+alpha_mom_5s       – Alpha-Momentum
+alpha_oi_delta     – Alpha-OI
+beta_correlation   – Beta-Korrelation zu BTC
+```
+
+### 6.2 Wichtige Redis-Kanäle
+
+| Kanal | Funktion |
+|-------|----------|
+| `kas:pubsub:signals` | Live Trading Signals |
+| `trinity:command:muted_symbols` | Asset-Blacklist |
+| `wapex:structural_alerts` | WAPEX Alerts |
+
+### 6.3 DuckDB-Tabellen
+
+| Tabelle | Inhalt |
+|---------|--------|
+| `kas_audit.kas_events` | Alle Signal-Events (∽100k Einträge) |
+| `kas_audit.kas_shadow_signals` | Paper Trades (leer) |
+| `gated.wapex_gated_features` | Feature-Store |
+
+---
+
+## 7. Bewertung
+
+| Kriterium | Bewertung (1-10) |
+|-----------|------------------|
+| Laufstabilität | 7/10 |
+| Aussagekraft | 6/10 |
+| Monetarisierungspotenzial | 8/10 |
+
+**Fazit:** Das System ist funktionsfähig, benötigt jedoch dringend eine Kalibrierung der Guillotine-Logik, um die Signalqualität zu verbessern. Die Infrastruktur ist solide, die Modell-Performance (WAPEX V2: 70.11% Accuracy) vielversprechend.
+
+---
+
+**Nächster Schritt:** Implementierung der Guillotine-Calibration gemäß Abschnitt 5.1

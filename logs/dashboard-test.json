@@ -1,0 +1,58 @@
+{
+  "timestamp": 1775897607160,
+  "results": [
+    {
+      "name": "Backend WS Server",
+      "status": "PASS",
+      "data": {
+        "type": "INIT",
+        "hasPerformance": true,
+        "hasLatestPrediction": false,
+        "hasLatencyStats": false,
+        "hasBotMetrics": false
+      }
+    },
+    {
+      "name": "Frontend Server",
+      "status": "PASS",
+      "data": {
+        "statusCode": 200,
+        "contentLength": 623
+      }
+    },
+    {
+      "name": "CORS Headers",
+      "status": "PASS",
+      "data": {
+        "coep": "require-corp",
+        "coop": "same-origin"
+      }
+    },
+    {
+      "name": "WS Data Flow",
+      "status": "PASS",
+      "data": {
+        "messagesReceived": 11
+      }
+    },
+    {
+      "name": "Chainstack RPC",
+      "status": "PASS",
+      "data": {
+        "slot": 412474165
+      }
+    },
+    {
+      "name": "Jupiter Price",
+      "status": "PASS",
+      "data": {
+        "solPrice": 84.26988599089833
+      }
+    },
+    {
+      "name": "Helius Enhanced",
+      "status": "FAIL",
+      "error": "Request failed with status code 400"
+    }
+  ]
+}

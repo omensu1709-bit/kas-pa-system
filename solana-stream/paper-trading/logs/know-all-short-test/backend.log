@@ -1,0 +1,79 @@
+[Ranking] Using REST API for prices (WebSocket disabled)
+[24h] Test logs initialized at /data/trinity_apex/solana-stream/paper-trading/logs/24h-test
+================================================================================
+KAS PA v4.0 - MULTI-COIN CRASH PREDICTION SYSTEM
+================================================================================
+Starting Capital: 100 SOL
+Update Interval: 30s
+Ranking Interval: 30min
+[WARM-UP] Data collection phase: 120 minutes
+
+[WebSocket] Server started on ws://0.0.0.0:8080
+[Helius] REST Service initialized for swap signal analysis
+[BotDetection] Starting Comprehensive Bot Detection...
+[BotDetection] Monitoring: Jito, Sandwich, Liquidation, Sniper, Arbitrage, Backrun
+
+[2026-04-14T22:56:08.096Z] Running ranking cycle...
+[Ranking] Cycle #1 - Fetching LIVE data...
+
+[2026-04-14T22:56:08.100Z] Cycle #1 | [WARM-UP] Collecting data... 120min remaining
+[CrashDetector] fetchNetworkData START
+[CrashDetector] Calling getRecentSignatures...
+[Chainstack] Calling getSignaturesForAddress...
+[Chainstack] getSignaturesForAddress SUCCESS
+[CrashDetector] Got 20 signatures
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413259359, fee=6000
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413259359, fee=5169
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413259359, fee=10000
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413259359, fee=6000
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413259359, fee=5020
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413259359, fee=5020
+[Chainstack] Calling getTransaction...
+[DexScreener] Pool: 30 boosted + 30 recent
+[DexScreener] Unique mints: 59
+[DexScreener] Fetching 59 tokens in batches of 20...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413259359, fee=39469
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413259359, fee=30000
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413259359, fee=80001
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413259359, fee=30000
+[CrashDetector] fetchNetworkData COMPLETE. Processed 10 transactions
+[Sleep] async wait for 30000ms starting...
+[DexScreener] Batch 1/3: 15 tokens fetched
+[WS] Client connected: 2.213.134.8
+[DexScreener] Batch 2/3: 18 tokens fetched
+[DexScreener] Batch 3/3: 19 tokens fetched
+[DexScreener] Total fetched: 52/59 tokens
+[DexScreener] Got data for 52 tokens
+[DexScreener] After filters: 20 candidates
+[Ranking] Synced 20 tokens from DexScreener. Total candidates: 54
+[Ranking] Cycle #1 complete. Total candidates: 54
+[Ranking] Top 3:
+  1. SOLBOY: 100.0% (Vol: 85, Change: -94.8%)
+  2. TrollPepe: 100.0% (Vol: 85, Change: -94.2%)
+  3. unctire: 100.0% (Vol: 85, Change: -92.5%)
+[Ranking] Top 10 selected:
+  1. SOLBOY: Score=100 | Price=0.000001871 | 24h=-94.8%
+  2. TrollPepe: Score=100 | Price=0.000002086 | 24h=-94.2%
+  3. unctire: Score=100 | Price=0.000002683 | 24h=-92.5%
+  4. raptor: Score=100 | Price=0.000001734 | 24h=-95.0%
+  5. GOAT: Score=100 | Price=0.000003079 | 24h=-91.4%
+[Helius] Fetching swap signals for 10 mints...

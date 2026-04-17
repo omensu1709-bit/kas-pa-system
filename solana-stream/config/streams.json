@@ -1,0 +1,42 @@
+{
+  "helius": {
+    "apiKey": "${HELIUS_API_KEY}",
+    "endpoint": "https://laserstream-mainnet-ewr.helius-rpc.com",
+    "devnetEndpoint": "https://laserstream-devnet-ewr.helius-rpc.com",
+    "filters": {
+      "accountInclude": [],
+      "accountExclude": [],
+      "owner": [
+        "opnb2EvoZnhSjMLRTMyRSGbjypiSzvXJ3C2aGdXBMs5"
+      ],
+      "vote": false,
+      "failed": false
+    },
+    "options": {
+      "zstd": true,
+      "adaptiveWindow": true
+    }
+  },
+  "chainstack": {
+    "endpoint": "${CHAINSTACK_ENDPOINT}",
+    "token": "${CHAINSTACK_TOKEN}",
+    "filters": {
+      "programs": [
+        "JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4",
+        "RaydiumLiquidityPoolV4",
+        "whirLMi7cH5whBuvKcntH2MsbBcHmwF2G4Kqq9kS8Rc"
+      ],
+      "vote": false,
+      "failed": false
+    },
+    "options": {
+      "zstd": true,
+      "adaptiveWindow": true
+    }
+  },
+  "defaultAccounts": {
+    "jupiter": "JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4",
+    "raydium": "RaydiumLiquidityPoolV4",
+    "orca": "whirLMi7cH5whBuvKcntH2MsbBcHmwF2G4Kqq9kS8Rc"
+  }
+}

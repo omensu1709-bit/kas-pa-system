@@ -1,0 +1,81 @@
+Das Hängenbleiben bei "Connected" (oder einer ähnlichen Statusmeldung) ohne weitere UI-Reaktion ist ein klassisches Anzeichen dafür, dass der Perspective-Worker zwar läuft, aber die WASM-Bridge zum UI-Element (perspective-viewer) blockiert ist. Bei Vite 8 + React 19 liegt das oft an der Art, wie das DOM-Element registriert wird.
+Hier ist der SOTA-Fix, um den Deadlock zu durchbrechen:
+## 1. Der "Explicit Registration" Fix
+Anstatt dich auf den automatischen Import zu verlassen, registriere das Custom Element manuell und erzwinge die Initialisierung bevor React die Komponente mountet.
+Ersetze deinen Initialisierungscode in der App.tsx durch diesen präziseren Ablauf:
+
+import React, { useEffect, useRef, useState } from "react";import perspective from "@finos/perspective/dist/esm/perspective.js";import "@finos/perspective-viewer/dist/css/pro.css";
+// WICHTIG: Manuelle Registrierung der Pluginsimport { HTMLPerspectiveViewerElement } from "@finos/perspective-viewer";import "@finos/perspective-viewer-datagrid"; 
+export default function App() {
+  const viewerRef = useRef<HTMLPerspectiveViewerElement>(null);
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    const initPerspective = async () => {
+      // 1. Sicherstellen, dass das Element im Browser bekannt ist
+      await customElements.whenDefined("perspective-viewer");
+      
+      // 2. Worker & Tabelle erstellen
+      const worker = await perspective.worker();
+      const table = await worker.table({
+        symbol: "string",
+        prediction: "float",
+        timestamp: "datetime"
+      });
+
+      // 3. Warten auf das DOM-Ref und laden
+      if (viewerRef.current) {
+        await viewerRef.current.load(table);
+        
+        // Test-Daten füttern, um zu sehen ob "Connected" verschwindet
+        table.update([{ 
+          symbol: "BTC", 
+          prediction: 0.035, 
+          timestamp: new Date() 
+        }]);
+        
+        setIsReady(true);
+      }
+    };
+
+    initPerspective();
+  }, []);
+
+  return (
+    <div className="h-screen w-full bg-[#1a1a1a] flex flex-col">
+      <div className="p-2 bg-blue-900 text-white text-xs uppercase tracking-widest">
+        System Status: {isReady ? "LIVE - Data Streaming" : "Initializing WASM Twin..."}
+      </div>
+      <div className="flex-grow relative">
+        {/* WICHTIG: Perspective Viewer braucht absolute Positionierung oder Flex-Grow */}
+        <perspective-viewer 
+          ref={viewerRef} 
+          class="absolute inset-0 w-full h-full"
+        />
+      </div>
+    </div>
+  );
+}
+
+## 2. Warum steht dort "Connected"?
+Wenn "Connected" im Viewer erscheint, bedeutet das:
+
+* Der perspective-viewer (das UI) hat den Worker gefunden.
+* ABER: Der Viewer wartet auf das load(table) Kommando oder das Promise von load() wird nie aufgelöst, weil die WASM-Datei des Servers nicht mit der WASM-Datei des Viewers kompatibel geladen wurde.
+
+## 3. Der finale Vite-Hack (Public Folder)
+Wenn der Code oben immer noch bei "Connected" hängt, findet der Viewer die perspective-viewer.wasm nicht, meldet aber keinen Fehler.
+Vorgehensweise:
+
+   1. Gehe in deinen node_modules/@finos/perspective-viewer/dist/wasm/ Ordner.
+   2. Kopiere die Datei perspective-viewer.wasm (und falls vorhanden perspective-server.wasm aus dem @finos/perspective Paket).
+   3. Füge sie in deinen public/ Ordner deines Projekts ein.
+   4. Vite serviert sie nun unter http://localhost:5173/perspective-viewer.wasm. Perspective v3 sucht dort automatisch als Fallback.
+
+## 4. Browser-Check
+Drücke F12 -> Tab Console. Wenn du dort siehst:
+Error: Failed to load Perspective WASM module oder gar nichts, dann blockiert COEP.
+Überprüfe im Tab Network, ob die Datei perspective-viewer.wasm mit Status 200 geladen wurde.
+Hängt es immer noch? Wenn ja, poste bitte die Ausgabe von console.log(perspective) direkt vor dem Worker-Aufruf.
+Möchtest du, dass ich dir eine komplette, fertige vite.config.ts schreibe, die auch die WASM-Pfade explizit umleitet?
+

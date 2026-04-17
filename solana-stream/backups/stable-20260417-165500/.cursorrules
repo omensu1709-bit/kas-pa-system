@@ -1,0 +1,422 @@
+# CURSOR RULES - KAS PA SYSTEM
+## Version: 4.2.1-STABILIZED
+## Status: PRODUCTION_READY
+## Last Updated: 2026-04-17 16:55 UTC
+
+---
+
+# SYSTEM OVERVIEW
+
+## Die funktionierende Architektur (v4.2)
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                           KAS PA v4.2 STABILIZED SYSTEM                         │
+│                                                                                 │
+│  ┌──────────────────────────────────────────────────────────────────────────┐  │
+│  │                              DATA SOURCES                                 │  │
+│  │  ┌───────────────┐  ┌───────────────┐  ┌───────────────┐               │  │
+│  │  │   CHAINSTACK  │  │     HELIUS    │  │  DEXSCREENER  │               │  │
+│  │  │   REST API    │  │    RPC API    │  │     API       │               │  │
+│  │  │   Slot: 413M │  │  Prices/OnCh  │  │  Memecoins    │               │  │
+│  │  └───────┬───────┘  └───────┬───────┘  └───────┬───────┘               │  │
+│  └──────────┼──────────────────┼──────────────────┼──────────────────────────┘  │
+│             ▼                  ▼                  ▼                              │
+│  ┌──────────────────────────────────────────────────────────────────────────┐  │
+│  │                          RANKING SERVICE                                  │  │
+│  │  Pool: 59 Coins (35 hardcoded + 24 DexScreener)                        │  │
+│  │  Update: Alle 30 Minuten → Top 10 Short Candidates                      │  │
+│  └──────────────────────────────────────────────────────────────────────────┘  │
+│                                    │                                           │
+│                                    ▼                                           │
+│  ┌──────────────────────────────────────────────────────────────────────────┐  │
+│  │                   MULTI-COIN CRASH DETECTION (9 METRIKEN)               │  │
+│  │  [n][PE][κ][Frag][Rt][bValue][CTE][SSI][LFI]                          │  │
+│  │  Zone Thresholds: IGNORE<12% | MONITOR<15% | IMMEDIATE_SHORT>=15%      │  │
+│  └──────────────────────────────────────────────────────────────────────────┘  │
+│                                    │                                           │
+│             ┌──────────────────────┴──────────────────────┐                   │
+│             ▼                                              ▼                   │
+│  ┌─────────────────────────────┐    ┌─────────────────────────────────────┐  │
+│  │       BOT DETECTOR          │    │       BAYESIAN DECISION ENGINE       │  │
+│  │  botProbability: 0-100%     │    │  Posterior P(H|E) >= 0.5 for SHORT  │  │
+│  │  Jito/Sandwich/Sniper/      │    │  Kelly Sizing + Regime Detection    │  │
+│  │  Liquidation/Arbitrage/      │    │  Zone-basiert: SHORT/MONITOR/IGNORE│  │
+│  │  Backrun                    │    └─────────────────────────────────────┘  │
+│  └─────────────────────────────┘                      │                         │
+│                                                       ▼                         │
+│  ┌──────────────────────────────────────────────────────────────────────────┐  │
+│  │                          PAPER TRADING v4.2                              │  │
+│  │  Capital: 100 SOL | Max 4 Positionen (25% max pro Trade)                │  │
+│  │  EXIT STRATEGY: Take-Profit +15% | Stop-Loss -5% | Max Holding 4h       │  │
+│  └──────────────────────────────────────────────────────────────────────────┘  │
+│                                                                                 │
+│  ┌──────────────────────────────────────────────────────────────────────────┐  │
+│  │                   WEBSOCKET BROADCAST (ws://0.0.0.0:8080)                 │  │
+│  │                   DASHBOARD (http://0.0.0.0:5173)                          │  │
+│  └──────────────────────────────────────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+# CRITICAL SYSTEM CONFIGURATION
+
+## ZENTRALE KONFIGURATION (Single Source of Truth)
+
+**Date:** `/data/trinity_apex/solana-stream/paper-trading/src/config.ts`
+
+**DIESE DATEI IST DIE EINZIGE KONFIGURATIONSQUELLE - KEINE HARDCODIERTEN WERTE!**
+
+```typescript
+export const SYSTEM_CONFIG = {
+  // PAPER TRADING
+  startingCapital: 100,        // SOL
+  maxPositions: 4,            // Max 4 simultaneous
+  maxPositionPercent: 25,      // Max 25% per position
+
+  // CRASH DETECTION THRESHOLDS
+  ignoreThreshold: 0.10,       // P < 10% = IGNORE
+  monitorThreshold: 0.15,     // 10% <= P < 15% = MONITOR
+  immediateShortThreshold: 0.15, // P >= 15% = IMMEDIATE_SHORT
+
+  // EXIT STRATEGY (STABILIZED 2026-04-16)
+  takeProfitPercent: 0.15,     // +15% = TAKE PROFIT
+  stopLossPercent: 0.05,       // -5% = STOP LOSS (always active!)
+  maxHoldingHours: 4,          // 4h = TIME EXIT
+
+  // BAYESIAN ENGINE
+  baseConfidenceThreshold: 0.85,
+  kellyFraction: 0.55,
+  kellyMode: 'quarter',
+
+  // BACKEND
+  updateIntervalMs: 30000,      // 30 seconds
+  rankingIntervalMs: 1800000,    // 30 minutes
+
+  // WEBSOCKET
+  wsPort: 8080,
+  wsHeartbeatInterval: 25000,
+};
+```
+
+---
+
+# PRODUCTION COMPONENTS
+
+## 1. Backend - Paper Trading Engine v4.2
+
+**Location:** `/data/trinity_apex/solana-stream/paper-trading/`
+
+**Entry Point:** `src/live-paper-trading-v4.ts`
+
+**KRITISCHE START-KOMMANDOS:**
+```bash
+cd /data/trinity_apex/solana-stream/paper-trading
+
+# Sauberer Start mit Logging
+rm -f logs/24h-test/backend-fixed.log
+nohup stdbuf -oL -eL npx tsx src/live-paper-trading-v4.ts > logs/24h-test/backend-fixed.log 2>&1 &
+
+# PID anzeigen
+echo "Backend PID: $!"
+```
+
+**Start mit tmux/screen (empfohlen fuer 24h):**
+```bash
+cd /data/trinity_apex/solana-stream/paper-trading
+tmux new -s kaspa
+stdbuf -oL -eL npx tsx src/live-paper-trading-v4.ts
+# Strg+B, D zum Detachen
+```
+
+**Ports:**
+- WebSocket: 8080 (mit CORS verifyClient)
+- Data Sources: Chainstack REST API, Helius RPC, DexScreener API
+
+## 2. Dashboard - Forensic Visual Twin
+
+**Location:** `/data/trinity_apex/solana-stream/dashboard/`
+
+**Build & Deploy:**
+```bash
+cd /data/trinity_apex/solana-stream/dashboard
+npm run build
+fuser -k 5173/tcp 2>/dev/null
+nohup npx serve -s dist -l 5173 -n --no-clipboard > /tmp/dashboard.log 2>&1 &
+```
+
+**Access via SSH Tunnel (EMPFOHLEN):**
+```bash
+ssh -L 5173:localhost:5173 -L 8080:localhost:8080 root@178.63.205.37
+# Browser: http://localhost:5173
+```
+
+**Tech Stack:**
+- React Flow (@xyflow/react) v12
+- Zustand (subscribeWithSelector)
+- SVG animateMotion for particles
+
+## 3. Unified Status Server (SOTA Monitoring) - NEU!
+
+**Location:** `/data/trinity_apex/solana-stream/paper-trading/src/unified-status-server.ts`
+
+**Purpose:** Zentrales Monitoring mit HTTP Endpoints und embedded HTML Dashboard
+
+**Start:**
+```bash
+cd /data/trinity_apex/solana-stream/paper-trading
+nohup npx tsx src/unified-status-server.ts > /tmp/unified.log 2>&1 &
+```
+
+**Endpoints:**
+| Endpoint | Beschreibung |
+|----------|--------------|
+| `/dashboard` | JS-basiertes Dashboard (SSE) |
+| `/simple` | JavaScript-freies Dashboard (meta-refresh) |
+| `/latest` | JSON mit allen aktuellen Daten |
+| `/metrics` | Prometheus-kompatibles Format |
+| `/health` | System Health Status |
+| `/events` | Server-Sent Events Stream |
+
+**Access:**
+```bash
+ssh -L 3000:localhost:3000 root@178.63.205.37
+# Browser: http://localhost:3000/simple
+```
+
+---
+
+# EXIT STRATEGY (STABILIZED 2026-04-16)
+
+## Berechnungsformel (live-paper-trading-v4.ts:1485-1515)
+
+```typescript
+// STABILIZED EXIT STRATEGY (2026-04-16)
+// SHORT Position: PnL = (entryPrice - currentPrice) / entryPrice
+
+let shouldExit = false;
+let exitReason = '';
+
+// Take Profit: +15% (realistic for memecoins)
+if (pnlPercent > 0.15) {
+  shouldExit = true;
+  exitReason = 'TAKE_PROFIT_15%';
+}
+
+// Stop Loss: -5% (ALWAYS ACTIVE - no exploration mode bypass!)
+else if (pnlPercent < -0.05) {
+  shouldExit = true;
+  exitReason = 'STOP_LOSS_5%';
+}
+
+// Time-based Exit: 4 hours max
+else if (holdingHours > 4) {
+  if (pnlPercent > 0) {
+    shouldExit = true;
+    exitReason = 'TIME_PROFIT_4H';
+  } else {
+    shouldExit = true;
+    exitReason = 'TIME_STOP_4H';
+  }
+}
+```
+
+## WICHTIG: Exploration Mode ist DEAKTIVIERT
+
+```typescript
+// DIESER CODE EXISTIERT NICHT MEHR!
+// if (!isExplorationMode && pnlPercent < -0.08)
+// Stop-Loss ist jetzt IMMER aktiv!
+```
+
+---
+
+# CRASH DETECTION METRICS
+
+## Die 9 Metriken (alle aktiv)
+
+| Index | Name | Schwellenwert | Richtung |
+|-------|------|---------------|----------|
+| n | Hawkes Normalization | > 0.8 | HIGH = gefaehrlich |
+| PE | Price Entropy | < 0.35 | LOW = gefaehrlich |
+| kappa | Molloy-Reed Index | < 3.0 | LOW = gefaehrlich |
+| fragmentation | Market Fragmentation | > 0.7 | HIGH = gefaehrlich |
+| rt | Epidemic Rt | > 1.2 | HIGH = gefaehrlich |
+| bValue | Gutenberg-Richter b-value | < 1.0 | LOW = gefaehrlich |
+| CTE | Cluster Transfer Entropy | > 0.6 | HIGH = gefaehrlich |
+| SSI | Super-Spreader Index | > 5.0 | HIGH = gefaehrlich |
+| LFI | Liquidity Flow Index | > 2.0 | HIGH = gefaehrlich |
+
+## Zone Thresholds (live-paper-trading-v4.ts:714-715)
+
+```typescript
+if (crashProb >= 0.15) zone = 'IMMEDIATE_SHORT';   // >= 15%
+else if (crashProb >= 0.12) zone = 'MONITOR';      // >= 12%
+else zone = 'IGNORE';
+```
+
+| Zone | Crash Probability | Aktion |
+|------|-------------------|--------|
+| IGNORE | < 12% | Kein Trade |
+| MONITOR | 10% - 15% | Beobachten |
+| IMMEDIATE_SHORT | >= 15% | Moeglicher Short |
+
+---
+
+# BAYESIAN DECISION ENGINE
+
+## makeDecision Logik (bayesian-decision-engine.ts)
+
+```typescript
+// Entscheidung erfordert ZWEI Bedingungen:
+// 1. Zone = IMMEDIATE_SHORT (crashProb >= 15%)
+// 2. Posterior >= 0.5 (Bayesian Konfidenz)
+
+if (crashSignal.zone === 'IMMEDIATE_SHORT' && posterior >= 0.5) {
+  return { action: 'SHORT', ... };
+} else if (crashSignal.zone === 'MONITOR' || (posterior < 0.5 && crashProb >= 0.08)) {
+  return { action: 'MONITOR', ... };
+} else {
+  return { action: 'IGNORE', ... };
+}
+```
+
+---
+
+# VERIFIED BUGS & FIXES
+
+## v4.2.1 Stabilization (2026-04-17)
+
+| Bug | Location | Problem | Fix |
+|-----|----------|---------|-----|
+| Duplikat-Positionen | live-paper-trading-v4.ts:openPosition | 4x gleicher Coin (WOJAK) | Duplikat-Prüfung hinzugefügt |
+| Win Rate 6250% | unified-status-server.ts:357 | Doppelt multipliziert (*100 twice) | wr.toFixed(1) statt (wr*100).toFixed(1) |
+| closePosition Signatur | live-paper-trading-v4.ts:1537 | Falsche Parameter (CloseReason statt exitPrice) | Korrigiert auf exitPrice |
+| Bot Probability Anzeige | comprehensive-bot-detector.ts | Bot-Stats nicht in WebSocket | Integration in broadcast |
+
+## v4.2 Stabilization (2026-04-16)
+
+| Bug | Location | Problem | Fix |
+|-----|----------|---------|-----|
+| Exploration Mode Stop-Loss | live-paper-trading-v4.ts:1495 | Stop-Loss nur bei explorationMode=false | Stop-Loss jetzt immer aktiv (pnlPercent < -0.05) |
+| Take-Profit zu hoch | live-paper-trading-v4.ts:1490 | +25% unrealistisch fuer Memecoins | Reduziert auf +15% |
+| Time-Exit zu lang | live-paper-trading-v4.ts:1502 | 6h zu langsam | Reduziert auf 4h |
+| Dashboard Handle fehlt | DexScreenerNode.tsx | Nur source Handle, kein target | target Handle hinzugefuegt |
+| SignalLayers Handle Position | SignalLayersRow.tsx | Handles innerhalb SystemNodeWrapper | Handles ausserhalb positioniert |
+| Config verteilt | Multiple files | Konfiguration auf 5 Dateien | Neue config.ts als Single Source |
+
+## SOTA Monitoring (2026-04-16)
+
+| Feature | Location | Beschreibung |
+|---------|----------|--------------|
+| PropagationTracker | engine/propagation-tracker.ts | Lock-freie Telemetrie Engine |
+| UnifiedStatusServer | unified-status-server.ts | HTTP Server mit SSE, HTML Dashboard, Prometheus |
+| Telemetry Integration | live-paper-trading-v4.ts | Trace-Daten im WebSocket UPDATE |
+| Node Latencies | propagation-tracker.ts | Per-Node Latenz Messung |
+
+---
+
+# FILES REFERENCE
+
+## Key Files (v4.2)
+
+```
+/data/trinity_apex/solana-stream/
+├── paper-trading/
+│   ├── src/
+│   │   ├── config.ts                          # ZENTRALE KONFIGURATION
+│   │   ├── live-paper-trading-v4.ts          # v4.2 Main entry point
+│   │   ├── bayesian-decision-engine.ts       # Bayesian Decision Engine
+│   │   ├── comprehensive-bot-detector.ts      # Bot detection
+│   │   ├── ranking-service.ts               # Token ranking
+│   │   ├── dexscreener-service.ts           # DexScreener API
+│   │   ├── unified-status-server.ts         # SOTA Monitoring Server
+│   │   ├── crash-paper-trading-runner.ts    # Legacy runner
+│   │   └── engine/
+│   │       ├── paper-trading-engine.ts       # Paper trading engine
+│   │       └── propagation-tracker.ts       # SOTA Telemetry Engine
+│   └── package.json
+├── dashboard/
+│   ├── src/
+│   │   ├── App.tsx                          # Main React Flow app
+│   │   ├── stores/systemStore.ts            # Zustand store
+│   │   ├── hooks/useSystemWebSocket.ts     # WebSocket hook
+│   │   └── components/nodes/
+│   │       ├── DexScreenerNode.tsx         # FIX: target Handle
+│   │       ├── SignalLayersRow.tsx         # FIX: Handle Position
+│   │       ├── AnimatedEdge.tsx            # SVG animateMotion
+│   │       └── ... (12 total nodes)
+│   └── package.json
+└── scripts/
+    ├── 24h-supervisor.sh
+    ├── 24h-watchdog.ts
+    └── 24h-production-test.ts
+```
+
+---
+
+# RULES FOR ALL AGENTS
+
+## UNVERAENDERLICH!
+
+1. **CONFIG.TSX IST LAW**: Alle Konfigurationswerte muessen aus `config.ts` kommen. Keine Hardcoding.
+
+2. **STOP-LOSS IMMER AKTIV**: Stop-Loss bei -5% ist nie deaktiviert. Niemals.
+
+3. **EXPLORATION MODE**: Ist und bleibt DEAKTIVIERT. Nur fuer Validierung.
+
+4. **ZONE DISCIPLINE**: IGNORE Zone = Keine Trades. Nie.
+
+5. **MAX 4 POSITIONEN**: Nie mehr als 4 simultane Positionen.
+
+6. **BACKUP VOR AENDERUNGEN**: Vor jeder grösseren Aenderung Backup erstellen.
+
+7. **TESTEN**: Aenderungen muessen in dev/getrenntem Process getestet werden.
+
+---
+
+# CURRENT SYSTEM STATUS
+
+## Stand: 2026-04-16 02:30 UTC
+
+**Backend:**
+- Entry: `/data/trinity_apex/solana-stream/paper-trading/src/live-paper-trading-v4.ts`
+- PID: (Pruefe mit `ps aux | grep tsx`)
+- WebSocket: Port 8080 aktiv
+- Log: `logs/24h-test/backend-fixed.log`
+
+**Dashboard:**
+- URL: http://localhost:5173 (SSH Tunnel)
+- Build: Production build mit serve
+- WebSocket verbindet zu `ws://${hostname}:8080`
+
+**Konfiguration:**
+- CONFIG: 100 SOL, 4 Positionen, 25% Max
+- Exit: Take-Profit +15%, Stop-Loss -5%, Time 4h
+- Zone: IGNORE<12%, MONITOR<15%, SHORT>=15%
+
+**Kritische Dateien die NICHT geaendert werden duerfen ohne Genehmigung:**
+- `config.ts` - Zentrale Konfiguration
+- `live-paper-trading-v4.ts` Zeilen 1485-1515 - Exit Strategie
+- `DexScreenerNode.tsx` - Handle Struktur
+- `SignalLayersRow.tsx` - Handle Positionierung
+
+---
+
+# ERFOLGSKRITERIEN FUER 24H TEST
+
+| Kriterium | Ziel |
+|-----------|------|
+| Backend Uptime | > 24h ohne Crash |
+| WebSocket | 100% Connection |
+| Dashboard | Alle Nodes sichtbar |
+| Exit Trades | Mit korrekten Schwellen (15%, 5%, 4h) |
+| Win Rate | > 50% |
+| P&L | Positiv nach 24h |
+
+---
+
+**CURSOR AGENT // KAS PA v4.2 STABILIZED**
+**STATUS: PRODUCTION READY**
+**LAST VALIDATION: 2026-04-16**

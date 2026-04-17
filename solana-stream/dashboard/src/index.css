@@ -1,0 +1,262 @@
+@import "tailwindcss";
+
+/* ============================================================================
+   KAS PA FORENSIC VISUAL TWIN - STYLES
+   ============================================================================ */
+
+/* Wong/Okabe-Ito Color Palette for Colorblind Accessibility
+   Scientifically validated 8-color palette
+   Source: Wong, B. (2011). Points of view: Colorblindness.
+*/
+
+:root {
+  /* Primary Colors - Wong/Okabe-Ito */
+  --color-healthy: #009E73;    /* Green - Healthy/Success */
+  --color-warning: #F5A623;    /* Yellow/Orange - Warning */
+  --color-critical: #D55E00;   /* Red/Orange - Critical */
+  --color-info: #56B4E9;       /* Sky Blue - Information */
+  --color-bot: #9B59B6;        /* Purple - Bot Activity */
+  --color-data: #4d96ff;       /* Blue - Data/Ranking */
+  --color-trade: #ffa502;      /* Orange - Trading */
+  --color-signal: #00ff88;     /* Bright Green - Signals */
+
+  /* Background Colors - No pure black to avoid eye strain */
+  --bg-primary: #0a0a1a;
+  --bg-secondary: #0f0f23;
+  --bg-card: #12122a;
+  --bg-hover: #1a1a3a;
+
+  /* Text Colors */
+  --text-primary: #ffffff;
+  --text-secondary: #d4d4d4;  /* Off-white for softer contrast */
+  --text-muted: #666;
+
+  /* Borders */
+  --border-color: #1e1e3f;
+  --border-glow: rgba(0, 255, 136, 0.3);
+
+  /* Typography */
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Consolas', monospace;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================================================
+   REACT FLOW OVERRIDES
+   ============================================================================ */
+
+.react-flow {
+  background: var(--bg-primary) !important;
+}
+
+.react-flow__background {
+  background: var(--bg-primary) !important;
+}
+
+.react-flow__controls {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+
+.react-flow__controls-button {
+  background: var(--bg-card) !important;
+  border: none !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  fill: var(--text-secondary) !important;
+}
+
+.react-flow__controls-button:hover {
+  background: var(--bg-hover) !important;
+}
+
+.react-flow__controls-button:last-child {
+  border-bottom: none !important;
+}
+
+.react-flow__minimap {
+  background: var(--bg-secondary) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 8px !important;
+}
+
+.react-flow__edge-path {
+  stroke: var(--border-color);
+  stroke-width: 2;
+}
+
+.react-flow__edge.selected .react-flow__edge-path {
+  stroke: var(--color-data);
+  stroke-width: 3;
+}
+
+.react-flow__handle {
+  width: 8px !important;
+  height: 8px !important;
+  background: var(--color-data) !important;
+  border: 2px solid var(--bg-primary) !important;
+}
+
+.react-flow__handle-left {
+  left: -4px !important;
+}
+
+.react-flow__handle-right {
+  right: -4px !important;
+}
+
+/* ============================================================================
+   NODE STYLES
+   ============================================================================ */
+
+.system-node {
+  transition: all 0.3s ease;
+}
+
+.system-node:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================================================
+   SPARKLINE STYLES
+   ============================================================================ */
+
+.sparkline-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-secondary);
+  border-radius: 4px;
+  color: var(--text-muted);
+  font-size: 8px;
+  font-family: var(--font-mono);
+}
+
+/* ============================================================================
+   ANIMATIONS
+   ============================================================================ */
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px currentColor;
+  }
+  50% {
+    box-shadow: 0 0 20px currentColor;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.animate-slideIn {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* ============================================================================
+   SCROLLBAR STYLING
+   ============================================================================ */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* ============================================================================
+   ACCESSIBILITY - FOCUS STATES
+   ============================================================================ */
+
+*:focus-visible {
+  outline: 2px solid var(--color-data);
+  outline-offset: 2px;
+}
+
+/* ============================================================================
+   DARK MODE OPTIMIZATIONS
+   ============================================================================ */
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================================================
+   PRINT STYLES (for screenshots/debugging)
+   ============================================================================ */
+
+@media print {
+  .react-flow__controls,
+  .react-flow__minimap {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}

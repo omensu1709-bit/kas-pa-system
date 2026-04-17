@@ -1,0 +1,641 @@
+[Ranking] Using REST API for prices (WebSocket disabled)
+[24h] Test logs initialized at /data/trinity_apex/solana-stream/paper-trading/logs/24h-test
+================================================================================
+KAS PA v4.0 - MULTI-COIN CRASH PREDICTION SYSTEM
+================================================================================
+Starting Capital: 100 SOL
+Update Interval: 30s
+Ranking Interval: 30min
+
+[WebSocket] Server started on ws://0.0.0.0:8080
+[Helius] REST Service initialized for swap signal analysis
+[BotDetection] Starting Comprehensive Bot Detection...
+[BotDetection] Monitoring: Jito, Sandwich, Liquidation, Sniper, Arbitrage, Backrun
+
+[2026-04-14T18:26:36.019Z] Running ranking cycle...
+[Ranking] Cycle #1 - Fetching LIVE data...
+[DexScreener] Pool: 30 boosted + 30 recent
+[DexScreener] Unique mints: 58
+[DexScreener] Fetching 58 tokens in batches of 20...
+[DexScreener] Batch 1/3: 18 tokens fetched
+[DexScreener] Batch 2/3: 19 tokens fetched
+[DexScreener] Batch 3/3: 17 tokens fetched
+[DexScreener] Total fetched: 54/58 tokens
+[DexScreener] Got data for 54 tokens
+[DexScreener] After filters: 18 candidates
+[Ranking] Synced 18 tokens from DexScreener. Total candidates: 52
+[Ranking] Cycle #1 complete. Total candidates: 52
+[Ranking] Top 3:
+  1. COOMER: 100.0% (Vol: 85, Change: -94.4%)
+  2. TANK: 100.0% (Vol: 85, Change: -92.8%)
+  3. Mooner: 100.0% (Vol: 85, Change: -93.8%)
+[Ranking] Top 10 selected:
+  1. COOMER: Score=100 | Price=0.000001999 | 24h=-94.4%
+  2. TANK: Score=100 | Price=0.000002561 | 24h=-92.8%
+  3. Mooner: Score=100 | Price=0.000002157 | 24h=-93.8%
+  4. Poong: Score=100 | Price=0.000002833 | 24h=-92.0%
+  5. AngryCat: Score=100 | Price=0.000001899 | 24h=-94.6%
+[Helius] Fetching swap signals for 10 mints...
+
+[2026-04-14T18:26:36.787Z] Cycle #1
+[CrashDetector] fetchNetworkData START
+[CrashDetector] Calling getRecentSignatures...
+[Chainstack] Calling getSignaturesForAddress...
+[Chainstack] getSignaturesForAddress SUCCESS
+[CrashDetector] Got 20 signatures
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218327, fee=2010000
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218327, fee=80000
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218327, fee=5136
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218327, fee=179941
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218327, fee=105000
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218327, fee=6000
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218327, fee=6000
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218327, fee=6000
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218327, fee=6002
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218327, fee=99921
+[CrashDetector] fetchNetworkData COMPLETE. Processed 10 transactions
+[Entropy-DEBUG] COOMER: price=0.000002023175432288965, entropy_prices=2
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.5000
+[PaperTrading] ✅ OPEN: COOMER | 0.50 SOL | Entry: $2.04e-6 | Slippage: 0.60% | Fee: 0.0005
+[FORENSIC-DEBUG] {"ts":1776191197612,"action":"OPEN","symbol":"COOMER","amount":0.5,"entryPrice":0.000002035314484882699,"slippagePercent":0.006,"slippageCost":0.003,"tradingFee":0.0005,"totalCost":0.5035}
+[Entropy-DEBUG] TANK: price=0.00000256591160958607, entropy_prices=2
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.5000
+[PaperTrading] ✅ OPEN: TANK | 0.50 SOL | Entry: $2.58e-6 | Slippage: 0.70% | Fee: 0.0005
+[FORENSIC-DEBUG] {"ts":1776191197612,"action":"OPEN","symbol":"TANK","amount":0.5,"entryPrice":0.0000025838729908531723,"slippagePercent":0.007,"slippageCost":0.0035,"tradingFee":0.0005,"totalCost":0.5039999999999999}
+[Entropy-DEBUG] Mooner: price=0.000002159720987888017, entropy_prices=2
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.5000
+[PaperTrading] ✅ OPEN: Mooner | 0.50 SOL | Entry: $2.17e-6 | Slippage: 0.70% | Fee: 0.0005
+[FORENSIC-DEBUG] {"ts":1776191197612,"action":"OPEN","symbol":"Mooner","amount":0.5,"entryPrice":0.0000021748390348032327,"slippagePercent":0.007,"slippageCost":0.0035,"tradingFee":0.0005,"totalCost":0.5039999999999999}
+[Entropy-DEBUG] Poong: price=0.0000028325540408353108, entropy_prices=2
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.5000
+[PaperTrading] ✅ OPEN: Poong | 0.50 SOL | Entry: $2.85e-6 | Slippage: 0.70% | Fee: 0.0005
+[FORENSIC-DEBUG] {"ts":1776191197612,"action":"OPEN","symbol":"Poong","amount":0.5,"entryPrice":0.0000028523819191211576,"slippagePercent":0.007,"slippageCost":0.0035,"tradingFee":0.0005,"totalCost":0.5039999999999999}
+[Entropy-DEBUG] AngryCat: price=0.0000019080480409021875, entropy_prices=2
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: AngryCat | 3.75 SOL | Entry: $1.92e-6 | Slippage: 0.70% | Fee: 0.0037
+[FORENSIC-DEBUG] {"ts":1776191197613,"action":"OPEN","symbol":"AngryCat","amount":3.75,"entryPrice":0.0000019214043771885026,"slippagePercent":0.007,"slippageCost":0.02625,"tradingFee":0.00375,"totalCost":3.7800000000000002}
+[Entropy-DEBUG] GOAT: price=0.000003402262520571007, entropy_prices=2
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.5000
+[PaperTrading] ✅ OPEN: GOAT | 0.50 SOL | Entry: $3.43e-6 | Slippage: 0.70% | Fee: 0.0005
+[FORENSIC-DEBUG] {"ts":1776191197613,"action":"OPEN","symbol":"GOAT","amount":0.5,"entryPrice":0.000003426078358215004,"slippagePercent":0.007,"slippageCost":0.0035,"tradingFee":0.0005,"totalCost":0.5039999999999999}
+[Entropy-DEBUG] bullunc: price=0.0000036425863876125513, entropy_prices=2
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.5000
+[PaperTrading] ✅ OPEN: bullunc | 0.50 SOL | Entry: $3.67e-6 | Slippage: 0.70% | Fee: 0.0005
+[FORENSIC-DEBUG] {"ts":1776191197613,"action":"OPEN","symbol":"bullunc","amount":0.5,"entryPrice":0.000003668084492325839,"slippagePercent":0.007,"slippageCost":0.0035,"tradingFee":0.0005,"totalCost":0.5039999999999999}
+[Entropy-DEBUG] HUTT: price=0.000002757123877301685, entropy_prices=2
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.5000
+[PaperTrading] ✅ OPEN: HUTT | 0.50 SOL | Entry: $2.78e-6 | Slippage: 0.70% | Fee: 0.0005
+[FORENSIC-DEBUG] {"ts":1776191197613,"action":"OPEN","symbol":"HUTT","amount":0.5,"entryPrice":0.0000027764237444427966,"slippagePercent":0.007,"slippageCost":0.0035,"tradingFee":0.0005,"totalCost":0.5039999999999999}
+[Entropy-DEBUG] unctire: price=0.0000029921773139880187, entropy_prices=2
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.5000
+[PaperTrading] ✅ OPEN: unctire | 0.50 SOL | Entry: $3.01e-6 | Slippage: 0.70% | Fee: 0.0005
+[FORENSIC-DEBUG] {"ts":1776191197613,"action":"OPEN","symbol":"unctire","amount":0.5,"entryPrice":0.0000030131225551859345,"slippagePercent":0.007,"slippageCost":0.0035,"tradingFee":0.0005,"totalCost":0.5039999999999999}
+[Entropy-DEBUG] FAKER: price=0.0000036197289701373545, entropy_prices=2
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.5000
+[PaperTrading] ✅ OPEN: FAKER | 0.50 SOL | Entry: $3.65e-6 | Slippage: 0.70% | Fee: 0.0005
+[FORENSIC-DEBUG] {"ts":1776191197614,"action":"OPEN","symbol":"FAKER","amount":0.5,"entryPrice":0.0000036450670729283155,"slippagePercent":0.007,"slippageCost":0.0035,"tradingFee":0.0005,"totalCost":0.5039999999999999}
+[Main] Cycle #1 complete, sleeping 30000ms...
+[Main] DEBUG: About to call this.sleep()
+[Main] DEBUG: iteration=1, isRunning=true
+[Main] DEBUG: Calling blocking sleep for 30000ms...
+[Sleep] async wait for 30000ms starting...
+[WS] Client connected: 2.213.134.8
+[Sleep] async wait COMPLETE after 30000ms
+[Main] DEBUG: sleep returned after 30000ms
+[Main] Wake up, next cycle starting...
+
+[2026-04-14T18:27:07.614Z] Cycle #2
+[CrashDetector] fetchNetworkData START
+[CrashDetector] Calling getRecentSignatures...
+[Chainstack] Calling getSignaturesForAddress...
+[Chainstack] getSignaturesForAddress SUCCESS
+[CrashDetector] Got 20 signatures
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218404, fee=5176
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218404, fee=5126
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218404, fee=103715
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218404, fee=6002
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218404, fee=106000
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218404, fee=5156
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218404, fee=616536
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218404, fee=5001
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218404, fee=253063
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218404, fee=5001
+[CrashDetector] fetchNetworkData COMPLETE. Processed 10 transactions
+[Entropy-DEBUG] COOMER: price=0.000002023175432288965, entropy_prices=3
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] TANK: price=0.00000256591160958607, entropy_prices=3
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] Mooner: price=0.000002159720987888017, entropy_prices=3
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] Poong: price=0.0000028325540408353108, entropy_prices=3
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] AngryCat: price=0.0000019080480409021875, entropy_prices=3
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] GOAT: price=0.000003402262520571007, entropy_prices=3
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] bullunc: price=0.0000036425863876125513, entropy_prices=3
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] HUTT: price=0.000002757123877301685, entropy_prices=3
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] unctire: price=0.0000029921773139880187, entropy_prices=3
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] FAKER: price=0.0000036197289701373545, entropy_prices=3
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Main] Cycle #2 complete, sleeping 30000ms...
+[Main] DEBUG: About to call this.sleep()
+[Main] DEBUG: iteration=2, isRunning=true
+[Main] DEBUG: Calling blocking sleep for 30000ms...
+[Sleep] async wait for 30000ms starting...
+[Sleep] async wait COMPLETE after 30000ms
+[Main] DEBUG: sleep returned after 30001ms
+[Main] Wake up, next cycle starting...
+
+[2026-04-14T18:27:38.522Z] Cycle #3
+[CrashDetector] fetchNetworkData START
+[CrashDetector] Calling getRecentSignatures...
+[Chainstack] Calling getSignaturesForAddress...
+[Chainstack] getSignaturesForAddress SUCCESS
+[CrashDetector] Got 20 signatures
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218485, fee=5133
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218485, fee=6261
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218485, fee=6271
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218485, fee=6002
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218485, fee=9000
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218485, fee=6251
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218485, fee=5000
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218485, fee=7380
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218485, fee=5829
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218485, fee=6301
+[CrashDetector] fetchNetworkData COMPLETE. Processed 10 transactions
+[Entropy-DEBUG] COOMER: price=0.000002023175432288965, entropy_prices=4
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] TANK: price=0.00000256591160958607, entropy_prices=4
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] Mooner: price=0.000002159720987888017, entropy_prices=4
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] Poong: price=0.0000028325540408353108, entropy_prices=4
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] AngryCat: price=0.0000019080480409021875, entropy_prices=4
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] GOAT: price=0.000003402262520571007, entropy_prices=4
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] bullunc: price=0.0000036425863876125513, entropy_prices=4
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] HUTT: price=0.000002757123877301685, entropy_prices=4
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] unctire: price=0.0000029921773139880187, entropy_prices=4
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] FAKER: price=0.0000036197289701373545, entropy_prices=4
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Main] Cycle #3 complete, sleeping 30000ms...
+[Main] DEBUG: About to call this.sleep()
+[Main] DEBUG: iteration=3, isRunning=true
+[Main] DEBUG: Calling blocking sleep for 30000ms...
+[Sleep] async wait for 30000ms starting...
+[Sleep] async wait COMPLETE after 30000ms
+[Main] DEBUG: sleep returned after 30001ms
+[Main] Wake up, next cycle starting...
+
+[2026-04-14T18:28:09.624Z] Cycle #4
+[CrashDetector] fetchNetworkData START
+[CrashDetector] Calling getRecentSignatures...
+[Chainstack] Calling getSignaturesForAddress...
+[Chainstack] getSignaturesForAddress SUCCESS
+[CrashDetector] Got 20 signatures
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218559, fee=5048
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218559, fee=27900
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218559, fee=5070
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218559, fee=5127
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218559, fee=5126
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218559, fee=5124
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218559, fee=5124
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218559, fee=8500
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218559, fee=6001
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218559, fee=5121
+[CrashDetector] fetchNetworkData COMPLETE. Processed 10 transactions
+[Entropy-DEBUG] COOMER: price=0.000002023175432288965, entropy_prices=5
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] TANK: price=0.00000256591160958607, entropy_prices=5
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] Mooner: price=0.000002159720987888017, entropy_prices=5
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] Poong: price=0.0000028325540408353108, entropy_prices=5
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] AngryCat: price=0.0000019080480409021875, entropy_prices=5
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] GOAT: price=0.000003402262520571007, entropy_prices=5
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] bullunc: price=0.0000036425863876125513, entropy_prices=5
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] HUTT: price=0.000002757123877301685, entropy_prices=5
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] unctire: price=0.0000029921773139880187, entropy_prices=5
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] FAKER: price=0.0000036197289701373545, entropy_prices=5
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Main] Cycle #4 complete, sleeping 30000ms...
+[Main] DEBUG: About to call this.sleep()
+[Main] DEBUG: iteration=4, isRunning=true
+[Main] DEBUG: Calling blocking sleep for 30000ms...
+[Sleep] async wait for 30000ms starting...
+[Sleep] async wait COMPLETE after 30000ms
+[Main] DEBUG: sleep returned after 30003ms
+[Main] Wake up, next cycle starting...
+
+[2026-04-14T18:28:40.345Z] Cycle #5
+[CrashDetector] fetchNetworkData START
+[CrashDetector] Calling getRecentSignatures...
+[Chainstack] Calling getSignaturesForAddress...
+[Chainstack] getSignaturesForAddress SUCCESS
+[CrashDetector] Got 20 signatures
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218637, fee=789850
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218637, fee=6000
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218637, fee=9574
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218637, fee=5163
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218637, fee=176140
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218637, fee=6000
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218637, fee=80001
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218637, fee=10000
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218637, fee=5000
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218637, fee=6002
+[CrashDetector] fetchNetworkData COMPLETE. Processed 10 transactions
+[Entropy-DEBUG] COOMER: price=0.000002023175432288965, entropy_prices=6
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] TANK: price=0.00000256591160958607, entropy_prices=6
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] Mooner: price=0.000002159720987888017, entropy_prices=6
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] Poong: price=0.0000028325540408353108, entropy_prices=6
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] AngryCat: price=0.0000019080480409021875, entropy_prices=6
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] GOAT: price=0.000003402262520571007, entropy_prices=6
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] bullunc: price=0.0000036425863876125513, entropy_prices=6
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] HUTT: price=0.000002757123877301685, entropy_prices=6
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] unctire: price=0.0000029921773139880187, entropy_prices=6
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] FAKER: price=0.0000036197289701373545, entropy_prices=6
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Main] Cycle #5 complete, sleeping 30000ms...
+[Main] DEBUG: About to call this.sleep()
+[Main] DEBUG: iteration=5, isRunning=true
+[Main] DEBUG: Calling blocking sleep for 30000ms...
+[Sleep] async wait for 30000ms starting...
+[Sleep] async wait COMPLETE after 30000ms
+[Main] DEBUG: sleep returned after 30000ms
+[Main] Wake up, next cycle starting...
+
+[2026-04-14T18:29:11.211Z] Cycle #6
+[CrashDetector] fetchNetworkData START
+[CrashDetector] Calling getRecentSignatures...
+[Chainstack] Calling getSignaturesForAddress...
+[Chainstack] getSignaturesForAddress SUCCESS
+[CrashDetector] Got 20 signatures
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218719, fee=6750
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218719, fee=400795
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218719, fee=5250
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218719, fee=5000
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218719, fee=6000
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218719, fee=315753
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218719, fee=6000
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218719, fee=10537
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218719, fee=5178
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218719, fee=80001
+[CrashDetector] fetchNetworkData COMPLETE. Processed 10 transactions
+[Entropy-DEBUG] COOMER: price=0.000002023175432288965, entropy_prices=7
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] TANK: price=0.00000256591160958607, entropy_prices=7
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] Mooner: price=0.000002159720987888017, entropy_prices=7
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] Poong: price=0.0000028325540408353108, entropy_prices=7
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] AngryCat: price=0.0000019080480409021875, entropy_prices=7
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] GOAT: price=0.000003402262520571007, entropy_prices=7
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] bullunc: price=0.0000036425863876125513, entropy_prices=7
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] HUTT: price=0.000002757123877301685, entropy_prices=7
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] unctire: price=0.0000029921773139880187, entropy_prices=7
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] FAKER: price=0.0000036197289701373545, entropy_prices=7
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Main] Cycle #6 complete, sleeping 30000ms...
+[Main] DEBUG: About to call this.sleep()
+[Main] DEBUG: iteration=6, isRunning=true
+[Main] DEBUG: Calling blocking sleep for 30000ms...
+[Sleep] async wait for 30000ms starting...
+[Sleep] async wait COMPLETE after 30000ms
+[Main] DEBUG: sleep returned after 30001ms
+[Main] Wake up, next cycle starting...
+
+[2026-04-14T18:29:42.275Z] Cycle #7
+[CrashDetector] fetchNetworkData START
+[CrashDetector] Calling getRecentSignatures...
+[Chainstack] Calling getSignaturesForAddress...
+[Chainstack] getSignaturesForAddress SUCCESS
+[CrashDetector] Got 20 signatures
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218795, fee=10000
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218794, fee=5600
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218794, fee=5600
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218794, fee=36817
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218793, fee=5425
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218791, fee=17919
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218791, fee=5171
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218791, fee=9951
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218791, fee=8563
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413218791, fee=6000
+[CrashDetector] fetchNetworkData COMPLETE. Processed 10 transactions
+[Entropy-DEBUG] COOMER: price=0.000002023175432288965, entropy_prices=8
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] TANK: price=0.00000256591160958607, entropy_prices=8
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] Mooner: price=0.000002159720987888017, entropy_prices=8
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] Poong: price=0.0000028325540408353108, entropy_prices=8
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] AngryCat: price=0.0000019080480409021875, entropy_prices=8
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] GOAT: price=0.000003402262520571007, entropy_prices=8
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] bullunc: price=0.0000036425863876125513, entropy_prices=8
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] HUTT: price=0.000002757123877301685, entropy_prices=8
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] unctire: price=0.0000029921773139880187, entropy_prices=8
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Entropy-DEBUG] FAKER: price=0.0000036197289701373545, entropy_prices=8
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.4584
+[PaperTrading] Max positions reached: 10
+[Main] Cycle #7 complete, sleeping 30000ms...
+[Main] DEBUG: About to call this.sleep()
+[Main] DEBUG: iteration=7, isRunning=true
+[Main] DEBUG: Calling blocking sleep for 30000ms...
+[Sleep] async wait for 30000ms starting...

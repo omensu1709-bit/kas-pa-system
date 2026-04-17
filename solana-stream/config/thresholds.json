@@ -1,0 +1,35 @@
+{
+  "signals": {
+    "volume_spike_multiplier": 3.0,
+    "liquidity_imbalance_threshold": 0.7,
+    "bot_probability_max": 0.3,
+    "whale_net_flow_threshold": -10000,
+    "crash_probability_alert": 0.75,
+    "accumulation_score_watch": 0.6
+  },
+  "tiers": {
+    "tier1_limit": 10,
+    "tier2_limit": 30,
+    "recalculation_interval_sec": 30,
+    "tier1_threshold": 70,
+    "tier2_threshold": 40
+  },
+  "windows": {
+    "spike_detect": "5s",
+    "accumulation": "30s",
+    "trend_confirm": "1m",
+    "liquidity_check": "1h"
+  },
+  "credits": {
+    "helius_budget_monthly": 5000000,
+    "estimated_per_account_per_day_mb": 0.5
+  },
+  "performance": {
+    "zstd_enabled": true,
+    "adaptive_window": true,
+    "batch_size": 100,
+    "flush_interval_ms": 100,
+    "dedup_ttl_ms": 30000,
+    "max_dedup_entries": 100000
+  }
+}

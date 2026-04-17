@@ -1,0 +1,103 @@
+{
+  "per_event": [
+    {
+      "starting_capital": 100.0,
+      "current_capital": 79.58421504285529,
+      "total_pnl": -20.415784957144698,
+      "total_return_pct": -20.415784957144712,
+      "num_trades": 6,
+      "num_wins": 3,
+      "num_losses": 3,
+      "win_rate": 0.5,
+      "max_drawdown": -0.2041578495714471,
+      "is_halted": true,
+      "sizing_multiplier": 0.0,
+      "open_positions": 0,
+      "event_id": "TRUMP-2025-01"
+    },
+    {
+      "starting_capital": 100.0,
+      "current_capital": 77.45590231280826,
+      "total_pnl": -22.544097687191712,
+      "total_return_pct": -22.544097687191734,
+      "num_trades": 5,
+      "num_wins": 1,
+      "num_losses": 4,
+      "win_rate": 0.2,
+      "max_drawdown": -0.22544097687191736,
+      "is_halted": true,
+      "sizing_multiplier": 0.0,
+      "open_positions": 0,
+      "event_id": "LIBRA-2025-02"
+    },
+    {
+      "starting_capital": 100.0,
+      "current_capital": 100.0,
+      "total_pnl": 0,
+      "total_return_pct": 0.0,
+      "num_trades": 0,
+      "num_wins": 0,
+      "num_losses": 0,
+      "win_rate": 0,
+      "max_drawdown": 0.0,
+      "is_halted": false,
+      "sizing_multiplier": 1.0,
+      "open_positions": 0,
+      "event_id": "SOL-2025-Q1"
+    },
+    {
+      "starting_capital": 100.0,
+      "current_capital": 77.27978509953431,
+      "total_pnl": -22.720214900465688,
+      "total_return_pct": -22.720214900465695,
+      "num_trades": 4,
+      "num_wins": 0,
+      "num_losses": 4,
+      "win_rate": 0.0,
+      "max_drawdown": -0.2272021490046569,
+      "is_halted": true,
+      "sizing_multiplier": 0.0,
+      "open_positions": 0,
+      "event_id": "OM-2025-04"
+    },
+    {
+      "starting_capital": 100.0,
+      "current_capital": 78.31938344932576,
+      "total_pnl": -21.680616550674245,
+      "total_return_pct": -21.680616550674248,
+      "num_trades": 3,
+      "num_wins": 0,
+      "num_losses": 3,
+      "win_rate": 0.0,
+      "max_drawdown": -0.21680616550674245,
+      "is_halted": true,
+      "sizing_multiplier": 0.0,
+      "open_positions": 0,
+      "event_id": "MEMECAP-2024-2025"
+    },
+    {
+      "starting_capital": 100.0,
+      "current_capital": 79.6149071413185,
+      "total_pnl": -20.385092858681492,
+      "total_return_pct": -20.38509285868151,
+      "num_trades": 5,
+      "num_wins": 1,
+      "num_losses": 4,
+      "win_rate": 0.2,
+      "max_drawdown": -0.20385092858681503,
+      "is_halted": true,
+      "sizing_multiplier": 0.0,
+      "open_positions": 0,
+      "event_id": "WIF-BONK-POPCAT-2024"
+    }
+  ],
+  "total_return": -107.74580695415784,
+  "worst_drawdown": -0.2272021490046569,
+  "avg_win_rate": 0.15,
+  "avg_sharpe": -4.149232474006655,
+  "checks": {
+    "Max DD > -30%": true,
+    "Win Rate > 50%": false,
+    "Return > 0": false
+  }
+}

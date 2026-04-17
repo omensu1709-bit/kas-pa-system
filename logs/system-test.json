@@ -1,0 +1,96 @@
+{
+  "timestamp": 1775900519013,
+  "results": [
+    {
+      "name": "Chainstack RPC",
+      "status": "PASS",
+      "latency": 70,
+      "data": {
+        "slot": 412481356
+      }
+    },
+    {
+      "name": "Jupiter Price",
+      "status": "PASS",
+      "latency": 47,
+      "data": {
+        "price": 84.66291826936774
+      }
+    },
+    {
+      "name": "Backend WS Server",
+      "status": "PASS",
+      "latency": 3,
+      "data": {
+        "type": "INIT",
+        "hasPerformance": true,
+        "hasPrediction": false,
+        "crashProbability": 0.002355681928277274,
+        "price": 100,
+        "zone": "IGNORE",
+        "botProbability": 0.25
+      }
+    },
+    {
+      "name": "Dashboard Server",
+      "status": "PASS",
+      "data": {
+        "status": 200,
+        "size": 623
+      }
+    },
+    {
+      "name": "Paper Trading Engine",
+      "status": "PASS",
+      "data": {
+        "updatesReceived": 14,
+        "lastUpdate": {
+          "id": "480d13e5-8a34-448b-a7d1-66a13e81a647",
+          "timestamp": 1775900479273,
+          "slot": 412481342,
+          "rawMetrics": {
+            "n": 0.9764837833696735,
+            "PE": 0,
+            "kappa": 34.50777283950485,
+            "fragmentation": 0.02268308489954634,
+            "rt": 0,
+            "bValue": 2.5895562952290914,
+            "CTE": 0,
+            "SSI": 0,
+            "LFI": 0,
+            "price": 100
+          },
+          "zScores": {
+            "z_n": 0.47202794235666334,
+            "z_PE": 0,
+            "z_kappa": 1.550389895364129,
+            "z_fragmentation": -0.513810794089795,
+            "z_rt": 0,
+            "z_bValue": -0.1661633391878537,
+            "z_CTE": 0,
+            "z_SSI": 0,
+            "z_LFI": 0
+          },
+          "crashProbability": 0.002355681928277274,
+          "confirmingMetrics": 0,
+          "zone": "IGNORE",
+          "verificationStatus": "PENDING",
+          "hash": "01387c2e32b564edc3ff33d1bca9055fd7cf43b40a05413788886b5d4a10437c",
+          "symbol": "SOL"
+        }
+      }
+    },
+    {
+      "name": "Datenqualität",
+      "status": "PASS",
+      "data": {
+        "totalPredictions": 20,
+        "validPredictions": 20,
+        "avgCrashProb": 0.00237717123934903,
+        "zones": {
+          "IGNORE": 20
+        }
+      }
+    }
+  ]
+}

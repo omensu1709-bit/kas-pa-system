@@ -1,0 +1,49 @@
+[Ranking] Using REST API for prices (WebSocket disabled)
+[24h] Test logs initialized at /data/trinity_apex/solana-stream/paper-trading/logs/24h-test
+================================================================================
+KAS PA v4.0 - MULTI-COIN CRASH PREDICTION SYSTEM
+================================================================================
+Starting Capital: 100 SOL
+Update Interval: 30s
+Ranking Interval: 30min
+
+[WebSocket] Server started on ws://0.0.0.0:8080
+[Helius] REST Service initialized for swap signal analysis
+
+[2026-04-12T22:34:14.657Z] Running ranking cycle...
+[Ranking] Cycle #1 - Fetching LIVE data...
+[Ranking] Synced 4 tokens from DexScreener. Total candidates: 38
+[Ranking] Cycle #1 complete. Total candidates: 38
+[Ranking] Top 3:
+  1. DECENT: 100.0% (Vol: 85, Change: -38.2%)
+  2. Peepa: 100.0% (Vol: 85, Change: -62.5%)
+  3. ADAMITY: 100.0% (Vol: 85, Change: -64.6%)
+[Ranking] Top 10 selected:
+  1. DECENT: Score=100 | Price=0.00002081 | 24h=-38.2%
+  2. Peepa: Score=100 | Price=0.00007322 | 24h=-62.5%
+  3. ADAMITY: Score=100 | Price=0.00003129 | 24h=-64.6%
+  4. SNIGGA: Score=100 | Price=0.00007435 | 24h=-99.3%
+  5. BONK: Score=71.93442918131794 | Price=0.000005639131590018529 | 24h=-6.0%
+[Helius] Fetching swap signals for 10 mints...
+
+[2026-04-12T22:34:14.918Z] Cycle #1
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: DECENT | 5.00 SOL @ $0.00002027445727550657
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: Peepa | 5.00 SOL @ $0.00007284308118111194
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: ADAMITY | 5.00 SOL @ $0.00003109861393291192
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: SNIGGA | 5.00 SOL @ $0.0000743257729571359
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: BONK | 5.00 SOL @ $0.000005639131590018529
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: MEW | 5.00 SOL @ $0.000560993340148994
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: WIF | 5.00 SOL @ $0.18735476000588977
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: POPCAT | 5.00 SOL @ $0
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: MOG | 5.00 SOL @ $0
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: FWOG | 5.00 SOL @ $0

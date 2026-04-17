@@ -1,0 +1,120 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: solana-redis
+    command: >
+      redis-server
+      --maxmemory 48gb
+      --maxmemory-policy allkeys-lru
+      --save 900 1
+      --save 300 10
+      --save 60 10000
+      --stop-writes-on-bgsave-error yes
+      --rdbcompression yes
+      --hash-max-listpack-entries 512
+      --hash-max-listpack-value 64
+      --activedefrag yes
+      --active-defrag-threshold-lower 10
+      --active-defrag-threshold-upper 100
+      --lazyfree-lazy-eviction yes
+      --lazyfree-lazy-expire yes
+      --lazyfree-lazy-server-del yes
+      --timeout 300
+      --tcp-keepalive 60
+      --tcp-backlog 65535
+    ports:
+      - "127.0.0.1:6379:6379"
+    volumes:
+      - redis-data:/data
+      - /var/log/redis:/var/log/redis
+    restart: unless-stopped
+    mem_limit: 48g
+    cpus: '2'
+    mem_reservation: 32g
+
+  ingestor:
+    build:
+      context: ./ingestor
+      dockerfile: Dockerfile
+    container_name: solana-ingestor
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - HELIUS_API_KEY=${HELIUS_API_KEY}
+      - CHAINSTACK_ENDPOINT=${CHAINSTACK_ENDPOINT}
+      - CHAINSTACK_TOKEN=${CHAINSTACK_TOKEN}
+      - ZSTD_ENABLED=${ZSTD_ENABLED:-true}
+      - ADAPTIVE_WINDOW=${ADAPTIVE_WINDOW:-true}
+      - LOG_LEVEL=info
+    depends_on:
+      redis:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '4'
+          memory: 8G
+        reservations:
+          cpus: '2'
+          memory: 4G
+    ulimits:
+      nofile:
+        soft: 65535
+        hard: 65535
+
+  ranker:
+    build:
+      context: ./ranker
+      dockerfile: Dockerfile
+    container_name: solana-ranker
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - LOG_LEVEL=info
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 2G
+
+  analyzer:
+    build:
+      context: ./analyzer
+      dockerfile: Dockerfile
+    container_name: solana-analyzer
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - LOG_LEVEL=info
+    depends_on:
+      redis:
+        condition: service_healthy
+    ports:
+      - "8081:8081"
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4G
+    volumes:
+      - ./alerts:/app/alerts
+
+volumes:
+  redis-data:
+
+networks:
+  default:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.0.0/16

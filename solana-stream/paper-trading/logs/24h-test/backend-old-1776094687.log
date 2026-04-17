@@ -1,0 +1,95 @@
+[Ranking] Using REST API for prices (WebSocket disabled)
+[24h] Test logs initialized at /data/trinity_apex/solana-stream/paper-trading/logs/24h-test
+================================================================================
+KAS PA v4.0 - MULTI-COIN CRASH PREDICTION SYSTEM
+================================================================================
+Starting Capital: 100 SOL
+Update Interval: 30s
+Ranking Interval: 30min
+
+[WebSocket] Server started on ws://0.0.0.0:8080
+[Helius] REST Service initialized for swap signal analysis
+[BotDetection] Starting Comprehensive Bot Detection...
+[BotDetection] Monitoring: Jito, Sandwich, Liquidation, Sniper, Arbitrage, Backrun
+
+[2026-04-13T15:11:00.505Z] Running ranking cycle...
+[Ranking] Cycle #1 - Fetching LIVE data...
+[DexScreener] Pool: 30 boosted + 30 recent
+[DexScreener] Unique mints: 55
+[DexScreener] Fetching 55 tokens in batches of 20...
+[DexScreener] Batch 1/3: 20 tokens fetched
+[DexScreener] Batch 2/3: 20 tokens fetched
+[DexScreener] Batch 3/3: 15 tokens fetched
+[DexScreener] Total fetched: 55/55 tokens
+[DexScreener] Got data for 55 tokens
+[DexScreener] After filters: 25 candidates
+[Ranking] Synced 25 tokens from DexScreener. Total candidates: 58
+[Ranking] Cycle #1 complete. Total candidates: 58
+[Ranking] Top 3:
+  1. 黑泡泡: 100.0% (Vol: 85, Change: -95.2%)
+  2. WojakBull: 100.0% (Vol: 85, Change: -95.0%)
+  3. CHOP: 100.0% (Vol: 85, Change: -94.1%)
+[Ranking] Top 10 selected:
+  1. 黑泡泡: Score=100 | Price=0.000002205 | 24h=-95.2%
+  2. WojakBull: Score=100 | Price=0.000001705 | 24h=-95.0%
+  3. CHOP: Score=100 | Price=0.000002018 | 24h=-94.1%
+  4. BTCBULL: Score=100 | Price=0.000002413 | 24h=-93.0%
+  5. REDBULL: Score=100 | Price=0.000002826 | 24h=-91.7%
+[Helius] Fetching swap signals for 10 mints...
+
+[2026-04-13T15:11:01.815Z] Cycle #1
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[FORENSIC-DEBUG] {"ts":1776093065310,"symbol":"黑泡泡","decision":{"action":"IGNORE","symbol":"黑泡泡","posteriorProbability":0.9,"brierScore":0.01,"confidence":0,"kellyFraction":0.05,"positionSize":0,"regime":{"type":"NEUTRAL","ivRegime":"MEDIUM","thresholdMultiplier":0.85,"positionSizeMultiplier":1},"reason":"FORCED EXPLORATION SHORT"},"crashSignal":{"symbol":"黑泡泡","crashProbability":0.01,"confirmingMetrics":0,"zone":"IGNORE","slowShortScore":0,"priceMomentumScore":0,"velocityBoost":0,"velocitySignal":{"symbol":"黑泡泡","change_1min":0,"change_5min":0,"change_15min":0,"acceleration":0,"jerk":0,"isFlashCrash":false,"isSteadyDump":false,"isMomentumReversal":false,"dataQuality":0,"sampleCount":1,"timestamp":1776093065309},"orderBookSignal":{"symbol":"黑泡泡","mint":"gedYAnwEFMog1KMHyCiepmNJJLMeubGKq1Yg9FJpump","bids":[],"asks":[],"bidAskRatio":1,"spreadPercent":0,"totalBidDepth":0,"totalAskDepth":0,"depthRatio":1,"imbalance":"NEUTRAL","largeSellsCount":0,"largeBuysCount":0,"source":"UNKNOWN","timestamp":1776093065309,"dataQuality":0},"memecoinSignals":{"buySellRatio":1,"whaleSellPressure":0,"volumeSpike":1,"smartMoneyExit":false,"buyPressure":0.5,"whaleAlert":false}}}
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[FORENSIC-DEBUG] {"ts":1776093065310,"symbol":"WojakBull","decision":{"action":"IGNORE","symbol":"WojakBull","posteriorProbability":0.9,"brierScore":0.01,"confidence":0,"kellyFraction":0.05,"positionSize":0,"regime":{"type":"NEUTRAL","ivRegime":"MEDIUM","thresholdMultiplier":0.85,"positionSizeMultiplier":1},"reason":"FORCED EXPLORATION SHORT"},"crashSignal":{"symbol":"WojakBull","crashProbability":0.01,"confirmingMetrics":0,"zone":"IGNORE","slowShortScore":0,"priceMomentumScore":0,"velocityBoost":0,"velocitySignal":{"symbol":"WojakBull","change_1min":0,"change_5min":0,"change_15min":0,"acceleration":0,"jerk":0,"isFlashCrash":false,"isSteadyDump":false,"isMomentumReversal":false,"dataQuality":0,"sampleCount":1,"timestamp":1776093065310},"orderBookSignal":{"symbol":"WojakBull","mint":"5sg6jGEQk6YdkcbHXXEW9zabWwQTdQLJUaBqPW4pump","bids":[],"asks":[],"bidAskRatio":1,"spreadPercent":0,"totalBidDepth":0,"totalAskDepth":0,"depthRatio":1,"imbalance":"NEUTRAL","largeSellsCount":0,"largeBuysCount":0,"source":"UNKNOWN","timestamp":1776093065309,"dataQuality":0},"memecoinSignals":{"buySellRatio":1,"whaleSellPressure":0,"volumeSpike":1,"smartMoneyExit":false,"buyPressure":0.5,"whaleAlert":false}}}
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[FORENSIC-DEBUG] {"ts":1776093065311,"symbol":"CHOP","decision":{"action":"IGNORE","symbol":"CHOP","posteriorProbability":0.9,"brierScore":0.01,"confidence":0,"kellyFraction":0.05,"positionSize":0,"regime":{"type":"NEUTRAL","ivRegime":"MEDIUM","thresholdMultiplier":0.85,"positionSizeMultiplier":1},"reason":"FORCED EXPLORATION SHORT"},"crashSignal":{"symbol":"CHOP","crashProbability":0.01,"confirmingMetrics":0,"zone":"IGNORE","slowShortScore":0,"priceMomentumScore":0,"velocityBoost":0,"velocitySignal":{"symbol":"CHOP","change_1min":0,"change_5min":0,"change_15min":0,"acceleration":0,"jerk":0,"isFlashCrash":false,"isSteadyDump":false,"isMomentumReversal":false,"dataQuality":0,"sampleCount":1,"timestamp":1776093065311},"orderBookSignal":{"symbol":"CHOP","mint":"HmxPnQMwxQaxMkrjPoiiPuwUUwkuwjFG6YpLUPqJpump","bids":[],"asks":[],"bidAskRatio":1,"spreadPercent":0,"totalBidDepth":0,"totalAskDepth":0,"depthRatio":1,"imbalance":"NEUTRAL","largeSellsCount":0,"largeBuysCount":0,"source":"UNKNOWN","timestamp":1776093065309,"dataQuality":0},"memecoinSignals":{"buySellRatio":1,"whaleSellPressure":0,"volumeSpike":1,"smartMoneyExit":false,"buyPressure":0.5,"whaleAlert":false}}}
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[FORENSIC-DEBUG] {"ts":1776093065311,"symbol":"BTCBULL","decision":{"action":"IGNORE","symbol":"BTCBULL","posteriorProbability":0.9,"brierScore":0.01,"confidence":0,"kellyFraction":0.05,"positionSize":0,"regime":{"type":"NEUTRAL","ivRegime":"MEDIUM","thresholdMultiplier":0.85,"positionSizeMultiplier":1},"reason":"FORCED EXPLORATION SHORT"},"crashSignal":{"symbol":"BTCBULL","crashProbability":0.01,"confirmingMetrics":0,"zone":"IGNORE","slowShortScore":0,"priceMomentumScore":0,"velocityBoost":0,"velocitySignal":{"symbol":"BTCBULL","change_1min":0,"change_5min":0,"change_15min":0,"acceleration":0,"jerk":0,"isFlashCrash":false,"isSteadyDump":false,"isMomentumReversal":false,"dataQuality":0,"sampleCount":1,"timestamp":1776093065311},"orderBookSignal":{"symbol":"BTCBULL","mint":"ChUjiryotp77NQeAYHNW8HyZVXD5kuBvXgneeaYrpump","bids":[],"asks":[],"bidAskRatio":1,"spreadPercent":0,"totalBidDepth":0,"totalAskDepth":0,"depthRatio":1,"imbalance":"NEUTRAL","largeSellsCount":0,"largeBuysCount":0,"source":"UNKNOWN","timestamp":1776093065309,"dataQuality":0},"memecoinSignals":{"buySellRatio":1,"whaleSellPressure":0,"volumeSpike":1,"smartMoneyExit":false,"buyPressure":0.5,"whaleAlert":false}}}
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[FORENSIC-DEBUG] {"ts":1776093065311,"symbol":"REDBULL","decision":{"action":"IGNORE","symbol":"REDBULL","posteriorProbability":0.9,"brierScore":0.01,"confidence":0,"kellyFraction":0.05,"positionSize":0,"regime":{"type":"NEUTRAL","ivRegime":"MEDIUM","thresholdMultiplier":0.85,"positionSizeMultiplier":1},"reason":"FORCED EXPLORATION SHORT"},"crashSignal":{"symbol":"REDBULL","crashProbability":0.01,"confirmingMetrics":0,"zone":"IGNORE","slowShortScore":0,"priceMomentumScore":0,"velocityBoost":0,"velocitySignal":{"symbol":"REDBULL","change_1min":0,"change_5min":0,"change_15min":0,"acceleration":0,"jerk":0,"isFlashCrash":false,"isSteadyDump":false,"isMomentumReversal":false,"dataQuality":0,"sampleCount":1,"timestamp":1776093065311},"orderBookSignal":{"symbol":"REDBULL","mint":"H1RHrywTKUPpkzzo4ZEB8QWTx7abYU8WAWtcZUUPpump","bids":[],"asks":[],"bidAskRatio":1,"spreadPercent":0,"totalBidDepth":0,"totalAskDepth":0,"depthRatio":1,"imbalance":"NEUTRAL","largeSellsCount":0,"largeBuysCount":0,"source":"UNKNOWN","timestamp":1776093065309,"dataQuality":0},"memecoinSignals":{"buySellRatio":1,"whaleSellPressure":0,"volumeSpike":1,"smartMoneyExit":false,"buyPressure":0.5,"whaleAlert":false}}}
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[FORENSIC-DEBUG] {"ts":1776093065311,"symbol":"Reaper","decision":{"action":"IGNORE","symbol":"Reaper","posteriorProbability":0.9,"brierScore":0.01,"confidence":0,"kellyFraction":0.05,"positionSize":0,"regime":{"type":"NEUTRAL","ivRegime":"MEDIUM","thresholdMultiplier":0.85,"positionSizeMultiplier":1},"reason":"FORCED EXPLORATION SHORT"},"crashSignal":{"symbol":"Reaper","crashProbability":0.01,"confirmingMetrics":0,"zone":"IGNORE","slowShortScore":0,"priceMomentumScore":0,"velocityBoost":0,"velocitySignal":{"symbol":"Reaper","change_1min":0,"change_5min":0,"change_15min":0,"acceleration":0,"jerk":0,"isFlashCrash":false,"isSteadyDump":false,"isMomentumReversal":false,"dataQuality":0,"sampleCount":1,"timestamp":1776093065311},"orderBookSignal":{"symbol":"Reaper","mint":"Fjdxjqx4Pb3MQWUzwgTwT6DvRQ9MtMSMdfFz27fvpump","bids":[],"asks":[],"bidAskRatio":1,"spreadPercent":0,"totalBidDepth":0,"totalAskDepth":0,"depthRatio":1,"imbalance":"NEUTRAL","largeSellsCount":0,"largeBuysCount":0,"source":"UNKNOWN","timestamp":1776093065309,"dataQuality":0},"memecoinSignals":{"buySellRatio":1,"whaleSellPressure":0,"volumeSpike":1,"smartMoneyExit":false,"buyPressure":0.5,"whaleAlert":false}}}
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[FORENSIC-DEBUG] {"ts":1776093065311,"symbol":"צ׳אד","decision":{"action":"IGNORE","symbol":"צ׳אד","posteriorProbability":0.9,"brierScore":0.01,"confidence":0,"kellyFraction":0.05,"positionSize":0,"regime":{"type":"NEUTRAL","ivRegime":"MEDIUM","thresholdMultiplier":0.85,"positionSizeMultiplier":1},"reason":"FORCED EXPLORATION SHORT"},"crashSignal":{"symbol":"צ׳אד","crashProbability":0.01,"confirmingMetrics":0,"zone":"IGNORE","slowShortScore":0,"priceMomentumScore":0,"velocityBoost":0,"velocitySignal":{"symbol":"צ׳אד","change_1min":0,"change_5min":0,"change_15min":0,"acceleration":0,"jerk":0,"isFlashCrash":false,"isSteadyDump":false,"isMomentumReversal":false,"dataQuality":0,"sampleCount":1,"timestamp":1776093065311},"orderBookSignal":{"symbol":"צ׳אד","mint":"Zt6ZtiNLBw3LKzPGJgKBRyRbezqjYYrjyJDHVvFpump","bids":[],"asks":[],"bidAskRatio":1,"spreadPercent":0,"totalBidDepth":0,"totalAskDepth":0,"depthRatio":1,"imbalance":"NEUTRAL","largeSellsCount":0,"largeBuysCount":0,"source":"UNKNOWN","timestamp":1776093065309,"dataQuality":0},"memecoinSignals":{"buySellRatio":1,"whaleSellPressure":0,"volumeSpike":1,"smartMoneyExit":false,"buyPressure":0.5,"whaleAlert":false}}}
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[FORENSIC-DEBUG] {"ts":1776093065311,"symbol":"RISK","decision":{"action":"IGNORE","symbol":"RISK","posteriorProbability":0.9,"brierScore":0.01,"confidence":0,"kellyFraction":0.05,"positionSize":0,"regime":{"type":"NEUTRAL","ivRegime":"MEDIUM","thresholdMultiplier":0.85,"positionSizeMultiplier":1},"reason":"FORCED EXPLORATION SHORT"},"crashSignal":{"symbol":"RISK","crashProbability":0.01,"confirmingMetrics":0,"zone":"IGNORE","slowShortScore":0,"priceMomentumScore":0,"velocityBoost":0,"velocitySignal":{"symbol":"RISK","change_1min":0,"change_5min":0,"change_15min":0,"acceleration":0,"jerk":0,"isFlashCrash":false,"isSteadyDump":false,"isMomentumReversal":false,"dataQuality":0,"sampleCount":1,"timestamp":1776093065311},"orderBookSignal":{"symbol":"RISK","mint":"o2YQ33bS2utViKgcx3ksEXDCvZ3YNYsKe1DXYEfpump","bids":[],"asks":[],"bidAskRatio":1,"spreadPercent":0,"totalBidDepth":0,"totalAskDepth":0,"depthRatio":1,"imbalance":"NEUTRAL","largeSellsCount":0,"largeBuysCount":0,"source":"UNKNOWN","timestamp":1776093065309,"dataQuality":0},"memecoinSignals":{"buySellRatio":1,"whaleSellPressure":0,"volumeSpike":1,"smartMoneyExit":false,"buyPressure":0.5,"whaleAlert":false}}}
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[FORENSIC-DEBUG] {"ts":1776093065311,"symbol":"DEEZNUTS","decision":{"action":"IGNORE","symbol":"DEEZNUTS","posteriorProbability":0.9,"brierScore":0.01,"confidence":0,"kellyFraction":0.05,"positionSize":0,"regime":{"type":"NEUTRAL","ivRegime":"MEDIUM","thresholdMultiplier":0.85,"positionSizeMultiplier":1},"reason":"FORCED EXPLORATION SHORT"},"crashSignal":{"symbol":"DEEZNUTS","crashProbability":0.01,"confirmingMetrics":0,"zone":"IGNORE","slowShortScore":0,"priceMomentumScore":0,"velocityBoost":0,"velocitySignal":{"symbol":"DEEZNUTS","change_1min":0,"change_5min":0,"change_15min":0,"acceleration":0,"jerk":0,"isFlashCrash":false,"isSteadyDump":false,"isMomentumReversal":false,"dataQuality":0,"sampleCount":1,"timestamp":1776093065311},"orderBookSignal":{"symbol":"DEEZNUTS","mint":"9qqnnMsUqj9dzgxSUkGUreSjZ3qr4BHZCGSdKfkMpump","bids":[],"asks":[],"bidAskRatio":1,"spreadPercent":0,"totalBidDepth":0,"totalAskDepth":0,"depthRatio":1,"imbalance":"NEUTRAL","largeSellsCount":0,"largeBuysCount":0,"source":"UNKNOWN","timestamp":1776093065309,"dataQuality":0},"memecoinSignals":{"buySellRatio":1,"whaleSellPressure":0,"volumeSpike":1,"smartMoneyExit":false,"buyPressure":0.5,"whaleAlert":false}}}
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[FORENSIC-DEBUG] {"ts":1776093065312,"symbol":"BULLINA","decision":{"action":"IGNORE","symbol":"BULLINA","posteriorProbability":0.9,"brierScore":0.01,"confidence":0,"kellyFraction":0.05,"positionSize":0,"regime":{"type":"NEUTRAL","ivRegime":"MEDIUM","thresholdMultiplier":0.85,"positionSizeMultiplier":1},"reason":"FORCED EXPLORATION SHORT"},"crashSignal":{"symbol":"BULLINA","crashProbability":0.01,"confirmingMetrics":0,"zone":"IGNORE","slowShortScore":0,"priceMomentumScore":0,"velocityBoost":0,"velocitySignal":{"symbol":"BULLINA","change_1min":0,"change_5min":0,"change_15min":0,"acceleration":0,"jerk":0,"isFlashCrash":false,"isSteadyDump":false,"isMomentumReversal":false,"dataQuality":0,"sampleCount":1,"timestamp":1776093065312},"orderBookSignal":{"symbol":"BULLINA","mint":"D55RcS7ocJhd1BXTmiuE3LBvJz1KxrRbjqvHFiaXpump","bids":[],"asks":[],"bidAskRatio":1,"spreadPercent":0,"totalBidDepth":0,"totalAskDepth":0,"depthRatio":1,"imbalance":"NEUTRAL","largeSellsCount":0,"largeBuysCount":0,"source":"UNKNOWN","timestamp":1776093065309,"dataQuality":0},"memecoinSignals":{"buySellRatio":1,"whaleSellPressure":0,"volumeSpike":1,"smartMoneyExit":false,"buyPressure":0.5,"whaleAlert":false}}}
+[WS] Client connected: 127.0.0.1
+[Ranking] Using REST API for prices (WebSocket disabled)
+[24h] Test logs initialized at /data/trinity_apex/solana-stream/paper-trading/logs/24h-test
+================================================================================
+KAS PA v4.0 - MULTI-COIN CRASH PREDICTION SYSTEM
+================================================================================
+Starting Capital: 100 SOL
+Update Interval: 30s
+Ranking Interval: 30min
+
+[WebSocket] Server started on ws://0.0.0.0:8080
+[Helius] REST Service initialized for swap signal analysis
+[BotDetection] Starting Comprehensive Bot Detection...
+[BotDetection] Monitoring: Jito, Sandwich, Liquidation, Sniper, Arbitrage, Backrun
+node:events:502
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+    at listenInCluster (node:net:1965:12)
+    at doListen (node:net:2139:7)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)
+Emitted 'error' event on WebSocketServer instance at:
+    at Server.emit (node:events:524:28)
+    at emitErrorNT (node:net:1944:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '0.0.0.0',
+  port: 8080
+}
+
+Node.js v20.20.2

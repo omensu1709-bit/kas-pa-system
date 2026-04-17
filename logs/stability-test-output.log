@@ -1,0 +1,625 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║               KAS PA - 30 MINUTEN STABILITÄTSTEST                 ║
+╚════════════════════════════════════════════════════════════════════╝
+
+  Start: 2026-04-11T10:29:48.573Z
+  Ende: 2026-04-11T10:59:48.573Z
+  Prüfintervall: 30s
+
+
+--- Check #1 (0s / 1799s remaining) ---
+[10:29:48] ⚠️ WebSocket disconnected, reconnecting...
+[10:29:48] ⚠️ WebSocket error: WebSocket was closed before the connection was established
+[10:29:48] ⚠️ WebSocket closed
+[10:29:48] ✅ WebSocket connected
+
+--- Check #2 (30s / 1769s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 1.10%
+  💰 Price: $84.32
+  📍 Slot: 412488663
+  ⏱️  Latency: 24918ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #3 (60s / 1739s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 1.10%
+  💰 Price: $84.30
+  📍 Slot: 412488743
+  ⏱️  Latency: 23554ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #4 (90s / 1709s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 1.10%
+  💰 Price: $84.31
+  📍 Slot: 412488821
+  ⏱️  Latency: 23409ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #5 (121s / 1678s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 1.10%
+  💰 Price: $84.31
+  📍 Slot: 412488900
+  ⏱️  Latency: 22320ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #6 (152s / 1647s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 1.10%
+  💰 Price: $84.29
+  📍 Slot: 412488979
+  ⏱️  Latency: 20913ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #7 (182s / 1617s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 1.10%
+  💰 Price: $84.30
+  📍 Slot: 412489046
+  ⏱️  Latency: 19755ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #8 (212s / 1587s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 1.10%
+  💰 Price: $84.31
+  📍 Slot: 412489133
+  ⏱️  Latency: 18438ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #9 (242s / 1557s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 1.10%
+  💰 Price: $84.31
+  📍 Slot: 412489211
+  ⏱️  Latency: 17425ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #10 (272s / 1527s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 1.10%
+  💰 Price: $84.32
+  📍 Slot: 412489285
+  ⏱️  Latency: 16232ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #11 (302s / 1497s remaining) ---
+(node:1834071) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 error listeners added to [WebSocket]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✅ Connected: true
+  📊 P(crash): 1.10%
+  💰 Price: $84.30
+  📍 Slot: 412489360
+  ⏱️  Latency: 15855ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #12 (333s / 1466s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 1.09%
+  💰 Price: $84.30
+  📍 Slot: 412489439
+  ⏱️  Latency: 14523ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #13 (363s / 1436s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.88%
+  💰 Price: $84.28
+  📍 Slot: 412489519
+  ⏱️  Latency: 13318ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #14 (393s / 1406s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.71%
+  💰 Price: $84.27
+  📍 Slot: 412489597
+  ⏱️  Latency: 12080ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #15 (423s / 1376s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.64%
+  💰 Price: $84.29
+  📍 Slot: 412489673
+  ⏱️  Latency: 11629ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #16 (454s / 1345s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.55%
+  💰 Price: $84.26
+  📍 Slot: 412489754
+  ⏱️  Latency: 10270ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #17 (484s / 1315s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.45%
+  💰 Price: $84.24
+  📍 Slot: 412489835
+  ⏱️  Latency: 9063ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #18 (514s / 1285s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.29%
+  💰 Price: $84.17
+  📍 Slot: 412489917
+  ⏱️  Latency: 7921ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #19 (544s / 1255s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.27%
+  💰 Price: $84.16
+  📍 Slot: 412489997
+  ⏱️  Latency: 6715ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #20 (574s / 1225s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.22%
+  💰 Price: $84.16
+  📍 Slot: 412490077
+  ⏱️  Latency: 6568ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #21 (605s / 1194s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.16%
+  💰 Price: $84.16
+  📍 Slot: 412490151
+  ⏱️  Latency: 5360ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #22 (635s / 1164s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.15%
+  💰 Price: $84.17
+  📍 Slot: 412490229
+  ⏱️  Latency: 4192ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #23 (665s / 1134s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.14%
+  💰 Price: $84.17
+  📍 Slot: 412490303
+  ⏱️  Latency: 3973ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #24 (696s / 1103s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.13%
+  💰 Price: $84.17
+  📍 Slot: 412490383
+  ⏱️  Latency: 2747ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #25 (726s / 1073s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.14%
+  💰 Price: $84.18
+  📍 Slot: 412490463
+  ⏱️  Latency: 2490ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #26 (757s / 1042s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.14%
+  💰 Price: $84.17
+  📍 Slot: 412490533
+  ⏱️  Latency: 2342ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #27 (788s / 1011s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.14%
+  💰 Price: $84.15
+  📍 Slot: 412490618
+  ⏱️  Latency: 1165ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #28 (818s / 981s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.14%
+  💰 Price: $84.15
+  📍 Slot: 412490618
+  ⏱️  Latency: 31189ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #29 (848s / 951s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.13%
+  💰 Price: $84.13
+  📍 Slot: 412490697
+  ⏱️  Latency: 30981ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #30 (879s / 920s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.12%
+  💰 Price: $84.13
+  📍 Slot: 412490778
+  ⏱️  Latency: 29765ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #31 (909s / 890s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.11%
+  💰 Price: $84.10
+  📍 Slot: 412490857
+  ⏱️  Latency: 28758ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #32 (939s / 860s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.11%
+  💰 Price: $84.11
+  📍 Slot: 412490934
+  ⏱️  Latency: 27699ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #33 (969s / 830s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.11%
+  💰 Price: $84.10
+  📍 Slot: 412491014
+  ⏱️  Latency: 26626ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #34 (999s / 800s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.10%
+  💰 Price: $84.08
+  📍 Slot: 412491094
+  ⏱️  Latency: 26488ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #35 (1030s / 769s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.11%
+  💰 Price: $84.08
+  📍 Slot: 412491175
+  ⏱️  Latency: 25306ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #36 (1060s / 739s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.10%
+  💰 Price: $84.09
+  📍 Slot: 412491253
+  ⏱️  Latency: 25197ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #37 (1091s / 708s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.10%
+  💰 Price: $84.05
+  📍 Slot: 412491327
+  ⏱️  Latency: 24035ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #38 (1121s / 678s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.11%
+  💰 Price: $83.99
+  📍 Slot: 412491411
+  ⏱️  Latency: 22814ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #39 (1151s / 648s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.10%
+  💰 Price: $84.05
+  📍 Slot: 412491486
+  ⏱️  Latency: 21659ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #40 (1181s / 618s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.10%
+  💰 Price: $84.03
+  📍 Slot: 412491565
+  ⏱️  Latency: 21511ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #41 (1212s / 587s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.12%
+  💰 Price: $84.07
+  📍 Slot: 412491645
+  ⏱️  Latency: 20457ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #42 (1243s / 556s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.11%
+  💰 Price: $84.08
+  📍 Slot: 412491726
+  ⏱️  Latency: 20348ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #43 (1274s / 525s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.11%
+  💰 Price: $84.11
+  📍 Slot: 412491806
+  ⏱️  Latency: 20074ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #44 (1305s / 494s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.10%
+  💰 Price: $84.12
+  📍 Slot: 412491877
+  ⏱️  Latency: 19863ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #45 (1336s / 463s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.10%
+  💰 Price: $84.10
+  📍 Slot: 412491955
+  ⏱️  Latency: 19493ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #46 (1367s / 432s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.09%
+  💰 Price: $84.12
+  📍 Slot: 412492035
+  ⏱️  Latency: 18373ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #47 (1397s / 402s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.09%
+  💰 Price: $84.11
+  📍 Slot: 412492110
+  ⏱️  Latency: 17152ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #48 (1427s / 372s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.09%
+  💰 Price: $84.13
+  📍 Slot: 412492185
+  ⏱️  Latency: 15959ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #49 (1457s / 342s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.09%
+  💰 Price: $84.13
+  📍 Slot: 412492266
+  ⏱️  Latency: 14646ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #50 (1487s / 312s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.09%
+  💰 Price: $84.13
+  📍 Slot: 412492340
+  ⏱️  Latency: 14499ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #51 (1518s / 281s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.08%
+  💰 Price: $84.14
+  📍 Slot: 412492416
+  ⏱️  Latency: 13440ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #52 (1548s / 251s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 0.08%
+  💰 Price: $84.14
+  📍 Slot: 412492487
+  ⏱️  Latency: 12074ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+[10:55:59] ⚠️ WebSocket closed
+
+--- Check #53 (1578s / 221s remaining) ---
+[10:56:06] ⚠️ WebSocket disconnected, reconnecting...
+[10:56:06] ⚠️ WebSocket error: connect ECONNREFUSED 127.0.0.1:8080
+[10:56:06] ⚠️ WebSocket closed
+
+--- Check #54 (1608s / 191s remaining) ---
+[10:56:36] ⚠️ WebSocket disconnected, reconnecting...
+[10:56:36] ✅ WebSocket connected
+
+--- Check #55 (1638s / 161s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 1.10%
+  💰 Price: $84.13
+  📍 Slot: 412492693
+  ⏱️  Latency: 22241ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #56 (1669s / 130s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 1.10%
+  💰 Price: $84.11
+  📍 Slot: 412492772
+  ⏱️  Latency: 20863ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #57 (1699s / 100s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 1.10%
+  💰 Price: $84.10
+  📍 Slot: 412492845
+  ⏱️  Latency: 19272ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #58 (1729s / 70s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 1.10%
+  💰 Price: $84.11
+  📍 Slot: 412492926
+  ⏱️  Latency: 17982ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #59 (1759s / 40s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 1.10%
+  💰 Price: $84.09
+  📍 Slot: 412493006
+  ⏱️  Latency: 17681ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+--- Check #60 (1790s / 9s remaining) ---
+  ✅ Connected: true
+  📊 P(crash): 1.10%
+  💰 Price: $84.08
+  📍 Slot: 412493078
+  ⏱️  Latency: 17445ms
+  🤖 Bot: 25%
+  💼 Capital: 100.00 SOL
+  🚦 Zone: IGNORE
+
+======================================================================
+                         STABILITÄTSTEST ERGEBNIS
+======================================================================
+
+  Gesamtzeit: 30 Minuten
+  Gesamte Checks: 60
+  Verbunden: 57
+  Getrennt: 0
+  Verbindungserhaltung: 95.0%
+
+  Latenz (Durchschnitt): 17212ms
+  Latenz (Max): 31189ms
+  Latenz (Min): 1165ms
+
+  Crash Probability (Durchschnitt): 0.46%
+  Crash Probability (Max): 1.10%
+
+  📄 Bericht: /data/trinity_apex/logs/stability-test-30min.json
+  📄 CSV: /data/trinity_apex/logs/stability-30min.csv
+
+======================================================================
+
+  🎉 STABILITÄTSTEST BESTANDEN!
+  ✅ System ist stabil genug für 24-Stunden Produktionstest
+
+======================================================================
+

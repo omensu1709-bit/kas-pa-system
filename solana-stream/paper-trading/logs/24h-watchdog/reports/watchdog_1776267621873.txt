@@ -1,0 +1,31 @@
+
+================================================================================
+WATCHDOG REPORT - 2026-04-15T15:40:21.873Z
+================================================================================
+Uptime: 8h 19m
+Total Checks: 17
+Issues Found: 17
+
+ISSUES:
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+  - Low message rate: only 1 messages in 5s
+
+RECOMMENDATIONS:
+  - Some checks failed - review alerts
+
+================================================================================

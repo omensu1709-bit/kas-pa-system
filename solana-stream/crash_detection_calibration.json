@@ -1,0 +1,25 @@
+{
+  "timestamp": "2026-04-11T00:59:29.233714",
+  "data_source": "Chainstack REST API",
+  "transactions_analyzed": 10,
+  "baseline": {
+    "fee_mean": 7281.2,
+    "fee_std": 1993.2505010660352,
+    "compute_mean": 109224.6,
+    "compute_std": 42056.788924500644
+  },
+  "thresholds": {
+    "ignore": 0.1,
+    "monitor": 0.2,
+    "min_confirming": 3
+  },
+  "stress_scenario": {
+    "fee_zscore": 2.5,
+    "compute_zscore": 1.8,
+    "entropy_zscore": -2.0,
+    "clustering_zscore": 2.2,
+    "crash_probability": 0.9999151889582765,
+    "zone": "IMMEDIATE_SHORT",
+    "confirming_metrics": 4
+  }
+}

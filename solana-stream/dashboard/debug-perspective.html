@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Perspective Error Logger</title>
+  <meta charset="utf-8">
+  <style>
+    body { font-family: monospace; background: #0a0a0a; color: #fff; padding: 20px; }
+    .log { white-space: pre-wrap; font-size: 11px; line-height: 1.4; border: 1px solid #333; padding: 10px; background: #111; max-height: 600px; overflow-y: auto; }
+    .error { color: #ff6b6b; }
+    .warn { color: #ffd93d; }
+    .info { color: #6bcbff; }
+    .success { color: #6bff6b; }
+    h1 { color: #fff; }
+    #errors { color: #ff6b6b; }
+  </style>
+</head>
+<body>
+  <h1>Perspective.js Exact Error Log</h1>
+  <p>Öffne die Browser DevTools (F12) Network Tab und Console Tab.</p>
+  <div id="output" class="log"></div>
+
+  <script type="module">
+    const output = document.getElementById('output');
+
+    function log(msg, type = 'info') {
+      const div = document.createElement('div');
+      div.className = type;
+      const time = new Date().toISOString().split('T')[1].split('.')[0];
+      div.textContent = `[${time}] ${typeof msg === 'object' ? JSON.stringify(msg, null, 2) : msg}`;
+      output.appendChild(div);
+      output.scrollTop = output.scrollHeight;
+
+      // Also console
+      if (type === 'error') console.error(msg);
+      else console.log(msg);
+    }
+
+    // Capture ALL console output
+    const originalConsole = {
+      log: console.log,
+      error: console.error,
+      warn: console.warn
+    };
+
+    console.log = (...args) => {
+      originalConsole.log.apply(console, args);
+      log(args.join(' '), 'info');
+    };
+    console.error = (...args) => {
+      originalConsole.error.apply(console, args);
+      log('CONSOLE ERROR: ' + args.join(' '), 'error');
+    };
+    console.warn = (...args) => {
+      originalConsole.warn.apply(console, args);
+      log('CONSOLE WARN: ' + args.join(' '), 'warn');
+    };
+
+    // Capture fetch errors
+    window.addEventListener('error', (e) => {
+      log(`GLOBAL ERROR: ${e.message} at ${e.filename}:${e.lineno}`, 'error');
+    });
+
+    window.addEventListener('unhandledrejection', (e) => {
+      log(`UNHANDLED REJECTION: ${e.reason}`, 'error');
+    });
+
+    log('=== PERSPECTIVE.JS EXACT ERROR LOG ===');
+    log('Start: ' + new Date().toISOString());
+    log('');
+
+    async function test() {
+      try {
+        log('1. Importing @finos/perspective-viewer...');
+        await import('/node_modules/@finos/perspective-viewer/dist/esm/perspective-viewer.js');
+        log('   SUCCESS - no error', 'success');
+      } catch (e) {
+        log('   ERROR: ' + e.message, 'error');
+        log('   Stack: ' + (e.stack || '').split('\n').slice(0, 3).join('\n'), 'error');
+      }
+
+      try {
+        log('2. Importing @finos/perspective...');
+        const perspective = await import('/node_modules/@finos/perspective/dist/esm/perspective.js');
+        log('   SUCCESS - exports: ' + Object.keys(perspective).join(', '), 'success');
+
+        log('3. Attempting perspective.worker()...');
+        const worker = await perspective.worker();
+        log('   SUCCESS - worker created', 'success');
+
+        log('4. Attempting customElements.whenDefined...');
+        await customElements.whenDefined('perspective-viewer');
+        log('   SUCCESS - custom element defined', 'success');
+
+        log('5. Creating table...');
+        const table = await worker.table({
+          timestamp: 'datetime',
+          price: 'float',
+          crash: 'float'
+        });
+        log('   SUCCESS - table created', 'success');
+
+      } catch (e) {
+        log('ERROR: ' + e.message, 'error');
+        log('Full Stack:', 'error');
+        log(e.stack, 'error');
+      }
+    }
+
+    test();
+  </script>
+</body>
+</html>

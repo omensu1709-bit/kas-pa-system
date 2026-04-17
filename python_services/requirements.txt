@@ -1,0 +1,7 @@
+redis
+duckdb
+pandas
+numpy
+tigramite
+aiohttp
+python-dotenv

@@ -1,0 +1,16 @@
+[Unit]
+Description=KAS PA Crash Detection Dashboard
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/data/trinity_apex/solana-stream/dashboard
+ExecStart=/usr/bin/npm run dev
+Restart=always
+RestartSec=5
+Environment=NODE_ENV=development
+Environment=PORT=5173
+
+[Install]
+WantedBy=multi-user.target

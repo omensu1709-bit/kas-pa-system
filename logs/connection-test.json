@@ -1,0 +1,65 @@
+{
+  "timestamp": 1775896623094,
+  "results": [
+    {
+      "name": "Chainstack",
+      "status": "OK",
+      "latency": 70,
+      "data": {
+        "currentSlot": 412471696
+      }
+    },
+    {
+      "name": "Solana RPC",
+      "status": "OK",
+      "latency": 30,
+      "data": {
+        "currentSlot": 412471696
+      }
+    },
+    {
+      "name": "Helius Direct RPC",
+      "status": "FAIL",
+      "error": "Method not found"
+    },
+    {
+      "name": "Helius Enhanced",
+      "status": "OK",
+      "latency": 284,
+      "data": {
+        "signature": "2wUBQUEzUwXkNaq2vjx1...",
+        "slot": 412471696,
+        "fee": 5000,
+        "type": "SWAP",
+        "description": ""
+      }
+    },
+    {
+      "name": "Helius By Address",
+      "status": "OK",
+      "latency": 586,
+      "data": {
+        "count": 5,
+        "firstSlot": 412471698,
+        "firstType": "SWAP"
+      }
+    },
+    {
+      "name": "Jupiter Price",
+      "status": "OK",
+      "latency": 45,
+      "data": {
+        "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v": {
+          "price": 0.9997960264332381,
+          "priceChange24h": -0.003125913962196089,
+          "liquidity": 481331373.00973225
+        },
+        "So11111111111111111111111111111111111111112": {
+          "price": 84.36691895761159,
+          "priceChange24h": 1.5870483347725346,
+          "liquidity": 672715164.7184546
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+[Ranking] Using REST API for prices (WebSocket disabled)
+[24h] Test logs initialized at /data/trinity_apex/solana-stream/paper-trading/logs/24h-test
+================================================================================
+KAS PA v4.0 - MULTI-COIN CRASH PREDICTION SYSTEM
+================================================================================
+Starting Capital: 100 SOL
+Update Interval: 30s
+Ranking Interval: 30min
+[WARM-UP] Data collection phase: 120 minutes
+
+[WebSocket] Server started on ws://0.0.0.0:8080
+[Helius] REST Service initialized for swap signal analysis
+[BotDetection] Starting Comprehensive Bot Detection...
+[BotDetection] Monitoring: Jito, Sandwich, Liquidation, Sniper, Arbitrage, Backrun
+
+[2026-04-14T19:22:25.759Z] Running ranking cycle...
+[Ranking] Cycle #1 - Fetching LIVE data...
+[DexScreener] Pool: 30 boosted + 30 recent
+[DexScreener] Unique mints: 56
+[DexScreener] Fetching 56 tokens in batches of 20...
+[DexScreener] Batch 1/3: 17 tokens fetched
+[DexScreener] Batch 2/3: 19 tokens fetched
+[WS] Client connected: 2.213.134.8

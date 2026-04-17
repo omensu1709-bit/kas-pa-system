@@ -1,0 +1,2 @@
+[CRITICAL] 2026-04-13T04:40:23.942Z
+WebSocket connection failed

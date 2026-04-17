@@ -1,0 +1,2941 @@
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-11T11:56:08.148Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-11T11:56:08.148Z
+[Watchdog] Status: HEALTHY
+  Latency: 13545ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 0
+  Consecutive Successes: 1
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #2 at 2026-04-11T12:26:13.258Z
+[Watchdog] Status: HEALTHY
+  Latency: 4118ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 2 checks (0h 30m):
+  Total Issues: 0
+  Consecutive Successes: 2
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #3 at 2026-04-11T12:56:13.358Z
+[Watchdog] Status: HEALTHY
+  Latency: 18696ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 3 checks (1h 0m):
+  Total Issues: 0
+  Consecutive Successes: 3
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #4 at 2026-04-11T13:26:13.458Z
+[Watchdog] Status: HEALTHY
+  Latency: 818ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 4 checks (1h 30m):
+  Total Issues: 0
+  Consecutive Successes: 4
+  Consecutive Failures: 0
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-11T13:53:19.117Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-11T13:53:19.117Z
+[Watchdog] Status: HEALTHY
+  Latency: 21541ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 0
+  Consecutive Successes: 1
+  Consecutive Failures: 0
+
+[Watchdog] Shutting down...
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1775916833598.txt
+[Watchdog] Final report saved. Total uptime: 0h 20m
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-11T14:14:29.872Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-11T14:14:29.872Z
+[Watchdog] Status: HEALTHY
+  Latency: 21468ms
+  Messages: 5
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 0
+  Consecutive Successes: 1
+  Consecutive Failures: 0
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-11T14:15:27.069Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-11T14:15:27.070Z
+[Watchdog] Status: HEALTHY
+  Latency: 20372ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 0
+  Consecutive Successes: 1
+  Consecutive Failures: 0
+
+[Watchdog] Shutting down...
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1775917396649.txt
+[Watchdog] Final report saved. Total uptime: 0h 7m
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-11T14:24:03.430Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-11T14:24:03.430Z
+[Watchdog] Status: HEALTHY
+  Latency: 1488ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 0
+  Consecutive Successes: 1
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #2 at 2026-04-11T14:54:08.540Z
+[Watchdog] Status: HEALTHY
+  Latency: 11319ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 2 checks (0h 30m):
+  Total Issues: 0
+  Consecutive Successes: 2
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #3 at 2026-04-11T15:24:08.640Z
+[Watchdog] Status: HEALTHY
+  Latency: 26254ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 3 checks (1h 0m):
+  Total Issues: 0
+  Consecutive Successes: 3
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #4 at 2026-04-11T15:54:08.740Z
+[Watchdog] Status: HEALTHY
+  Latency: 11905ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 4 checks (1h 30m):
+  Total Issues: 0
+  Consecutive Successes: 4
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #5 at 2026-04-11T16:24:08.840Z
+[Watchdog] Status: HEALTHY
+  Latency: 25451ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 5 checks (2h 0m):
+  Total Issues: 0
+  Consecutive Successes: 5
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #6 at 2026-04-11T16:54:08.940Z
+[Watchdog] Status: HEALTHY
+  Latency: 7335ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1775926453943.txt
+
+[Watchdog] Summary after 6 checks (2h 30m):
+  Total Issues: 0
+  Consecutive Successes: 6
+  Consecutive Failures: 0
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-11T17:20:23.687Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-11T17:20:23.688Z
+[Watchdog] Status: HEALTHY
+  Latency: 21413ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 0
+  Consecutive Successes: 1
+  Consecutive Failures: 0
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-11T17:36:00.104Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-11T17:36:00.104Z
+[Watchdog] Status: HEALTHY
+  Latency: 10704ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 0
+  Consecutive Successes: 1
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #2 at 2026-04-11T18:06:05.213Z
+[Watchdog] Status: HEALTHY
+  Latency: 21337ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 2 checks (0h 30m):
+  Total Issues: 0
+  Consecutive Successes: 2
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #3 at 2026-04-11T18:36:05.313Z
+[Watchdog] Status: HEALTHY
+  Latency: 29094ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 3 checks (1h 0m):
+  Total Issues: 0
+  Consecutive Successes: 3
+  Consecutive Failures: 0
+
+[Watchdog] Shutting down...
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1775933421960.txt
+[Watchdog] Final report saved. Total uptime: 1h 14m
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-11T18:50:24.124Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-11T18:50:24.124Z
+[Watchdog] Status: HEALTHY
+  Latency: 21582ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 0
+  Consecutive Successes: 1
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #2 at 2026-04-11T19:20:29.233Z
+[Watchdog] Status: HEALTHY
+  Latency: 24734ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 2 checks (0h 30m):
+  Total Issues: 0
+  Consecutive Successes: 2
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #3 at 2026-04-11T19:50:29.333Z
+[Watchdog] Status: HEALTHY
+  Latency: 12218ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 3 checks (1h 0m):
+  Total Issues: 0
+  Consecutive Successes: 3
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #4 at 2026-04-11T20:20:29.433Z
+[Watchdog] Status: HEALTHY
+  Latency: 28552ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 4 checks (1h 30m):
+  Total Issues: 0
+  Consecutive Successes: 4
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #5 at 2026-04-11T20:50:29.533Z
+[Watchdog] Status: HEALTHY
+  Latency: 15332ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 5 checks (2h 0m):
+  Total Issues: 0
+  Consecutive Successes: 5
+  Consecutive Failures: 0
+
+[Watchdog] Shutting down...
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1775942419875.txt
+[Watchdog] Final report saved. Total uptime: 2h 29m
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-11T21:20:22.042Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-11T21:20:22.042Z
+[Watchdog] Status: HEALTHY
+  Latency: 21765ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 0
+  Consecutive Successes: 1
+  Consecutive Failures: 0
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-11T21:23:30.057Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-11T21:23:30.058Z
+[Watchdog] Status: HEALTHY
+  Latency: 21670ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 0
+  Consecutive Successes: 1
+  Consecutive Failures: 0
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-11T21:27:52.256Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-11T21:27:52.256Z
+[Watchdog] Status: HEALTHY
+  Latency: 21827ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 0
+  Consecutive Successes: 1
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #2 at 2026-04-11T21:57:57.367Z
+[Watchdog] Status: HEALTHY
+  Latency: 18746ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 2 checks (0h 30m):
+  Total Issues: 0
+  Consecutive Successes: 2
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #3 at 2026-04-11T22:27:57.467Z
+[Watchdog] Status: HEALTHY
+  Latency: 2711ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 3 checks (1h 0m):
+  Total Issues: 0
+  Consecutive Successes: 3
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #4 at 2026-04-11T22:57:57.567Z
+[Watchdog] Status: HEALTHY
+  Latency: 21785ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 4 checks (1h 30m):
+  Total Issues: 0
+  Consecutive Successes: 4
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #5 at 2026-04-11T23:27:57.667Z
+[Watchdog] Status: HEALTHY
+  Latency: 7913ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 5 checks (2h 0m):
+  Total Issues: 0
+  Consecutive Successes: 5
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #6 at 2026-04-11T23:57:57.767Z
+[Watchdog] Status: HEALTHY
+  Latency: 2183ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1775951882770.txt
+
+[Watchdog] Summary after 6 checks (2h 30m):
+  Total Issues: 0
+  Consecutive Successes: 6
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #7 at 2026-04-12T00:27:57.867Z
+[Watchdog] Status: HEALTHY
+  Latency: 27638ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 7 checks (3h 0m):
+  Total Issues: 0
+  Consecutive Successes: 7
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #8 at 2026-04-12T00:57:57.967Z
+[Watchdog] Status: HEALTHY
+  Latency: 22339ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 8 checks (3h 30m):
+  Total Issues: 0
+  Consecutive Successes: 8
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #9 at 2026-04-12T01:27:58.067Z
+[Watchdog] Status: HEALTHY
+  Latency: 11467ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 9 checks (4h 0m):
+  Total Issues: 0
+  Consecutive Successes: 9
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #10 at 2026-04-12T01:57:58.167Z
+[Watchdog] Status: HEALTHY
+  Latency: 16680ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 10 checks (4h 30m):
+  Total Issues: 0
+  Consecutive Successes: 10
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #11 at 2026-04-12T02:27:58.267Z
+[Watchdog] Status: HEALTHY
+  Latency: 30324ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 11 checks (5h 0m):
+  Total Issues: 0
+  Consecutive Successes: 11
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #12 at 2026-04-12T02:57:58.367Z
+[Watchdog] Status: HEALTHY
+  Latency: 25634ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1775962683370.txt
+
+[Watchdog] Summary after 12 checks (5h 30m):
+  Total Issues: 0
+  Consecutive Successes: 12
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #13 at 2026-04-12T03:27:58.467Z
+[Watchdog] Status: HEALTHY
+  Latency: 20281ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 13 checks (6h 0m):
+  Total Issues: 0
+  Consecutive Successes: 13
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #14 at 2026-04-12T03:57:58.567Z
+[Watchdog] Status: HEALTHY
+  Latency: 14779ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 14 checks (6h 30m):
+  Total Issues: 0
+  Consecutive Successes: 14
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #15 at 2026-04-12T04:27:58.667Z
+[Watchdog] Status: HEALTHY
+  Latency: 10786ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 15 checks (7h 0m):
+  Total Issues: 0
+  Consecutive Successes: 15
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #16 at 2026-04-12T04:57:58.767Z
+[Watchdog] Status: HEALTHY
+  Latency: 7575ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 16 checks (7h 30m):
+  Total Issues: 0
+  Consecutive Successes: 16
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #17 at 2026-04-12T05:27:58.867Z
+[Watchdog] Status: HEALTHY
+  Latency: 3525ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 17 checks (8h 0m):
+  Total Issues: 0
+  Consecutive Successes: 17
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #18 at 2026-04-12T05:57:58.967Z
+[Watchdog] Status: HEALTHY
+  Latency: 30306ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1775973483978.txt
+
+[Watchdog] Summary after 18 checks (8h 30m):
+  Total Issues: 0
+  Consecutive Successes: 18
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #19 at 2026-04-12T06:27:59.067Z
+[Watchdog] Status: HEALTHY
+  Latency: 22749ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 19 checks (9h 0m):
+  Total Issues: 0
+  Consecutive Successes: 19
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #20 at 2026-04-12T06:57:59.167Z
+[Watchdog] Status: HEALTHY
+  Latency: 13586ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 20 checks (9h 30m):
+  Total Issues: 0
+  Consecutive Successes: 20
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #21 at 2026-04-12T07:27:59.267Z
+[Watchdog] Status: HEALTHY
+  Latency: 2879ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 21 checks (10h 0m):
+  Total Issues: 0
+  Consecutive Successes: 21
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #22 at 2026-04-12T07:57:59.367Z
+[Watchdog] Status: HEALTHY
+  Latency: 22155ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 22 checks (10h 30m):
+  Total Issues: 0
+  Consecutive Successes: 22
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #23 at 2026-04-12T08:27:59.467Z
+[Watchdog] Status: HEALTHY
+  Latency: 13271ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 23 checks (11h 0m):
+  Total Issues: 0
+  Consecutive Successes: 23
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #24 at 2026-04-12T08:57:59.567Z
+[Watchdog] Status: HEALTHY
+  Latency: 2872ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1775984284570.txt
+
+[Watchdog] Summary after 24 checks (11h 30m):
+  Total Issues: 0
+  Consecutive Successes: 24
+  Consecutive Failures: 0
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-12T09:30:23.913Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-12T09:30:23.914Z
+[Watchdog] Status: HEALTHY
+  Latency: 21442ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 0
+  Consecutive Successes: 1
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #2 at 2026-04-12T10:00:29.024Z
+[Watchdog] Status: HEALTHY
+  Latency: 10288ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 2 checks (0h 30m):
+  Total Issues: 0
+  Consecutive Successes: 2
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #3 at 2026-04-12T10:30:29.124Z
+[Watchdog] Status: HEALTHY
+  Latency: 1803ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 3 checks (1h 0m):
+  Total Issues: 0
+  Consecutive Successes: 3
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #4 at 2026-04-12T11:00:29.224Z
+[Watchdog] Status: HEALTHY
+  Latency: 15090ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 4 checks (1h 30m):
+  Total Issues: 0
+  Consecutive Successes: 4
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #5 at 2026-04-12T11:30:29.324Z
+[Watchdog] Status: HEALTHY
+  Latency: 9582ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 5 checks (2h 0m):
+  Total Issues: 0
+  Consecutive Successes: 5
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #6 at 2026-04-12T12:00:29.424Z
+[Watchdog] Status: HEALTHY
+  Latency: 28822ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1775995234427.txt
+
+[Watchdog] Summary after 6 checks (2h 30m):
+  Total Issues: 0
+  Consecutive Successes: 6
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #7 at 2026-04-12T12:30:29.524Z
+[Watchdog] Status: HEALTHY
+  Latency: 12296ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 7 checks (3h 0m):
+  Total Issues: 0
+  Consecutive Successes: 7
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #8 at 2026-04-12T13:00:29.624Z
+[Watchdog] Status: HEALTHY
+  Latency: 30726ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 8 checks (3h 30m):
+  Total Issues: 0
+  Consecutive Successes: 8
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #9 at 2026-04-12T13:30:29.724Z
+[Watchdog] Status: HEALTHY
+  Latency: 12100ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 9 checks (4h 0m):
+  Total Issues: 0
+  Consecutive Successes: 9
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #10 at 2026-04-12T14:00:29.824Z
+[Watchdog] Status: HEALTHY
+  Latency: 29596ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 10 checks (4h 30m):
+  Total Issues: 0
+  Consecutive Successes: 10
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #11 at 2026-04-12T14:30:29.924Z
+[Watchdog] Status: HEALTHY
+  Latency: 16013ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 11 checks (5h 0m):
+  Total Issues: 0
+  Consecutive Successes: 11
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #12 at 2026-04-12T15:00:30.024Z
+[Watchdog] Status: HEALTHY
+  Latency: 28586ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1776006035027.txt
+
+[Watchdog] Summary after 12 checks (5h 30m):
+  Total Issues: 0
+  Consecutive Successes: 12
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #13 at 2026-04-12T15:30:30.124Z
+[Watchdog] Status: HEALTHY
+  Latency: 5714ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 13 checks (6h 0m):
+  Total Issues: 0
+  Consecutive Successes: 13
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #14 at 2026-04-12T16:00:30.224Z
+[Watchdog] Status: HEALTHY
+  Latency: 22665ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 14 checks (6h 30m):
+  Total Issues: 0
+  Consecutive Successes: 14
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #15 at 2026-04-12T16:30:30.324Z
+[Watchdog] Status: HEALTHY
+  Latency: 7502ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 15 checks (7h 0m):
+  Total Issues: 0
+  Consecutive Successes: 15
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #16 at 2026-04-12T17:00:30.424Z
+[Watchdog] Status: HEALTHY
+  Latency: 22802ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 16 checks (7h 30m):
+  Total Issues: 0
+  Consecutive Successes: 16
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #17 at 2026-04-12T17:30:30.524Z
+[Watchdog] Status: HEALTHY
+  Latency: 17830ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 17 checks (8h 0m):
+  Total Issues: 0
+  Consecutive Successes: 17
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #18 at 2026-04-12T18:00:30.624Z
+[Watchdog] Status: HEALTHY
+  Latency: 30115ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1776016835627.txt
+
+[Watchdog] Summary after 18 checks (8h 30m):
+  Total Issues: 0
+  Consecutive Successes: 18
+  Consecutive Failures: 0
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-12T18:11:59.749Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-12T18:11:59.749Z
+[Watchdog] Status: HEALTHY
+  Latency: 19057ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 0
+  Consecutive Successes: 1
+  Consecutive Failures: 0
+
+[Watchdog] Health Check #2 at 2026-04-12T18:42:04.860Z
+[Watchdog] Status: HEALTHY
+  Latency: 20305ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 2 checks (0h 30m):
+  Total Issues: 0
+  Consecutive Successes: 2
+  Consecutive Failures: 0
+
+[Watchdog] Shutting down...
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1776019409717.txt
+[Watchdog] Final report saved. Total uptime: 0h 31m
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-12T18:43:54.519Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-12T18:43:54.520Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 1
+  Consecutive Successes: 0
+  Consecutive Failures: 1
+
+[Watchdog] Health Check #2 at 2026-04-12T19:13:59.633Z
+[Watchdog] Status: HEALTHY
+  Latency: 4461ms
+  Messages: 6
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 2 checks (0h 30m):
+  Total Issues: 1
+  Consecutive Successes: 1
+  Consecutive Failures: 0
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-12T19:30:05.318Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-12T19:30:05.318Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 1
+  Consecutive Successes: 0
+  Consecutive Failures: 1
+
+[Watchdog] Health Check #2 at 2026-04-12T20:00:10.432Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 2 checks (0h 30m):
+  Total Issues: 2
+  Consecutive Successes: 0
+  Consecutive Failures: 2
+
+[Watchdog] Health Check #3 at 2026-04-12T20:30:10.532Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 3 checks (1h 0m):
+  Total Issues: 3
+  Consecutive Successes: 0
+  Consecutive Failures: 3
+
+[Watchdog] Health Check #4 at 2026-04-12T21:00:10.632Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 2 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 2 messages in 5s
+
+[Watchdog] Summary after 4 checks (1h 30m):
+  Total Issues: 4
+  Consecutive Successes: 0
+  Consecutive Failures: 4
+
+[Watchdog] Health Check #5 at 2026-04-12T21:30:10.732Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 5 checks (2h 0m):
+  Total Issues: 5
+  Consecutive Successes: 0
+  Consecutive Failures: 5
+
+[Watchdog] Health Check #6 at 2026-04-12T22:00:10.832Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 2 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 2 messages in 5s
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1776031215834.txt
+
+[Watchdog] Summary after 6 checks (2h 30m):
+  Total Issues: 6
+  Consecutive Successes: 0
+  Consecutive Failures: 6
+
+[Watchdog] Shutting down...
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1776032122102.txt
+[Watchdog] Final report saved. Total uptime: 2h 45m
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-12T22:15:24.261Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-12T22:15:24.262Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 1
+  Consecutive Successes: 0
+  Consecutive Failures: 1
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-12T22:20:24.253Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-12T22:20:24.254Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 1
+  Consecutive Successes: 0
+  Consecutive Failures: 1
+
+[Watchdog] Shutting down...
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1776033621190.txt
+[Watchdog] Final report saved. Total uptime: 0h 19m
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-12T22:40:23.346Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-12T22:40:23.346Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 1
+  Consecutive Successes: 0
+  Consecutive Failures: 1
+
+[Watchdog] Health Check #2 at 2026-04-12T23:10:28.460Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 2 checks (0h 30m):
+  Total Issues: 2
+  Consecutive Successes: 0
+  Consecutive Failures: 2
+
+[Watchdog] Health Check #3 at 2026-04-12T23:40:28.560Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 2 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 2 messages in 5s
+
+[Watchdog] Summary after 3 checks (1h 0m):
+  Total Issues: 3
+  Consecutive Successes: 0
+  Consecutive Failures: 3
+
+[Watchdog] Shutting down...
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1776039018569.txt
+[Watchdog] Final report saved. Total uptime: 1h 29m
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-13T00:10:20.726Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-13T00:10:20.726Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 2 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 2 messages in 5s
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 1
+  Consecutive Successes: 0
+  Consecutive Failures: 1
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-13T00:15:23.771Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-13T00:15:23.771Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] WebSocket connection failed
+[Watchdog] ALERT ({severity}): WebSocket connection failed
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 1
+  Consecutive Successes: 0
+  Consecutive Failures: 1
+
+[Watchdog] Health Check #2 at 2026-04-13T00:45:23.878Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 2 checks (0h 30m):
+  Total Issues: 2
+  Consecutive Successes: 0
+  Consecutive Failures: 2
+
+[Watchdog] Health Check #3 at 2026-04-13T01:15:23.978Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 3 checks (1h 0m):
+  Total Issues: 3
+  Consecutive Successes: 0
+  Consecutive Failures: 3
+
+[Watchdog] Health Check #4 at 2026-04-13T01:45:24.078Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 4 checks (1h 30m):
+  Total Issues: 4
+  Consecutive Successes: 0
+  Consecutive Failures: 4
+
+[Watchdog] Health Check #5 at 2026-04-13T02:15:24.178Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 5 checks (2h 0m):
+  Total Issues: 5
+  Consecutive Successes: 0
+  Consecutive Failures: 5
+
+[Watchdog] Health Check #6 at 2026-04-13T02:45:24.278Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1776048329284.txt
+
+[Watchdog] Summary after 6 checks (2h 30m):
+  Total Issues: 6
+  Consecutive Successes: 0
+  Consecutive Failures: 6
+
+[Watchdog] Health Check #7 at 2026-04-13T03:15:24.378Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 7 checks (3h 0m):
+  Total Issues: 7
+  Consecutive Successes: 0
+  Consecutive Failures: 7
+
+[Watchdog] Health Check #8 at 2026-04-13T03:45:24.478Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 8 checks (3h 30m):
+  Total Issues: 8
+  Consecutive Successes: 0
+  Consecutive Failures: 8
+
+[Watchdog] Health Check #9 at 2026-04-13T04:15:24.578Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 9 checks (4h 0m):
+  Total Issues: 9
+  Consecutive Successes: 0
+  Consecutive Failures: 9
+
+[Watchdog] Shutting down...
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1776055221776.txt
+[Watchdog] Final report saved. Total uptime: 4h 24m
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-13T04:40:23.935Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-13T04:40:23.935Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] WebSocket connection failed
+[Watchdog] ALERT ({severity}): WebSocket connection failed
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 1
+  Consecutive Successes: 0
+  Consecutive Failures: 1
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-13T04:46:18.399Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-13T04:46:18.399Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 1
+  Consecutive Successes: 0
+  Consecutive Failures: 1
+
+[Watchdog] Health Check #2 at 2026-04-13T05:16:23.513Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 2 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 2 messages in 5s
+
+[Watchdog] Summary after 2 checks (0h 30m):
+  Total Issues: 2
+  Consecutive Successes: 0
+  Consecutive Failures: 2
+
+[Watchdog] Health Check #3 at 2026-04-13T05:46:23.613Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 2 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 2 messages in 5s
+
+[Watchdog] Summary after 3 checks (1h 0m):
+  Total Issues: 3
+  Consecutive Successes: 0
+  Consecutive Failures: 3
+
+[Watchdog] Health Check #4 at 2026-04-13T06:16:23.713Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 4 checks (1h 30m):
+  Total Issues: 4
+  Consecutive Successes: 0
+  Consecutive Failures: 4
+
+[Watchdog] Health Check #5 at 2026-04-13T06:46:23.813Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 5 checks (2h 0m):
+  Total Issues: 5
+  Consecutive Successes: 0
+  Consecutive Failures: 5
+
+[Watchdog] Health Check #6 at 2026-04-13T07:16:23.913Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1776064588921.txt
+
+[Watchdog] Summary after 6 checks (2h 30m):
+  Total Issues: 6
+  Consecutive Successes: 0
+  Consecutive Failures: 6
+
+[Watchdog] Health Check #7 at 2026-04-13T07:46:24.013Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 7 checks (3h 0m):
+  Total Issues: 7
+  Consecutive Successes: 0
+  Consecutive Failures: 7
+
+[Watchdog] Health Check #8 at 2026-04-13T08:16:24.113Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 8 checks (3h 30m):
+  Total Issues: 8
+  Consecutive Successes: 0
+  Consecutive Failures: 8
+
+[Watchdog] Health Check #9 at 2026-04-13T08:46:24.213Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 9 checks (4h 0m):
+  Total Issues: 9
+  Consecutive Successes: 0
+  Consecutive Failures: 9
+
+[Watchdog] Health Check #10 at 2026-04-13T09:16:24.313Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 10 checks (4h 30m):
+  Total Issues: 10
+  Consecutive Successes: 0
+  Consecutive Failures: 10
+
+[Watchdog] Shutting down...
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1776072922028.txt
+[Watchdog] Final report saved. Total uptime: 4h 49m
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-13T09:35:24.179Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-13T09:35:24.179Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 1
+  Consecutive Successes: 0
+  Consecutive Failures: 1
+
+[Watchdog] Health Check #2 at 2026-04-13T10:05:29.293Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 2 checks (0h 30m):
+  Total Issues: 2
+  Consecutive Successes: 0
+  Consecutive Failures: 2
+
+[Watchdog] Health Check #3 at 2026-04-13T10:35:29.393Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 3 checks (1h 0m):
+  Total Issues: 3
+  Consecutive Successes: 0
+  Consecutive Failures: 3
+
+[Watchdog] Health Check #4 at 2026-04-13T11:05:29.493Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 4 checks (1h 30m):
+  Total Issues: 4
+  Consecutive Successes: 0
+  Consecutive Failures: 4
+
+[Watchdog] Health Check #5 at 2026-04-13T11:35:29.593Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 5 checks (2h 0m):
+  Total Issues: 5
+  Consecutive Successes: 0
+  Consecutive Failures: 5
+
+[Watchdog] Health Check #6 at 2026-04-13T12:05:29.693Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1776081934700.txt
+
+[Watchdog] Summary after 6 checks (2h 30m):
+  Total Issues: 6
+  Consecutive Successes: 0
+  Consecutive Failures: 6
+
+[Watchdog] Health Check #7 at 2026-04-13T12:35:29.793Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 7 checks (3h 0m):
+  Total Issues: 7
+  Consecutive Successes: 0
+  Consecutive Failures: 7
+
+[Watchdog] Health Check #8 at 2026-04-13T13:05:29.893Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 8 checks (3h 30m):
+  Total Issues: 8
+  Consecutive Successes: 0
+  Consecutive Failures: 8
+
+[Watchdog] Health Check #9 at 2026-04-13T13:35:29.993Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 9 checks (4h 0m):
+  Total Issues: 9
+  Consecutive Successes: 0
+  Consecutive Failures: 9
+
+[Watchdog] Health Check #10 at 2026-04-13T14:05:30.093Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 10 checks (4h 30m):
+  Total Issues: 10
+  Consecutive Successes: 0
+  Consecutive Failures: 10
+
+[Watchdog] Shutting down...
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1776089421249.txt
+[Watchdog] Final report saved. Total uptime: 4h 34m
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-13T14:10:23.405Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-13T14:10:23.405Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 1
+  Consecutive Successes: 0
+  Consecutive Failures: 1
+
+[Watchdog] Health Check #2 at 2026-04-13T14:40:28.519Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 2 checks (0h 30m):
+  Total Issues: 2
+  Consecutive Successes: 0
+  Consecutive Failures: 2
+
+[Watchdog] Health Check #3 at 2026-04-13T15:10:28.619Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 3 checks (1h 0m):
+  Total Issues: 3
+  Consecutive Successes: 0
+  Consecutive Failures: 3
+
+[Watchdog] Health Check #4 at 2026-04-13T15:40:28.719Z
+[Watchdog] Status: HEALTHY
+  Latency: 15ms
+  Messages: 12
+  Connection: OK
+  Predictions: Fresh
+  Ranking: Fresh
+
+[Watchdog] Summary after 4 checks (1h 30m):
+  Total Issues: 3
+  Consecutive Successes: 1
+  Consecutive Failures: 0
+
+[Watchdog] Shutting down...
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1776095967821.txt
+[Watchdog] Final report saved. Total uptime: 1h 49m
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-13T15:59:40.635Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-13T15:59:40.636Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 1
+  Consecutive Successes: 0
+  Consecutive Failures: 1
+
+[Watchdog] Health Check #2 at 2026-04-13T16:29:45.748Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 2 checks (0h 30m):
+  Total Issues: 2
+  Consecutive Successes: 0
+  Consecutive Failures: 2
+
+[Watchdog] Health Check #3 at 2026-04-13T16:59:45.848Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 3 checks (1h 0m):
+  Total Issues: 3
+  Consecutive Successes: 0
+  Consecutive Failures: 3
+
+[Watchdog] Health Check #4 at 2026-04-13T17:29:45.948Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 4 checks (1h 30m):
+  Total Issues: 4
+  Consecutive Successes: 0
+  Consecutive Failures: 4
+
+[Watchdog] Health Check #5 at 2026-04-13T17:59:46.048Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 5 checks (2h 0m):
+  Total Issues: 5
+  Consecutive Successes: 0
+  Consecutive Failures: 5
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-13T18:05:23.425Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-13T18:05:23.426Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 1
+  Consecutive Successes: 0
+  Consecutive Failures: 1
+
+[Watchdog] Health Check #2 at 2026-04-13T18:35:28.540Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 2 checks (0h 30m):
+  Total Issues: 2
+  Consecutive Successes: 0
+  Consecutive Failures: 2
+
+[Watchdog] Shutting down...
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1776105621410.txt
+[Watchdog] Final report saved. Total uptime: 0h 34m
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-13T18:40:23.567Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-13T18:40:23.567Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 1
+  Consecutive Successes: 0
+  Consecutive Failures: 1
+
+[Watchdog] Health Check #2 at 2026-04-13T19:10:28.682Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 2 checks (0h 30m):
+  Total Issues: 2
+  Consecutive Successes: 0
+  Consecutive Failures: 2
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-13T19:40:23.854Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-13T19:40:23.854Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 1
+  Consecutive Successes: 0
+  Consecutive Failures: 1
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-13T19:53:39.295Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-13T19:53:39.295Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 1
+  Consecutive Successes: 0
+  Consecutive Failures: 1
+
+[Watchdog] Health Check #2 at 2026-04-13T20:23:44.409Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 2 checks (0h 30m):
+  Total Issues: 2
+  Consecutive Successes: 0
+  Consecutive Failures: 2
+
+[Watchdog] Health Check #3 at 2026-04-13T20:53:44.509Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 3 checks (1h 0m):
+  Total Issues: 3
+  Consecutive Successes: 0
+  Consecutive Failures: 3
+
+[Watchdog] Health Check #4 at 2026-04-13T21:23:44.609Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 4 checks (1h 30m):
+  Total Issues: 4
+  Consecutive Successes: 0
+  Consecutive Failures: 4
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-13T21:46:23.217Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-13T21:46:23.218Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 1
+  Consecutive Successes: 0
+  Consecutive Failures: 1
+
+[Watchdog] Health Check #2 at 2026-04-13T22:16:28.332Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 2 checks (0h 30m):
+  Total Issues: 2
+  Consecutive Successes: 0
+  Consecutive Failures: 2
+
+[Watchdog] Health Check #3 at 2026-04-13T22:46:28.432Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 3 checks (1h 0m):
+  Total Issues: 3
+  Consecutive Successes: 0
+  Consecutive Failures: 3
+
+[Watchdog] Health Check #4 at 2026-04-13T23:16:28.532Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 4 checks (1h 30m):
+  Total Issues: 4
+  Consecutive Successes: 0
+  Consecutive Failures: 4
+
+[Watchdog] Health Check #5 at 2026-04-13T23:46:28.632Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 5 checks (2h 0m):
+  Total Issues: 5
+  Consecutive Successes: 0
+  Consecutive Failures: 5
+
+[Watchdog] Health Check #6 at 2026-04-14T00:16:28.732Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1776125793738.txt
+
+[Watchdog] Summary after 6 checks (2h 30m):
+  Total Issues: 6
+  Consecutive Successes: 0
+  Consecutive Failures: 6
+
+[Watchdog] Health Check #7 at 2026-04-14T00:46:28.832Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 7 checks (3h 0m):
+  Total Issues: 7
+  Consecutive Successes: 0
+  Consecutive Failures: 7
+
+[Watchdog] Health Check #8 at 2026-04-14T01:16:28.932Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 8 checks (3h 30m):
+  Total Issues: 8
+  Consecutive Successes: 0
+  Consecutive Failures: 8
+
+[Watchdog] Health Check #9 at 2026-04-14T01:46:29.032Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 2 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 2 messages in 5s
+
+[Watchdog] Summary after 9 checks (4h 0m):
+  Total Issues: 9
+  Consecutive Successes: 0
+  Consecutive Failures: 9
+
+[Watchdog] Health Check #10 at 2026-04-14T02:16:29.132Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 10 checks (4h 30m):
+  Total Issues: 10
+  Consecutive Successes: 0
+  Consecutive Failures: 10
+
+[Watchdog] Health Check #11 at 2026-04-14T02:46:29.232Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 11 checks (5h 0m):
+  Total Issues: 11
+  Consecutive Successes: 0
+  Consecutive Failures: 11
+
+[Watchdog] Health Check #12 at 2026-04-14T03:16:29.332Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1776136594338.txt
+
+[Watchdog] Summary after 12 checks (5h 30m):
+  Total Issues: 12
+  Consecutive Successes: 0
+  Consecutive Failures: 12
+
+[Watchdog] Health Check #13 at 2026-04-14T03:46:29.432Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 13 checks (6h 0m):
+  Total Issues: 13
+  Consecutive Successes: 0
+  Consecutive Failures: 13
+
+[Watchdog] Health Check #14 at 2026-04-14T04:16:29.532Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 2 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 2 messages in 5s
+
+[Watchdog] Summary after 14 checks (6h 30m):
+  Total Issues: 14
+  Consecutive Successes: 0
+  Consecutive Failures: 14
+
+[Watchdog] Health Check #15 at 2026-04-14T04:46:29.632Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 2 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 2 messages in 5s
+
+[Watchdog] Summary after 15 checks (7h 0m):
+  Total Issues: 15
+  Consecutive Successes: 0
+  Consecutive Failures: 15
+
+[Watchdog] Health Check #16 at 2026-04-14T05:16:29.732Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 2 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 2 messages in 5s
+
+[Watchdog] Summary after 16 checks (7h 30m):
+  Total Issues: 16
+  Consecutive Successes: 0
+  Consecutive Failures: 16
+
+[Watchdog] Health Check #17 at 2026-04-14T05:46:29.832Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 2 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 2 messages in 5s
+
+[Watchdog] Summary after 17 checks (8h 0m):
+  Total Issues: 17
+  Consecutive Successes: 0
+  Consecutive Failures: 17
+
+[Watchdog] Health Check #18 at 2026-04-14T06:16:29.932Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 2 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 2 messages in 5s
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1776147394939.txt
+
+[Watchdog] Summary after 18 checks (8h 30m):
+  Total Issues: 18
+  Consecutive Successes: 0
+  Consecutive Failures: 18
+
+[Watchdog] Health Check #19 at 2026-04-14T06:46:30.032Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 19 checks (9h 0m):
+  Total Issues: 19
+  Consecutive Successes: 0
+  Consecutive Failures: 19
+
+[Watchdog] Health Check #20 at 2026-04-14T07:16:30.132Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 20 checks (9h 30m):
+  Total Issues: 20
+  Consecutive Successes: 0
+  Consecutive Failures: 20
+
+[Watchdog] Health Check #21 at 2026-04-14T07:46:30.232Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 21 checks (10h 0m):
+  Total Issues: 21
+  Consecutive Successes: 0
+  Consecutive Failures: 21
+
+[Watchdog] Health Check #22 at 2026-04-14T08:16:30.332Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 22 checks (10h 30m):
+  Total Issues: 22
+  Consecutive Successes: 0
+  Consecutive Failures: 22
+
+[Watchdog] Health Check #23 at 2026-04-14T08:46:30.432Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 23 checks (11h 0m):
+  Total Issues: 23
+  Consecutive Successes: 0
+  Consecutive Failures: 23
+
+[Watchdog] Health Check #24 at 2026-04-14T09:16:30.532Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 2 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 2 messages in 5s
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1776158195536.txt
+
+[Watchdog] Summary after 24 checks (11h 30m):
+  Total Issues: 24
+  Consecutive Successes: 0
+  Consecutive Failures: 24
+
+[Watchdog] Health Check #25 at 2026-04-14T09:46:30.632Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 25 checks (12h 0m):
+  Total Issues: 25
+  Consecutive Successes: 0
+  Consecutive Failures: 25
+
+[Watchdog] Health Check #26 at 2026-04-14T10:16:30.732Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 26 checks (12h 30m):
+  Total Issues: 26
+  Consecutive Successes: 0
+  Consecutive Failures: 26
+
+[Watchdog] Health Check #27 at 2026-04-14T10:46:30.832Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 27 checks (13h 0m):
+  Total Issues: 27
+  Consecutive Successes: 0
+  Consecutive Failures: 27
+
+[Watchdog] Health Check #28 at 2026-04-14T11:16:30.932Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 28 checks (13h 30m):
+  Total Issues: 28
+  Consecutive Successes: 0
+  Consecutive Failures: 28
+
+[Watchdog] Health Check #29 at 2026-04-14T11:46:31.032Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 29 checks (14h 0m):
+  Total Issues: 29
+  Consecutive Successes: 0
+  Consecutive Failures: 29
+
+[Watchdog] Health Check #30 at 2026-04-14T12:16:31.132Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1776168996139.txt
+
+[Watchdog] Summary after 30 checks (14h 30m):
+  Total Issues: 30
+  Consecutive Successes: 0
+  Consecutive Failures: 30
+
+[Watchdog] Health Check #31 at 2026-04-14T12:46:31.232Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 31 checks (15h 0m):
+  Total Issues: 31
+  Consecutive Successes: 0
+  Consecutive Failures: 31
+
+[Watchdog] Health Check #32 at 2026-04-14T13:16:31.332Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 32 checks (15h 30m):
+  Total Issues: 32
+  Consecutive Successes: 0
+  Consecutive Failures: 32
+
+[Watchdog] Health Check #33 at 2026-04-14T13:46:31.432Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 33 checks (16h 0m):
+  Total Issues: 33
+  Consecutive Successes: 0
+  Consecutive Failures: 33
+
+[Watchdog] Health Check #34 at 2026-04-14T14:16:31.532Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 34 checks (16h 30m):
+  Total Issues: 34
+  Consecutive Successes: 0
+  Consecutive Failures: 34
+
+[Watchdog] Health Check #35 at 2026-04-14T14:46:31.632Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 35 checks (17h 0m):
+  Total Issues: 35
+  Consecutive Successes: 0
+  Consecutive Failures: 35
+
+[Watchdog] Health Check #36 at 2026-04-14T15:16:31.732Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1776179796738.txt
+
+[Watchdog] Summary after 36 checks (17h 30m):
+  Total Issues: 36
+  Consecutive Successes: 0
+  Consecutive Failures: 36
+
+[Watchdog] Health Check #37 at 2026-04-14T15:46:31.832Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 37 checks (18h 0m):
+  Total Issues: 37
+  Consecutive Successes: 0
+  Consecutive Failures: 37
+
+[Watchdog] Health Check #38 at 2026-04-14T16:16:31.932Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 38 checks (18h 30m):
+  Total Issues: 38
+  Consecutive Successes: 0
+  Consecutive Failures: 38
+
+[Watchdog] Health Check #39 at 2026-04-14T16:46:32.032Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 39 checks (19h 0m):
+  Total Issues: 39
+  Consecutive Successes: 0
+  Consecutive Failures: 39
+
+[Watchdog] Shutting down...
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1776186021811.txt
+[Watchdog] Final report saved. Total uptime: 19h 13m
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-14T17:00:23.965Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-14T17:00:23.966Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 1
+  Consecutive Successes: 0
+  Consecutive Failures: 1
+
+[Watchdog] Health Check #2 at 2026-04-14T17:30:29.080Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 2 checks (0h 30m):
+  Total Issues: 2
+  Consecutive Successes: 0
+  Consecutive Failures: 2
+
+[Watchdog] Health Check #3 at 2026-04-14T18:00:29.180Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 3 checks (1h 0m):
+  Total Issues: 3
+  Consecutive Successes: 0
+  Consecutive Failures: 3
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-14T18:30:23.529Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-14T18:30:23.530Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 1
+  Consecutive Successes: 0
+  Consecutive Failures: 1
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-14T18:47:48.140Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-14T18:47:48.140Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 1
+  Consecutive Successes: 0
+  Consecutive Failures: 1
+
+[Watchdog] Health Check #2 at 2026-04-14T19:17:53.254Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 2 checks (0h 30m):
+  Total Issues: 2
+  Consecutive Successes: 0
+  Consecutive Failures: 2
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-14T19:22:49.199Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-14T19:22:49.199Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 1
+  Consecutive Successes: 0
+  Consecutive Failures: 1
+
+[Watchdog] Health Check #2 at 2026-04-14T19:52:54.314Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 2 checks (0h 30m):
+  Total Issues: 2
+  Consecutive Successes: 0
+  Consecutive Failures: 2
+
+[Watchdog] Health Check #3 at 2026-04-14T20:22:54.414Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 3 checks (1h 0m):
+  Total Issues: 3
+  Consecutive Successes: 0
+  Consecutive Failures: 3
+
+[Watchdog] Health Check #4 at 2026-04-14T20:52:54.514Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 4 checks (1h 30m):
+  Total Issues: 4
+  Consecutive Successes: 0
+  Consecutive Failures: 4
+
+[Watchdog] Health Check #5 at 2026-04-14T21:22:54.614Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 5 checks (2h 0m):
+  Total Issues: 5
+  Consecutive Successes: 0
+  Consecutive Failures: 5
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-14T21:47:59.112Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-14T21:47:59.112Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 1
+  Consecutive Successes: 0
+  Consecutive Failures: 1
+
+[Watchdog] Health Check #2 at 2026-04-14T22:18:04.226Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 2 checks (0h 30m):
+  Total Issues: 2
+  Consecutive Successes: 0
+  Consecutive Failures: 2
+
+[Watchdog] Health Check #3 at 2026-04-14T22:48:04.326Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 3 checks (1h 0m):
+  Total Issues: 3
+  Consecutive Successes: 0
+  Consecutive Failures: 3
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-14T22:51:43.099Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-14T22:51:43.099Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 1
+  Consecutive Successes: 0
+  Consecutive Failures: 1
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-14T22:56:49.433Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-14T22:56:49.434Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 1
+  Consecutive Successes: 0
+  Consecutive Failures: 1
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-14T22:58:46.639Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-14T22:58:46.640Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 1
+  Consecutive Successes: 0
+  Consecutive Failures: 1
+
+[Watchdog] Health Check #2 at 2026-04-14T23:28:51.754Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 2 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 2 messages in 5s
+
+[Watchdog] Summary after 2 checks (0h 30m):
+  Total Issues: 2
+  Consecutive Successes: 0
+  Consecutive Failures: 2
+
+[Watchdog] Shutting down...
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1776210321814.txt
+[Watchdog] Final report saved. Total uptime: 0h 46m
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-14T23:45:23.972Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-14T23:45:23.972Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 1
+  Consecutive Successes: 0
+  Consecutive Failures: 1
+
+[Watchdog] Health Check #2 at 2026-04-15T00:15:29.086Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 2 checks (0h 30m):
+  Total Issues: 2
+  Consecutive Successes: 0
+  Consecutive Failures: 2
+
+[Watchdog] Health Check #3 at 2026-04-15T00:45:29.186Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 3 checks (1h 0m):
+  Total Issues: 3
+  Consecutive Successes: 0
+  Consecutive Failures: 3
+
+[Watchdog] Health Check #4 at 2026-04-15T01:15:29.286Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 4 checks (1h 30m):
+  Total Issues: 4
+  Consecutive Successes: 0
+  Consecutive Failures: 4
+
+[Watchdog] Shutting down...
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1776216621705.txt
+[Watchdog] Final report saved. Total uptime: 1h 44m
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-15T01:30:23.861Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-15T01:30:23.862Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 1
+  Consecutive Successes: 0
+  Consecutive Failures: 1
+
+[Watchdog] Health Check #2 at 2026-04-15T02:00:28.975Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 2 checks (0h 30m):
+  Total Issues: 2
+  Consecutive Successes: 0
+  Consecutive Failures: 2
+
+[Watchdog] Health Check #3 at 2026-04-15T02:30:29.075Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 3 checks (1h 0m):
+  Total Issues: 3
+  Consecutive Successes: 0
+  Consecutive Failures: 3
+
+[Watchdog] Health Check #4 at 2026-04-15T03:00:29.175Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 4 checks (1h 30m):
+  Total Issues: 4
+  Consecutive Successes: 0
+  Consecutive Failures: 4
+
+[Watchdog] Health Check #5 at 2026-04-15T03:30:29.275Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 5 checks (2h 0m):
+  Total Issues: 5
+  Consecutive Successes: 0
+  Consecutive Failures: 5
+
+[Watchdog] Health Check #6 at 2026-04-15T04:00:29.375Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1776225634382.txt
+
+[Watchdog] Summary after 6 checks (2h 30m):
+  Total Issues: 6
+  Consecutive Successes: 0
+  Consecutive Failures: 6
+
+[Watchdog] Health Check #7 at 2026-04-15T04:30:29.475Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 7 checks (3h 0m):
+  Total Issues: 7
+  Consecutive Successes: 0
+  Consecutive Failures: 7
+
+[Watchdog] Health Check #8 at 2026-04-15T05:00:29.575Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 8 checks (3h 30m):
+  Total Issues: 8
+  Consecutive Successes: 0
+  Consecutive Failures: 8
+
+[Watchdog] Health Check #9 at 2026-04-15T05:30:29.675Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 9 checks (4h 0m):
+  Total Issues: 9
+  Consecutive Successes: 0
+  Consecutive Failures: 9
+
+[Watchdog] Shutting down...
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1776231322101.txt
+[Watchdog] Final report saved. Total uptime: 4h 4m
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-15T05:35:24.262Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-15T05:35:24.262Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 1
+  Consecutive Successes: 0
+  Consecutive Failures: 1
+
+[Watchdog] Health Check #2 at 2026-04-15T06:05:29.378Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 2 checks (0h 30m):
+  Total Issues: 2
+  Consecutive Successes: 0
+  Consecutive Failures: 2
+
+[Watchdog] Health Check #3 at 2026-04-15T06:35:29.478Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 3 checks (1h 0m):
+  Total Issues: 3
+  Consecutive Successes: 0
+  Consecutive Failures: 3
+
+[Watchdog] Health Check #4 at 2026-04-15T07:05:29.578Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 4 checks (1h 30m):
+  Total Issues: 4
+  Consecutive Successes: 0
+  Consecutive Failures: 4
+
+[Watchdog] Shutting down...
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1776237621981.txt
+[Watchdog] Final report saved. Total uptime: 1h 44m
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-15T07:20:24.139Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-15T07:20:24.139Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 1
+  Consecutive Successes: 0
+  Consecutive Failures: 1
+
+[Watchdog] Health Check #2 at 2026-04-15T07:50:29.253Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 2 checks (0h 30m):
+  Total Issues: 2
+  Consecutive Successes: 0
+  Consecutive Failures: 2
+
+[Watchdog] Health Check #3 at 2026-04-15T08:20:29.353Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 3 checks (1h 0m):
+  Total Issues: 3
+  Consecutive Successes: 0
+  Consecutive Failures: 3
+
+[Watchdog] Health Check #4 at 2026-04-15T08:50:29.453Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 4 checks (1h 30m):
+  Total Issues: 4
+  Consecutive Successes: 0
+  Consecutive Failures: 4
+
+[Watchdog] Health Check #5 at 2026-04-15T09:20:29.553Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 5 checks (2h 0m):
+  Total Issues: 5
+  Consecutive Successes: 0
+  Consecutive Failures: 5
+
+[Watchdog] Health Check #6 at 2026-04-15T09:50:29.653Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1776246634661.txt
+
+[Watchdog] Summary after 6 checks (2h 30m):
+  Total Issues: 6
+  Consecutive Successes: 0
+  Consecutive Failures: 6
+
+[Watchdog] Health Check #7 at 2026-04-15T10:20:29.753Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 7 checks (3h 0m):
+  Total Issues: 7
+  Consecutive Successes: 0
+  Consecutive Failures: 7
+
+[Watchdog] Health Check #8 at 2026-04-15T10:50:29.853Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 8 checks (3h 30m):
+  Total Issues: 8
+  Consecutive Successes: 0
+  Consecutive Failures: 8
+
+[Watchdog] Health Check #9 at 2026-04-15T11:20:29.953Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 9 checks (4h 0m):
+  Total Issues: 9
+  Consecutive Successes: 0
+  Consecutive Failures: 9
+
+[Watchdog] Health Check #10 at 2026-04-15T11:50:30.053Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 10 checks (4h 30m):
+  Total Issues: 10
+  Consecutive Successes: 0
+  Consecutive Failures: 10
+
+[Watchdog] Health Check #11 at 2026-04-15T12:20:30.153Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 11 checks (5h 0m):
+  Total Issues: 11
+  Consecutive Successes: 0
+  Consecutive Failures: 11
+
+[Watchdog] Health Check #12 at 2026-04-15T12:50:30.253Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1776257435260.txt
+
+[Watchdog] Summary after 12 checks (5h 30m):
+  Total Issues: 12
+  Consecutive Successes: 0
+  Consecutive Failures: 12
+
+[Watchdog] Health Check #13 at 2026-04-15T13:20:30.353Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 13 checks (6h 0m):
+  Total Issues: 13
+  Consecutive Successes: 0
+  Consecutive Failures: 13
+
+[Watchdog] Health Check #14 at 2026-04-15T13:50:30.453Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 14 checks (6h 30m):
+  Total Issues: 14
+  Consecutive Successes: 0
+  Consecutive Failures: 14
+
+[Watchdog] Health Check #15 at 2026-04-15T14:20:30.553Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 15 checks (7h 0m):
+  Total Issues: 15
+  Consecutive Successes: 0
+  Consecutive Failures: 15
+
+[Watchdog] Health Check #16 at 2026-04-15T14:50:30.653Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 16 checks (7h 30m):
+  Total Issues: 16
+  Consecutive Successes: 0
+  Consecutive Failures: 16
+
+[Watchdog] Health Check #17 at 2026-04-15T15:20:30.753Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 17 checks (8h 0m):
+  Total Issues: 17
+  Consecutive Successes: 0
+  Consecutive Failures: 17
+
+[Watchdog] Shutting down...
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1776267621873.txt
+[Watchdog] Final report saved. Total uptime: 8h 19m
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-15T15:40:24.038Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-15T15:40:24.039Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 1
+  Consecutive Successes: 0
+  Consecutive Failures: 1
+
+[Watchdog] Shutting down...
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1776268371298.txt
+[Watchdog] Final report saved. Total uptime: 0h 12m
+Starting KAS PA 24H Test Watchdog...
+
+================================================================================
+KAS PA - 24H TEST WATCHDOG
+================================================================================
+Check Interval: 30 minutes
+Started: 2026-04-15T15:53:24.811Z
+
+[Watchdog] Performing initial health check...
+
+[Watchdog] Health Check #1 at 2026-04-15T15:53:24.811Z
+[Watchdog] Status: UNHEALTHY
+  [ISSUE] Low message rate: only 1 messages in 5s
+[Watchdog] ALERT ({severity}): Low message rate: only 1 messages in 5s
+
+[Watchdog] Summary after 1 checks (0h 0m):
+  Total Issues: 1
+  Consecutive Successes: 0
+  Consecutive Failures: 1
+
+[Watchdog] Shutting down...
+[Watchdog] Report saved: ./logs/24h-watchdog/reports/watchdog_1776269076156.txt
+[Watchdog] Final report saved. Total uptime: 0h 11m

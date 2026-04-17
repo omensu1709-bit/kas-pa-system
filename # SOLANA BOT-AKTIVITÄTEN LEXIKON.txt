@@ -1,0 +1,1048 @@
+# SOLANA BOT-AKTIVITÄTEN LEXIKON
+## Vollständige Lerngrundlage für LightGBM Bot-Klassifikation via Yellowstone Dragon's Mouth (gRPC)
+> Forschungsstand: April 2026 | Quellen: Helius, Jito Labs, GitHub, arxiv, PANews, Dune Analytics, Triton One, Pine Analytics, DEV Community
+
+---
+
+## TEIL 1: OPTIMALE INFORMATIONSQUELLEN
+
+### 1.1 Echtzeit-Datenquellen (nach Latenz sortiert)
+
+| Quelle | Latenz | Datentiefe | Kosten | Bot-Relevanz |
+|---|---|---|---|---|
+| Jito ShredStream | < 50ms | Shred-Level (Pre-Block) | Searcher-Zugang | ⭐⭐⭐⭐⭐ |
+| Yellowstone gRPC (Dragon's Mouth) | < 50ms | TX + Account + Block | $49–$449/mo (Chainstack) | ⭐⭐⭐⭐⭐ |
+| Shyft RabbitStream | ~50ms | Shred-beschleunigt | Custom Pricing | ⭐⭐⭐⭐⭐ |
+| Helius gRPC | ~50ms | Enhanced TX | $0–Custom | ⭐⭐⭐⭐⭐ |
+| Triton Dragon's Mouth | < 50ms | Protobuf, non-voting nodes | Institutional | ⭐⭐⭐⭐⭐ |
+| Jito Block Engine API | ~100ms | Bundle-Daten | Searcher-Account | ⭐⭐⭐⭐ |
+| Helius Enhanced TX API | ~200ms | Decoded TX | Free Tier | ⭐⭐⭐⭐ |
+| QuickNode Yellowstone | ~100ms | Standard gRPC | $49+/mo | ⭐⭐⭐⭐ |
+| Solscan API | ~500ms | Historisch + aktuell | Free/Pro | ⭐⭐⭐ |
+| Dune Analytics | Minuten | Historische SQL-Abfragen | Free/Pro | ⭐⭐⭐ |
+| Jito Bundle Explorer | Block-Level | Bundle-Statistiken | Kostenlos | ⭐⭐⭐ |
+| sandwiched.me | Real-time | Sandwich-Erkennung | Kostenlos | ⭐⭐⭐ |
+| Arkham Intelligence | Stunden | Wallet-Clustering | Kostenpflichtig | ⭐⭐ |
+| Bubblemaps | Historisch | Wallet-Visualisierung | Kostenlos/Pro | ⭐⭐ |
+
+### 1.2 Yellowstone gRPC – Vollständige Datenpunkte aus geyser.proto
+
+**A) SHRED-EBENE (Ultra-Low-Latency, Pre-Block)**
+```
+- slot_index:          uint64   – Slot-Nummer
+- shred_index:         uint32   – Position im Block-Aufbau
+- shred_type:          enum     – DATA | CODE (Reed-Solomon)
+- shred_size:          uint32   – Bytes (typisch: ~1280 Bytes)
+- arrival_nanos:       int64    – Ankunftszeit in Nanosekunden
+- is_last_in_slot:     bool     – Letzter Shred des Slots?
+```
+
+**B) TRANSAKTIONS-EBENE**
+```
+- signature:           [u8; 64]       – TX-Signatur
+- account_keys:        Vec<Pubkey>    – Alle beteiligten Accounts
+- instructions:        Vec<Instruction>
+  - program_id:        Pubkey         – Welches Programm (DEX, Lending, etc.)
+  - accounts:          Vec<u8>        – Account-Indizes
+  - data:              Vec<u8>        – Instruction-Data (hex)
+- compute_units_consumed: u64         – Tatsächlich verbrauchte CU
+- compute_units_requested: u64        – Angeforderte CU (SetComputeUnitLimit)
+- compute_unit_price:  u64            – Priorität in Microlamports/CU
+- log_messages:        Vec<String>    – Output der Programmausführung
+- pre_token_balances:  Vec<TokenBalance>
+- post_token_balances: Vec<TokenBalance>
+- pre_balances:        Vec<u64>       – SOL-Balances vor TX
+- post_balances:       Vec<u64>       – SOL-Balances nach TX
+- err:                 Option<Error>  – None = Success
+- fee:                 u64            – Basisgebühr in Lamports
+- recent_blockhash:    Hash
+- version:             Legacy | v0
+- address_lookup_tables: Vec<ALT>
+```
+
+**C) ACCOUNT-EBENE**
+```
+- pubkey:              Pubkey
+- lamports:            u64            – SOL-Balance
+- owner:               Pubkey         – Besitzerprogramm
+- executable:          bool
+- rent_epoch:          u64
+- data:                Vec<u8>        – Account-Daten (Rohdaten)
+- write_version:       u64            – Version bei Write-Lock
+- slot:                u64
+- is_startup:          bool
+```
+
+**D) BLOCK-EBENE**
+```
+- slot:                u64
+- blockhash:           Hash
+- rewards:             Vec<Reward>    – Leader-Belohnungen
+- block_time:          i64            – Unix-Timestamp
+- block_height:        u64
+- parent_slot:         u64
+- transactions:        Vec<Transaction>
+- entry_count:         u64
+```
+
+### 1.3 Abgeleitete Features (zu berechnen auf AX42U/ClickHouse)
+
+**Jito-Bundle-Detection:**
+- Identifiziere Transfers an 8 bekannte Jito-Tip-Adressen
+- Bundle = Gruppe von TXs mit gemeinsamer Tip-TX im selben Slot
+- Bekannte Jito-Tip-Wallets:
+  - `96gYZGLnJYVFmbjzopPSU6QiEV5fGqZNyN9nmNhvrZU5`
+  - `HFqU5x63VTqvBd7vMVavegqHhd2tAC9e6QSjPNzXt5n9`
+  - `Cw8CFyM9FkoMi7K7Crf6HNQqf4uEMzpKw6QNghXLvLkY`
+  - `ADaUMid9yfUytqMBgopwjb2DTLSokTSzL1IfygL5kd9r`
+  - `DfXygSm4jCyNCybVYYK6DwvWqjKee8pbDmJGcLWNDXjh`
+  - `ADuUkR4vqLUMWXxW9gh6D6L8pMSawimctcNZ5pGwDcEt`
+  - `DttWaMuVvTiduZRnguLF7jNxTgiMBZ1hyAumKUiL2KRL`
+  - `3AVi9Tg9Uo68tJfuvoKvqKNWKkC5wPdSSdeBnizKZ6jT`
+
+---
+
+## TEIL 2: VOLLSTÄNDIGE BOT-TAXONOMIE
+
+### KATEGORIE A: MEV BOTS
+
+---
+
+#### BOT_TYP: SANDWICH_BOT_CLASSIC
+**KATEGORIE:** MEV / Sandwich Attack  
+**BESCHREIBUNG:** Front-Running + Backrunning einer User-TX um Slippage zu extrahieren  
+**FUNKTIONSWEISE:**
+1. Bot liest Mempool / Jito-Stream → erkennt Swap ≥ Schwellenwert
+2. Bot berechnet erwarteten Slippage des Users
+3. Schickt Bundle: [BUY vor User] + [User-TX] + [SELL nach User]
+4. Profit = (User-Slippage) - (Jito-Tip + Fees)
+
+**ON-CHAIN-SIGNATUR:**
+- Exakt 3 TXs in einem Jito-Bundle: Bot-Buy → User-TX → Bot-Sell
+- Gleiche Pool-ID in allen 3 TXs
+- Bot-Wallets: ephemeral, frisch erstellt, massenhaft
+- Token-Account wird geöffnet und in demselben Slot wieder geschlossen
+- Hoher Tip-Anteil (~34% des Gewinns geht an Jito)
+
+**LGBM_FEATURES:**
+```
+bundle_size (int):               Anzahl TXs im Bundle [1-5], Sandwich = 3
+bundle_position_in_block (int):  Position des Bundles im Block [0-100+]
+jito_tip_lamports (int64):       SOL-Tip in Lamports [10^6 - 10^10]
+jito_tip_ratio (float):          Tip / geschätzter Profit [0.3-0.5 typisch]
+cu_requested (int):              Angeforderte CU [200k-400k typisch für Sandwich]
+cu_consumed (int):               Verbrauchte CU
+cu_efficiency (float):           consumed/requested [0.5-0.95]
+compute_unit_price_microlamports (int64): [100k - 10M für Sandwich-Bots]
+token_account_age_slots (int):   Wie alt ist das Bot-Wallet? [0-10 = Bot-Signal]
+same_pool_tx_count_in_slot (int): Wie viele TXs auf demselben Pool im Slot? [≥3 = Sandwich]
+wallet_tx_count_24h (int):       TXs des Wallets in 24h [>100 = Bot]
+wallet_unique_pools (int):       Verschiedene Pools in 24h [>10 = Arb/Sandwich]
+inter_tx_delay_ms (float):       Zeit zwischen Bundle-TXs [<1ms = Bundle]
+pre_post_balance_delta (int64):  SOL-Delta nach TX [positiv = Profit]
+program_id_is_known_sandwich (bool): Bekannte Sandwich-Program-IDs
+log_message_contains_swap (bool): Log enthält "swap" oder "exchange"
+tx_failed_rate_wallet_1h (float): Failure-Rate des Wallets [>0.3 = Bot-Signal]
+```
+
+**ERKENNUNGSREGELN:**
+- IF bundle_size == 3 AND same_pool_tx_count_in_slot >= 3 AND inter_tx_delay_ms < 1 → Sandwich (Konfidenz: 0.95)
+- IF jito_tip_ratio BETWEEN 0.3 AND 0.5 AND token_account_age_slots < 5 → Sandwich Bot (0.85)
+- IF wallet_tx_count_24h > 500 AND wallet_unique_pools > 20 → aktiver Bot (0.90)
+
+**BEKANNTE PROGRAMME:**
+- `vpeNAL...oax38b` (DeezNode VPE Bot) – 50% aller Solana-Sandwich-Attacken
+- `arsc...` – ehemals größter Sandwich-Bot (~$30M in 2 Monaten)
+- `Ai4zqY7gjyAPhtUsGnCfabM5oHcZLt3htjpSoUKvxkkt` – $287M in 6 Monaten
+
+**HÄUFIGKEIT:** ~51.600 Sandwich-TXs/Tag (VPE allein), insgesamt >100k/Tag  
+**QUELLEN:** helius.dev/blog/solana-mev-report, sandwiched.me, panewslab.com
+
+---
+
+#### BOT_TYP: ARBITRAGE_BOT_2HOP
+**KATEGORIE:** MEV / Arbitrage  
+**BESCHREIBUNG:** Gleichzeitiger Kauf auf DEX A und Verkauf auf DEX B bei Preisdifferenz  
+**FUNKTIONSWEISE:**
+1. Bot überwacht Preise auf allen Solana-DEXes (Raydium, Orca, Meteora, Jupiter)
+2. Erkennt Preisabweichung ≥ Profitschwelle (typisch > Fees + Slippage)
+3. Schickt atomares Bundle: Kauf DEX A → Verkauf DEX B
+4. Falls nicht profitabel → TX reverted (kein Verlust)
+
+**ON-CHAIN-SIGNATUR:**
+- 2 Swap-Instructions in einer TX oder Bundle
+- Verschiedene Program-IDs (Raydium + Orca, etc.)
+- Token-Balance nach TX = Token-Balance vor TX (nur SOL-Profit)
+- Sehr hohe CU-Nutzung (200k-600k)
+- Oft innerhalb von 1-2 Slots nach einer großen User-Transaktion
+
+**LGBM_FEATURES:**
+```
+swap_hop_count (int):             Anzahl Swaps in TX [2 = 2-hop Arb]
+program_id_diversity (int):       Verschiedene DEX-Programme in TX [≥2 = Arb-Signal]
+token_balance_net_change (float): Netto-Tokenänderung [≈0 = Arb, kein Bestand aufgebaut]
+sol_balance_delta (int64):        SOL-Gewinn der TX [>0 = erfolgreiche Arb]
+tx_follows_large_swap_slots (int): Slots nach einer großen User-TX [0-2 = Backrun]
+cu_consumed (int):               [200k-600k typisch für Arb]
+instruction_count (int):          Anzahl Instructions [3-8 für Arb]
+arb_profit_estimate_usd (float):  Geschätzter Profit [$0.1-$3.7M beobachtet]
+tx_reverted_rate_wallet_1h (float): Failure-Rate [>50% = Arb-Bot spamt]
+bundle_count_wallet_per_slot (int): Bundles in einem Slot [>5 = Searcher]
+time_since_pool_price_change_ms (float): Zeit nach letzter Preisänderung [<200ms = Arb]
+```
+
+**ERKENNUNGSREGELN:**
+- IF swap_hop_count ≥ 2 AND token_balance_net_change ≈ 0 AND sol_balance_delta > 0 → Arbitrage (0.95)
+- IF program_id_diversity ≥ 2 AND time_since_pool_price_change_ms < 200 → Backrun-Arb (0.85)
+- IF tx_reverted_rate_wallet_1h > 0.5 AND bundle_count_wallet_per_slot > 3 → Spam-Arb (0.90)
+
+**STATISTIKEN:** 90.44M erfolgreiche Arb-TXs in 2024, Ø $1.58 Profit, max. $3.7M in einer TX  
+**QUELLEN:** helius.dev/blog/solana-mev-report, Jito Internal
+
+---
+
+#### BOT_TYP: ARBITRAGE_BOT_3HOP_TRIANGLE
+**KATEGORIE:** MEV / Arbitrage  
+**BESCHREIBUNG:** Dreiecks-Arbitrage über 3 Token/Pools in einer atomaren TX  
+**FUNKTIONSWEISE:** A→B→C→A über 3 verschiedene Pools, Profit aus Preisasymmetrie
+
+**LGBM_FEATURES:**
+```
+swap_hop_count (int):             [3 = Triangle]
+program_id_count (int):           [2-3 verschiedene DEXes]
+instruction_sequence_pattern:     Swap→Swap→Swap in korrekter Reihenfolge
+token_a_balance_net (float):      [≈0 = geschlossener Kreis]
+cu_consumed (int):                [400k-800k für Triangle]
+log_pattern_triple_swap (bool):   3 "SwapEvent" in Logs
+```
+
+---
+
+#### BOT_TYP: LIQUIDATION_BOT
+**KATEGORIE:** MEV / Liquidation  
+**BESCHREIBUNG:** Liquidiert Lending-Positionen die unter Collateral-Schwelle fallen  
+**PROTOKOLLE:** Marginfi, Kamino, Drift, Mango, Solend
+
+**FUNKTIONSWEISE:**
+1. Überwacht alle Lending-Positionen via Yellowstone Account-Updates
+2. Berechnet Health Factor jeder Position in Echtzeit
+3. Bei Health Factor < 1.0: Schickt Liquidations-TX mit max. Tip
+4. Erhält Liquidations-Bonus (5-15% des Collaterals)
+
+**ON-CHAIN-SIGNATUR:**
+- Program-ID: Marginfi/Kamino/Drift Lending-Programme
+- Instruction: `liquidate` oder `force_close`
+- Sehr hohe Jito-Tips (höchste aller Bot-Typen)
+- Mehrere Bots konkurrieren gleichzeitig → viele fehlschlagende TXs
+- Token-Account für Collateral wird geöffnet und sofort gesellt
+
+**LGBM_FEATURES:**
+```
+jito_tip_lamports (int64):        [10^8 - 10^10, höchste Range]
+jito_tip_sol (float):             [1-1000 SOL für große Liquidationen]
+program_id_is_lending_protocol (bool): Marginfi/Kamino/Drift/Mango
+instruction_discriminator:        `liquidate` specific bytes
+competing_liquidation_tx_count_slot (int): Konkurrierende TXs im Slot [>5 = heiße Liquidation]
+collateral_value_usd (float):     Wert der zu liquidierenden Position
+liquidation_bonus_bps (int):      Bonus in Basispunkten [500-1500]
+position_health_factor_before (float): [<1.0 = liquidierbar]
+wallet_age_slots (int):           [>1000 = etablierter Liquidations-Bot]
+response_time_to_oracle_ms (float): Zeit von Oracle-Update bis TX-Submission [<50ms = Bot]
+```
+
+**ERKENNUNGSREGELN:**
+- IF program_id_is_lending_protocol AND instruction_discriminator == "liquidate" → Liquidation (1.0)
+- IF competing_liquidation_tx_count_slot > 5 → Hot Liquidation Race (0.99)
+- IF jito_tip_sol > 10 → große Liquidation mit hohem Bonus (0.95)
+
+**HÄUFIGKEIT:** Abhängig von Marktvolatilität; Spikes bei Crashes  
+**QUELLEN:** marginfi.xyz, kamino.finance, Jito MEV Report
+
+---
+
+#### BOT_TYP: JIT_LIQUIDITY_BOT
+**KATEGORIE:** MEV / Just-In-Time Liquidity  
+**BESCHREIBUNG:** Fügt konzentrierte Liquidität exakt vor einer großen Swap-TX hinzu, sammelt Gebühren, entfernt Liquidität danach  
+**PROTOKOLLE:** Orca Whirlpool, Raydium CLMM
+
+**FUNKTIONSWEISE:**
+1. Bot erkennt große Swap-TX im Mempool
+2. Fügt Liquidität im exakten Preisbereich hinzu (1-2 Slots vorher)
+3. User-TX wird executed → Bot verdient Swap-Fees
+4. Bot entfernt Liquidität direkt danach
+
+**ON-CHAIN-SIGNATUR:**
+- 3 TXs: `add_liquidity` → User-Swap → `remove_liquidity`
+- Gleiche Position, gleicher Preisbereich
+- Sehr kurze Liquiditätsdauer (1-3 Slots)
+- Keine Impermanent-Loss-Exposition
+
+**LGBM_FEATURES:**
+```
+liquidity_position_age_slots (int): [1-5 = JIT-Signal]
+program_id_is_clmm (bool):          Orca Whirlpool / Raydium CLMM
+liquidity_range_width_bps (int):    Wie eng ist der Bereich? [10-50 = JIT]
+add_remove_same_slot_bundle (bool): Add + Remove in einem Bundle
+swap_between_add_remove (bool):     User-Swap zwischen Add/Remove
+fee_earned_per_liquidity (float):   Sehr hoch (viel Volumen, wenig Zeit)
+```
+
+---
+
+#### BOT_TYP: BACKRUN_BOT
+**KATEGORIE:** MEV / Backrunning  
+**BESCHREIBUNG:** Führt eigene TX direkt NACH einer User-TX aus, um von Preisbewegung zu profitieren  
+**UNTERSCHIED ZU SANDWICH:** Kein Frontrun, daher weniger schädlich für User
+
+**LGBM_FEATURES:**
+```
+tx_follows_user_tx_slots (int):   [0-1 = Backrun]
+same_pool_as_previous_tx (bool):  Gleicher Pool wie vorherige TX
+price_impact_user_tx_bps (int):   Preisauswirkung der User-TX [>50 = lohnt sich]
+inter_tx_delay_slots (int):       [0-1 = Backrun-Bundle]
+```
+
+---
+
+### KATEGORIE B: TRADING BOTS
+
+---
+
+#### BOT_TYP: SNIPER_BOT_PUMPFUN
+**KATEGORIE:** Trading / Token Launch Sniping  
+**BESCHREIBUNG:** Kauft neue Token-Launches auf Pump.fun innerhalb des ersten Blocks nach Erstellung  
+**PLATTFORMEN:** Pump.fun, Raydium neue Pools, Pumpswap
+
+**FUNKTIONSWEISE:**
+1. Verbindet sich mit Yellowstone gRPC oder Pump.fun WebSocket
+2. Überwacht `create` Instructions auf Pump.fun Program
+3. Bei neuer Token-Erkennung: Sofort Kauf-TX mit max. Priority Fee
+4. Oft: Verkauf bei Bonding-Curve-Progress von 15-50%
+
+**ON-CHAIN-SIGNATUR:**
+- TX innerhalb von 1-3 Slots nach Token-Erstellung
+- Program-ID: `6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P` (Pump.fun)
+- Sehr hohe CU-Preis
+- Wallet: oft frisch erstellt für jeden Snipe
+- Bonding-Curve-Interaktion in erstem oder zweitem Slot
+
+**LGBM_FEATURES:**
+```
+slots_since_token_creation (int): [1-3 = Sniper]
+pumpfun_program_id (bool):        True
+token_age_slots_at_buy (int):     [<5 = Sniper-Signal]
+wallet_snipe_count_24h (int):     [>10 = dedizierter Sniper]
+buy_amount_sol (float):           [0.01-5 SOL typisch]
+cu_price_microlamports (int64):   [500k-5M für Sniper]
+time_to_first_buy_ms (float):     Zeit von Token-Creation bis Kauf [<200ms = Bot]
+bonding_curve_progress_at_buy (float): [<5% = sehr früher Sniper]
+sold_within_10_slots (bool):      Schneller Flip [True = Bot-Signal]
+wallet_success_rate_snipes (float): Erfolgsrate [>0.7 = guter Bot]
+```
+
+**ERKENNUNGSREGELN:**
+- IF token_age_slots_at_buy < 3 AND pumpfun_program_id → Sniper (0.98)
+- IF wallet_snipe_count_24h > 50 → dedizierter Sniper-Bot (0.99)
+- IF sold_within_10_slots AND buy_amount_sol < 1 → Flip-Sniper (0.85)
+
+**HÄUFIGKEIT:** Sehr hoch (Pump.fun ~1M neue Tokens in 2024), Tausende Snipe-Versuche/Tag  
+**QUELLEN:** github.com/cutupdev/Solana-Pumpfun-Sniper-Bot, Helius QuickStart
+
+---
+
+#### BOT_TYP: BUNDLER_BOT_PUMPFUN
+**KATEGORIE:** Trading / Token Manipulation  
+**BESCHREIBUNG:** Kauft mit 20-50 verschiedenen Wallets gleichzeitig beim Launch, um Bonding-Curve schnell zu pushen  
+**ZWECK:** Früher Einstieg mit vielen Wallets, kontrollierte Marktmanipulation
+
+**ON-CHAIN-SIGNATUR:**
+- 10-50 Wallets kaufen denselben neuen Token in einem einzigen Slot
+- Alle Wallets wurden vom gleichen Funding-Wallet erstellt
+- Jito-Bundle mit koordinierten Käufen
+- Ähnliche Kaufbeträge über alle Wallets
+
+**LGBM_FEATURES:**
+```
+wallets_buying_same_token_same_slot (int): [>5 = Bundler]
+funding_wallet_shared (bool):      Alle Wallets von gleicher Quelle [=True für Bundler]
+buy_amount_variance (float):       Varianz der Kaufbeträge [<0.2 = koordiniert]
+bundle_size (int):                 [10-50 für Bundler]
+wallet_age_distribution_slots (float): Median Wallet-Alter [<100 = frisch erstellt]
+token_bc_progress_jump (float):    Bonding-Curve-Sprung in 1 Slot [>20% = Bundler]
+```
+
+---
+
+#### BOT_TYP: VOLUME_BOT
+**KATEGORIE:** Trading / Wash Trading  
+**BESCHREIBUNG:** Erzeugt künstliches Handelsvolumen durch Self-Trading zwischen eigenen Wallets  
+**ZWECK:** Erscheint auf Trending-Listen, lockt Sniper an
+
+**ON-CHAIN-SIGNATUR:**
+- Buy und Sell zwischen denselben Wallets
+- Kein netto-Token-Transfer (selbst gehandelt)
+- Sehr regelmäßige Intervalle (z.B. jede 5 Sekunden)
+- SOL-Balance sinkt langsam (Fees + Slippage = Kosten)
+
+**LGBM_FEATURES:**
+```
+counterparty_wallet_overlap (float): % der Gegenparteien die eigene Wallets sind [>0.7 = Wash]
+trade_interval_regularity (float):   Varianz der Zeitabstände [<0.1 = Bot]
+net_token_position_change (float):   [≈0 = kein echter Kauf]
+tx_count_per_hour (int):            [>100 = Bot]
+sol_balance_trend (float):          Leicht negativ (Kosten) 
+trade_size_variance (float):        [<0.05 = sehr regelmäßig]
+```
+
+---
+
+#### BOT_TYP: COPY_TRADING_BOT
+**KATEGORIE:** Trading / Copy Trading  
+**BESCHREIBUNG:** Spiegelt Trades eines "Smart Money" Wallets in Echtzeit  
+**PLATTFORMEN:** Axiom, BullX, Photon, Trojan, BonkBot
+
+**FUNKTIONSWEISE:**
+1. Abonniert Ziel-Wallet via Yellowstone gRPC
+2. Bei erkanntem Kauf: Sofort gleichen Trade ausführen
+3. Oft mit Delay < 100ms nach Ziel-TX
+
+**LGBM_FEATURES:**
+```
+follows_target_wallet_tx (bool):   TX folgt bekanntem Smart-Money
+delay_after_target_ms (float):     [<200ms = Copy-Bot]
+buy_amount_ratio_to_target (float): Proportionaler Kauf [0.1-10x]
+same_token_same_slot_different_wallet (bool): [True = Copy-Bot-Signal]
+wallet_is_telegram_bot_interface (bool): Bekannte Telegram-Bot-Wallets
+```
+
+---
+
+#### BOT_TYP: MARKET_MAKING_BOT
+**KATEGORIE:** Trading / Market Making  
+**PROTOKOLLE:** Drift Protocol, Phoenix, OpenBook  
+**BESCHREIBUNG:** Stellt kontinuierlich Bid/Ask-Orders, verdient Spread
+
+**LGBM_FEATURES:**
+```
+program_id_is_orderbook (bool):    Phoenix / OpenBook / Drift
+order_cancel_rate (float):         [>0.95 = Market Maker, ständig aktualisiert]
+bid_ask_spread_bps (float):        Typischer Spread
+order_lifetime_slots (float):      Wie lange bleiben Orders? [<5 = aggressiver MM]
+inventory_balance_ratio (float):   Base/Quote Balance [~0.5 = ausgewogen]
+order_count_per_slot (int):        [>10 = aktiver MM]
+```
+
+---
+
+#### BOT_TYP: DCA_BOT
+**KATEGORIE:** Trading / Dollar-Cost Averaging  
+**PLATTFORMEN:** Jupiter DCA, eigene Implementierungen
+
+**LGBM_FEATURES:**
+```
+program_id_is_jupiter_dca (bool):  Jupiter DCA Program
+trade_interval_hours (float):      [1/24/168 = stündlich/täglich/wöchentlich]
+trade_amount_consistency (float):  Sehr konsistente Beträge [variance < 0.01]
+execution_time_regularity (bool):  Immer gleiche Zeit
+```
+
+---
+
+### KATEGORIE C: NFT BOTS (Historisch, weniger aktiv 2025)
+
+#### BOT_TYP: NFT_MINT_SNIPER
+**BESCHREIBUNG:** Kauft NFTs in ersten Slots nach Mint-Launch  
+**LGBM_FEATURES:** nft_program_id, slots_since_mint_open, wallet_tx_count_at_mint
+
+#### BOT_TYP: FLOOR_SWEEPER
+**BESCHREIBUNG:** Kauft alle NFTs unter einem bestimmten Floor-Preis  
+**LGBM_FEATURES:** buy_count_same_collection_same_slot, price_threshold_filter
+
+---
+
+### KATEGORIE D: INFRASTRUCTURE BOTS
+
+#### BOT_TYP: SPAM_BOT
+**KATEGORIE:** Infrastructure / Network Spam  
+**BESCHREIBUNG:** Sendet Massen-TXs um Netzwerk zu überlasten / andere Bots zu stören
+
+**ON-CHAIN-SIGNATUR:**
+- Sehr hohe TX-Failure-Rate (>90%)
+- Identische oder minimal veränderte Instructions
+- Minimale Priority Fee
+- Kurze Burst-Phasen
+
+**LGBM_FEATURES:**
+```
+tx_failure_rate_wallet_1h (float): [>0.9 = Spam]
+tx_instruction_similarity (float): Wie ähnlich sind die Instructions? [>0.95 = Spam]
+compute_unit_price (int64):        [<1000 = minimale Fee]
+burst_tx_count_10s (int):          [>50 = Spam-Burst]
+tx_age_variance (float):           [<0.01 = sehr regelmäßig]
+```
+
+#### BOT_TYP: ORACLE_UPDATE_BOT
+**KATEGORIE:** Infrastructure / Oracle  
+**BESCHREIBUNG:** Aktualisiert Price Feeds (Pyth, Switchboard)  
+**ERKENNUNGSMERKMALE:** Program-ID ist bekanntes Oracle-Protokoll, regelmäßige Updates
+
+---
+
+### KATEGORIE E: TELEGRAM TRADING BOTS (Retail-Interface)
+
+#### BOT_TYP: TELEGRAM_TRADING_BOT_INTERFACE
+**BEKANNTE BOTS:** BonkBot, Trojan, Photon, BullX, Axiom  
+**BESCHREIBUNG:** Retail-User-Interface für schnelles Trading via Telegram/Browser  
+**CHARAKTERISTIK:**
+- Routing durch Jito für Anti-Sandwich-Schutz
+- Sehr hohe Slippage-Toleranz (5-20%)
+- Einfachere TX-Struktur als professionelle Bots
+
+**LGBM_FEATURES:**
+```
+jito_tip_is_anti_sandwich (bool):  TX via Jito zur Sandwich-Vermeidung
+slippage_tolerance_bps (int):      [500-2000 = Telegram-Bot-User]
+program_id_is_aggregator (bool):   Jupiter v6 routing
+wallet_type_retail_pattern (bool): Einzelne Wallets, unregelmäßige Aktivität
+tx_originates_telegram_bot (bool): Bekannte Telegram-Bot-Program-IDs
+```
+
+---
+
+## TEIL 3: HISTORISCHE ENTWICKLUNG 2023-2025
+
+### Timeline der wichtigsten Ereignisse
+
+| Datum | Ereignis | Auswirkung auf Bot-Ökosystem |
+|---|---|---|
+| Q1 2023 | Jito-Solana Client < 10% Stake | Minimale MEV-Aktivität |
+| Q4 2023 | Jito-Adoption > 48% | MEV-Boom beginnt |
+| Jan 2024 | Bonk/WIF Memecoin-Hype | Explosivstes Sandwich-Wachstum |
+| Jan 2024 | 16.1M Jito-Bundles/Monat | Baseline für 2024 |
+| Jan 2024 | Tips: $2.83M in Validators | Start der MEV-Wirtschaft |
+| Feb 2024 | DeezNode VPE Bot aktiv | Dominiert 50% aller Sandwich-Attacken |
+| März 2024 | Jito suspendiert öffentlichen Mempool | Reduziert harmful MEV, aber alternative Mempools entstehen |
+| Q1-Q2 2024 | QUIC + Stake-weighted QoS | Reduziert Spam-Bots erheblich |
+| Mid 2024 | Pump.fun Launch | Neue Bot-Kategorie: Token-Launch-Sniping explodiert |
+| Nov 2024 | Jito-Bundles: 60.801 SOL Tips an EINEM Tag | Allzeithoch |
+| Dez 2024 | 590M Jito-Bundles/Monat | 36x Wachstum gegenüber Jan 2024 |
+| Dez 2024 | VPE Bot: 51.600 Sandwich/Tag | $2.200 SOL/Tag Profit |
+| Dez 2024 | Jito-Stake: 92% des Netzwerks | Dominanz zementiert |
+| Jan 2025 | SOL ATH $294 (Trump Memecoin) | Höchste Bot-Aktivität aller Zeiten |
+| Q1 2025 | Lokale Fee Markets implementiert | Fee-Spikes isolierter |
+| Q2 2025 | Pumpswap launcht | Ablösung von Raydium v4 als MEV-Hauptschauplatz |
+| Juli 2025 | BAM (Bundle Auction Marketplace) | Dezentrales Block Building beginnt |
+| Okt 2025 | Frankendancer: 20.9% des Stakes | Client-Diversität steigt |
+| Nov 2025 | Jito: $50M Funding Round | $62M Total |
+| Dez 2025 | Firedancer offiziell auf Mainnet | Neue MEV-Dynamiken |
+| 2025 Gesamt | $674M Tips an Validators | 191x Wachstum vs. 2023 |
+| 2024 Gesamt | 90.44M erfolgreiche Arbitrages | $142.8M Profit |
+
+### Quantitative Entwicklung
+
+**Jito Bundle Wachstum:**
+- Jan 2024: 16.1M Bundles/Monat
+- Dez 2024: 590M Bundles/Monat → **36x Wachstum in 12 Monaten**
+
+**Validator Tips:**
+- 2023: $3.52M gesamt
+- 2024: $674M gesamt → **191x Wachstum**
+- Dez 2024: Jito-Tips = ~50% von Solanas gesamtem REV
+
+**Real Economic Value (REV):**
+- Solanas REV stieg auf $1.4B in 2024 (Jahresrekord)
+
+**Sandwich-Aktivität (VPE Bot allein):**
+- 1.55M Sandwich-TXs in 30 Tagen (Dez 2024 - Jan 2025)
+- 88.9% Erfolgsrate
+- $13.43M Profit in 30 Tagen
+- Ø $8.67 Profit pro Sandwich
+
+---
+
+## TEIL 4: PROGNOSE – NÄCHSTE BOT-GENERATION (2025-2027)
+
+### 4.1 Firedancer-Auswirkungen auf das MEV-Ökosystem
+
+**Revenue Mode (Firedancer):** Validators können aktiv für MEV-Capture optimieren:
+- Intelligenteres TX-Scheduling → mehr wertvolle TXs pro Block
+- +18-28 Basispunkte Staking-Reward (beobachtet Figment, Okt 2025)
+- Neue Arbitrage-Opportunitäten zwischen Firedancer und Jito-Solana Blocks
+
+**Konsequenzen für Bots:**
+- Kleineres Zeitfenster für Sandwich-Detection (Firedancer packt schneller)
+- Mehr Swaps pro Block → mehr Arb-Opportunitäten
+- Frankendancer-spezifische MEV-Strategien entstehen
+
+### 4.2 Alpenglow Consensus (erwartet Q1 2026)
+
+- Finality: 150ms (aktuell ~400ms/Slot)
+- Konsequenz: Bot-Reaktionszeit-Fenster halbiert sich
+- Nur die latenzoptimiersten Bots (Co-location, Rust/C-implementiert) überleben
+- **Prognose:** Marktkonzentration unter top-10 Searcher-Gruppen
+
+### 4.3 AI/ML-gesteuerte Bots (aktuelle Entwicklung)
+
+**Bereits in Produktion:**
+- AI-driven sentiment analysis für Token-Launch-Sniping (Twitter-Monitoring)
+- ML-basierte Liquidations-Vorhersage (Oracle-Feed-Modellierung)
+- Reinforcement Learning für Tip-Optimierung
+
+**In Entwicklung:**
+- GPT-4/Claude-gesteuerte Marktinterpreten
+- Multi-agent MEV-Koordination
+- Cross-chain MEV über Wormhole/deBridge mit KI-Routing
+
+### 4.4 Intent-Based Architectures
+
+**BAM (Bundle Auction Marketplace, Jito):**
+- Läuft in TEEs (Trusted Execution Environments)
+- Private Transaktionen bis zur Ausführung
+- Anti-Frontrunning by Design
+- **Bot-Konsequenz:** Sandwich-Bots werden strukturell schwieriger
+
+**Konsequenz für LightGBM-Modell:**
+- Neue Feature-Kategorie: "Intent-Signal" (TX kommt von TEE-Relay)
+- Sandwich-Detection via Bundle-Struktur wird wichtiger als Mempool-Analyse
+
+### 4.5 Cross-Chain MEV
+
+- Wormhole-Bridges als neue Arbitrage-Quelle
+- SOL/ETH Cross-DEX Arb via Bridges
+- **Feature für LightGBM:** `involves_bridge_program (bool)`
+
+### 4.6 Technologische Limits
+
+| Parameter | Aktuell (2025) | Ziel 2026 | Physikalisches Limit |
+|---|---|---|---|
+| Slot-Zeit | 400ms | 150ms (Alpenglow) | ~50ms (Lichtgeschwindigkeit) |
+| Bot-Reaktionszeit | 50-100ms | <10ms | ~1ms (Co-location) |
+| Bundle-Verarbeitungszeit | 200ms (Jito Relayer) | <50ms (BAM) | Hardware-Limit |
+| TPS | 1.100 (aktuell) | 1M+ (Firedancer) | Hardware-gebunden |
+
+---
+
+## TEIL 5: VOLLSTÄNDIGE SPUR-TAXONOMIE
+
+### 5.1 Transaktionale Spuren
+
+**Compute Unit Muster:**
+- `cu_requested >> cu_consumed`: Bot reserviert mehr als er braucht (Sicherheitspuffer)
+- `cu_efficiency < 0.5`: TX mit sehr hohem Overhead → oft Bot
+- `cu_price_microlamports > 500k`: Typisch für MEV-Bots
+
+**Priority Fee Muster:**
+- Sehr präzise Werte (z.B. genau 1.000.000 Microlamports): Bot
+- Runde Zahlen: Mensch
+- Fee-Muster angepasst an aktuelle Netzwerksituation: Bot mit Fee-Estimation
+
+**Failed TX Rate:**
+- Normale User: <5% Failure
+- Arb-Bots: 30-70% Failure (viele Versuche, wenige gewinnen)
+- Spam-Bots: >90% Failure
+
+### 5.2 Account-Spuren
+
+**Ephemeral Wallet Muster:**
+```
+- Wallet erstellt: Slot 0
+- Wallet erhält Funding (SOL Transfer): Slot 0-1
+- Wallet führt Bot-TX aus: Slot 1-100
+- Wallet schickt SOL zurück: Slot 100-200
+- Wallet inaktiv / leer: danach
+→ Lebensdauer: < 1000 Slots = Ephemeral
+```
+
+**Funding-Wallet-Cluster:**
+- Ein Master-Wallet funded 50-500 Bot-Wallets
+- Graph-Analyse: Funding-Wallet ist Root-Node
+- Erkennbar via: Transfer-History + Timing-Korrelation
+
+**Token-Account Lebensdauer:**
+- Öffnen + Schließen im gleichen Slot: JIT-Liquidity oder Arb
+- Account-Age < 5 Slots: Sandwich- oder Sniper-Bot
+
+### 5.3 Zeitliche Spuren
+
+**Inter-TX Delay in Millisekunden:**
+```
+< 1ms:    Bundle (Jito-intern)
+1-50ms:   Sehr schneller Bot (Co-located)
+50-200ms: Normaler Bot
+200-2000ms: Langsamer Bot / Mensch mit Skript
+> 2000ms: Typischer Mensch
+```
+
+**Burst-Muster:**
+- Bot: 100-1000 TXs in 1 Sekunde, dann Pause
+- Mensch: Unregelmäßig, selten > 5 TXs/Minute
+
+**Slot-Position der TX:**
+- Jito-Bundles: Tendenz zu frühen Positionen im Slot
+- Spam-Bots: Gleichmäßig verteilt
+- Reaktive Bots (Arb/Liquidation): Direkt nach auslösender TX
+
+### 5.4 Jito-Bundle-Spuren
+
+**8 bekannte Tip-Adressen:** Alle im oberen Abschnitt gelistet  
+**Bundle-Erkennungs-Algorithmus:**
+```python
+def is_jito_bundle(txs: List[Transaction]) -> bool:
+    tip_addresses = set(JITO_TIP_ACCOUNTS)
+    for tx in txs:
+        for instruction in tx.instructions:
+            if instruction.program_id == SYSTEM_PROGRAM:
+                if instruction.destination in tip_addresses:
+                    return True  # TX tippt an Jito
+    return False
+
+def find_bundle(txs: List[Transaction]) -> List[Bundle]:
+    bundles = []
+    i = 0
+    while i < len(txs):
+        if is_jito_bundle([txs[i]]):
+            # Sammle alle TXs die zeitlich zusammengehören
+            bundle_txs = [txs[i]]
+            j = i + 1
+            while j < len(txs) and (txs[j].slot == txs[i].slot):
+                bundle_txs.append(txs[j])
+                j += 1
+            bundles.append(Bundle(txs=bundle_txs))
+            i = j
+        else:
+            i += 1
+    return bundles
+```
+
+---
+
+## TEIL 6: SPURENSUCHE – TECHNISCHE METHODEN
+
+### 6.1 Yellowstone gRPC – Optimale Subscription Config
+
+```python
+# Maximale Bot-Detection Subscription
+subscribe_request = {
+    "transactions": {
+        "bot_detection": {
+            "accountInclude": [
+                # Alle bekannten DEX-Programme
+                "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8",  # Raydium AMM
+                "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",   # Orca Whirlpool
+                "6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P",   # Pump.fun
+                "JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4",  # Jupiter v6
+                "MFv2hWf31Z9kbCa1snEPdcgp7nZaV3m1UxNQR74Rg8",   # Marginfi
+            ],
+            "vote": False,
+            "failed": True,  # WICHTIG: Auch fehlgeschlagene TXs für Bot-Detection
+        }
+    },
+    "accounts": {
+        "lending_positions": {
+            "owner": ["MFv2hWf31Z9kbCa1snEPdcgp7nZaV3m1UxNQR74Rg8"]  # Marginfi
+        }
+    },
+    "slots": {"all_slots": {}},
+    "blocks_meta": {"all_blocks": {}},
+    "commitment": "processed"  # Frühestmögliche Daten
+}
+```
+
+### 6.2 Dune SQL – Bot-Detection Queries
+
+**Sandwich-Bot Identifikation:**
+```sql
+-- Sandwich-Triples erkennen
+WITH swap_triplets AS (
+  SELECT 
+    slot,
+    array_agg(tx_id ORDER BY tx_index) as txs,
+    array_agg(wallet ORDER BY tx_index) as wallets,
+    pool_id,
+    count(*) as tx_count
+  FROM solana.dex_swaps
+  WHERE block_time >= now() - interval '24 hours'
+  GROUP BY slot, pool_id
+  HAVING count(*) >= 3
+)
+SELECT 
+  slot,
+  pool_id,
+  wallets[1] as frontrun_wallet,
+  wallets[2] as victim_wallet, 
+  wallets[3] as backrun_wallet,
+  tx_count
+FROM swap_triplets
+WHERE wallets[1] = wallets[3]  -- Bot kauft und verkauft
+  AND wallets[1] != wallets[2]  -- Victim ist anders
+ORDER BY slot DESC;
+
+-- Arbitrage-Bot Erkennung
+SELECT 
+  tx_id,
+  fee_payer,
+  count(DISTINCT program_id) as dex_count,
+  sum(CASE WHEN token_in = token_out THEN 1 ELSE 0 END) as closed_loop,
+  priority_fee_microlamports
+FROM solana.transactions t
+JOIN solana.instructions i ON t.tx_id = i.tx_id
+WHERE block_time >= now() - interval '1 hour'
+  AND dex_count >= 2
+  AND closed_loop > 0
+GROUP BY tx_id, fee_payer, priority_fee_microlamports
+HAVING dex_count >= 2
+ORDER BY priority_fee_microlamports DESC;
+```
+
+### 6.3 ClickHouse Schema für Bot-Detection
+
+```sql
+CREATE TABLE solana_bot_features (
+    -- Identifiers
+    slot           UInt64,
+    tx_signature   String,
+    block_time     DateTime64(9),  -- Nanosekunden-Präzision
+    
+    -- TX-Level Features
+    fee_payer                    String,
+    cu_requested                 UInt64,
+    cu_consumed                  UInt64,
+    cu_efficiency                Float32,  -- consumed/requested
+    priority_fee_microlamports   UInt64,
+    total_fee_lamports           UInt64,
+    tx_success                   UInt8,
+    instruction_count            UInt8,
+    unique_program_ids           UInt8,
+    
+    -- Jito-Features
+    is_jito_bundle               UInt8,
+    bundle_size                  UInt8,
+    bundle_position              UInt8,
+    jito_tip_lamports            UInt64,
+    jito_tip_ratio               Float32,
+    
+    -- Temporal Features
+    inter_tx_delay_ms            Float32,
+    slot_position                UInt16,
+    time_since_last_same_pool_ms Float32,
+    
+    -- Wallet Features
+    wallet_tx_count_1h           UInt32,
+    wallet_tx_count_24h          UInt32,
+    wallet_failure_rate_1h       Float32,
+    wallet_age_slots             UInt64,
+    wallet_unique_pools_24h      UInt16,
+    wallet_sol_balance           UInt64,
+    is_ephemeral_wallet          UInt8,
+    
+    -- DEX/Pool Features
+    program_id                   String,
+    pool_id                      String,
+    swap_hop_count               UInt8,
+    is_pumpfun_interaction       UInt8,
+    token_age_slots              UInt64,
+    
+    -- MEV-spezifische Features
+    same_pool_tx_count_in_slot   UInt8,
+    follows_large_user_tx        UInt8,
+    price_impact_bps             Float32,
+    profit_estimate_lamports     Int64,
+    
+    -- Labels (für Training)
+    bot_type                     LowCardinality(String),  -- 'sandwich'/'arb'/'sniper'/etc.
+    is_bot                       UInt8,
+    confidence                   Float32
+) ENGINE = MergeTree()
+PARTITION BY toYYYYMMDD(block_time)
+ORDER BY (slot, fee_payer)
+TTL block_time + INTERVAL 90 DAY;
+```
+
+---
+
+## TEIL 7: INTERPRETATIONS-FRAMEWORK
+
+### 7.1 Bot vs. Human – Schwellenwerte
+
+| Feature | Human | Bot (soft) | Bot (hard) |
+|---|---|---|---|
+| wallet_tx_count_24h | < 20 | 20-100 | > 100 |
+| cu_efficiency | 0.3-0.8 | 0.8-0.95 | > 0.95 (sehr präzise) |
+| priority_fee_microlamports | < 10k | 10k-500k | > 500k |
+| wallet_age_slots | > 10k | 1k-10k | < 1k |
+| tx_failure_rate_1h | < 0.05 | 0.05-0.3 | > 0.3 |
+| inter_tx_delay_ms | > 2000 | 200-2000 | < 200 |
+| bundle_size | 1 | 2-3 | > 3 |
+| token_account_age_slots | > 100 | 10-100 | < 10 |
+
+### 7.2 LightGBM Feature Importance (geschätzt)
+
+```
+Rang | Feature                          | Wichtigkeit
+  1  | jito_tip_lamports                | 0.15
+  2  | wallet_tx_count_24h              | 0.12
+  3  | cu_efficiency                    | 0.10
+  4  | inter_tx_delay_ms                | 0.09
+  5  | bundle_size                      | 0.08
+  6  | same_pool_tx_count_in_slot       | 0.07
+  7  | wallet_age_slots                 | 0.07
+  8  | tx_failure_rate_1h               | 0.06
+  9  | is_jito_bundle                   | 0.06
+ 10  | swap_hop_count                   | 0.05
+ 11  | priority_fee_microlamports       | 0.05
+ 12  | token_account_age_slots          | 0.04
+ 13  | wallet_unique_pools_24h          | 0.04
+ 14  | profit_estimate_lamports         | 0.03
+ 15  | is_pumpfun_interaction           | 0.03
+     | ... weitere Features             | 0.06
+```
+
+### 7.3 LightGBM Training-Strategie
+
+**Labeling-Strategie:**
+```python
+# Heuristisches Auto-Labeling
+def label_transaction(tx: Transaction) -> str:
+    # Rule-based Labels für bekannte Bot-Programme
+    if tx.program_id in KNOWN_SANDWICH_PROGRAMS:
+        return 'sandwich_bot'
+    if tx.program_id in KNOWN_LIQUIDATION_PROGRAMS and tx.instruction == 'liquidate':
+        return 'liquidation_bot'
+    
+    # Feature-basierte Labels
+    features = extract_features(tx)
+    
+    if (features['bundle_size'] == 3 and 
+        features['same_pool_tx_count_in_slot'] >= 3 and
+        features['inter_tx_delay_ms'] < 1):
+        return 'sandwich_bot'
+    
+    if (features['swap_hop_count'] >= 2 and 
+        features['token_balance_net_change'] < 0.01):
+        return 'arbitrage_bot'
+    
+    if (features['token_age_slots'] < 5 and 
+        features['is_pumpfun_interaction']):
+        return 'sniper_bot'
+    
+    if features['wallet_tx_count_24h'] > 200:
+        return 'automated_bot'
+    
+    return 'human'
+
+# Konfidenz-Scoring
+CONFIDENCE_RULES = {
+    'sandwich_bot': lambda f: min(0.5 + f['bundle_size']*0.1 + f['jito_tip_ratio']*0.3, 0.99),
+    'arbitrage_bot': lambda f: min(0.4 + f['swap_hop_count']*0.15 + (1-f['tx_failure_rate'])*0.2, 0.99),
+    'sniper_bot': lambda f: min(0.3 + (1/(f['token_age_slots']+1))*0.5, 0.99),
+}
+```
+
+**Modell-Konfiguration:**
+```python
+import lightgbm as lgb
+
+params = {
+    'objective': 'multiclass',
+    'num_class': 7,  # human, sandwich, arb, liquidation, sniper, bundler, spam
+    'metric': 'multi_logloss',
+    'learning_rate': 0.05,
+    'num_leaves': 63,
+    'max_depth': 8,
+    'min_child_samples': 20,
+    'feature_fraction': 0.8,
+    'bagging_fraction': 0.8,
+    'bagging_freq': 5,
+    'lambda_l1': 0.1,
+    'lambda_l2': 0.1,
+    'class_weight': 'balanced',  # Wichtig: Bots sind rare vs. Menschen
+    'n_estimators': 500,
+    'early_stopping_rounds': 50
+}
+
+# Feature Engineering Pipeline
+NUMERICAL_FEATURES = [
+    'cu_efficiency', 'priority_fee_microlamports', 'wallet_tx_count_24h',
+    'inter_tx_delay_ms', 'bundle_size', 'jito_tip_lamports', 'jito_tip_ratio',
+    'wallet_age_slots', 'tx_failure_rate_1h', 'same_pool_tx_count_in_slot',
+    'swap_hop_count', 'token_account_age_slots', 'profit_estimate_lamports',
+    'wallet_unique_pools_24h', 'slot_position', 'instruction_count'
+]
+
+BOOLEAN_FEATURES = [
+    'is_jito_bundle', 'is_pumpfun_interaction', 'is_ephemeral_wallet',
+    'follows_large_user_tx', 'is_lending_protocol_interaction'
+]
+
+CATEGORICAL_FEATURES = [
+    'program_id',        # LightGBM kann mit kategorischen Features umgehen
+    'instruction_type',  # swap/liquidate/add_liquidity/etc.
+]
+```
+
+---
+
+## TEIL 8: RELEVANTE QUELLEN & TOOLS
+
+### GitHub Repositories (aktiv 2024-2026)
+
+| Repo | Beschreibung | Relevanz für LightGBM |
+|---|---|---|
+| `rpcpool/yellowstone-grpc` | Dragon's Mouth Hauptrepo | ⭐⭐⭐⭐⭐ |
+| `rpcpool/yellowstone-vixen` | Parser-Toolkit für Geyser-Events | ⭐⭐⭐⭐⭐ |
+| `jito-labs/jito-solana` | Modifizierter Validator-Client | ⭐⭐⭐⭐ |
+| `jito-labs/block-engine-sdk` | Bundle Submission SDK | ⭐⭐⭐⭐ |
+| `apostleoffinance/Solana-Forensic-Analysis-Tool` | ML für Wallet-Clustering | ⭐⭐⭐⭐⭐ |
+| `ChangeYourself0613/Solana-Arbitrage-Bot` | Arb-Bot-Referenz | ⭐⭐⭐ |
+| `hanshaze/solana-sniper-copy-mev-trading-bot` | Vollständige Bot-Suite | ⭐⭐⭐ |
+| `HZCX404/memecoin-trading-bots` | Modular Bot-Toolkit | ⭐⭐⭐ |
+
+### Daten-Dashboards
+
+| Tool | URL | Datentyp |
+|---|---|---|
+| Sandwiched.me | sandwiched.me | Real-time Sandwich Detection |
+| Jito Bundle Explorer | explorer.jito.wtf | Bundle-Statistiken |
+| Dune – Solana MEV | dune.com | SQL-basierte Analyse |
+| Helius Blog | helius.dev/blog | MEV Reports |
+| Pine Analytics | pineanalytics.substack.com | Jito-Tip-Attribution |
+
+### Akademische Paper
+
+- **"Jito Bundling and MEV Optimization on Solana"** (Liu, 2025) – Medium/arxiv
+- **"High-Frequency MEV on Solana"** – Flashbots Research
+- **Wu et al. (2024)** – Proposer-Builder Separation Auktionen (Ethereum, übertragbar)
+- **Helius MEV Report 2024** – Umfassendste empirische Analyse
+
+---
+
+## APPENDIX: BEKANNTE BOT-ADRESSEN & PROGRAMME
+
+### Sandwich-Bot Programme
+```
+vpeNAL...oax38b    DeezNode VPE Bot (50% aller Sandwiches)
+arsc...            Ehemaliger Sandwich-Leader (2024 Q1-Q2)
+Ai4zqY7gjyAPhtUsGnCfabM5oHcZLt3htjpSoUKvxkkt   $287M in 6M (inaktiv)
+```
+
+### DEX Programme (für Program-ID Features)
+```
+675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8   Raydium AMM v4
+whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc    Orca Whirlpool  
+6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P    Pump.fun
+JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4   Jupiter v6
+MFv2hWf31Z9kbCa1snEPdcgp7nZaV3m1UxNQR74Rg8    Marginfi
+KLend2g3cP87fffoy8q1mQqGKjrVuk7kJCCRMSS2...   Kamino Lending
+dRiftyHA39MWEi3m9aunc5MzRF1JYuBsbn6VPcn33UH    Drift Protocol
+```
+
+### Telegram Bot Wallets (bekannte Routing-Programme)
+```
+BonkBot, Trojan, Photon, BullX, Axiom → 
+Routing via Jupiter v6 + Jito-Bundle
+```
+
+---
+
+*Lexikon-Version: April 2026 | Nächste Aktualisierung empfohlen: Quartalsbasis*
+*Datenquellen: Helius MEV Report, Jito Internal, PANews, Pine Analytics, Triton One, DEV Community, GitHub*

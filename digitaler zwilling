@@ -1,0 +1,120 @@
+# Der lebende forensische System-Zwilling: State-of-the-Art Architektur
+
+**React Flow mit Zustand und nativen WebSockets ist die klare State-of-the-Art-Lösung für einen voll-live Architektur-Visualisierungs-Layer.** Diese Kombination liefert als einzige am Markt native React-Komponenten in Graph-Knoten (kritisch für Sparklines und Health-Indikatoren), performante 1Hz-Updates durch selektive Re-Renders und GPU-beschleunigte Partikel-Animationen über CSS `offset-path` — alles bei einem Gesamtbundle von unter 50 KB für die Graph-Engine. Das Muster wird produktiv eingesetzt von Stripe, LinkedIn, Zapier und Retool, und kein bestehendes Tool am Markt verbindet bisher statische C4-Architekturmodelle mit Live-Runtime-Daten — genau die Lücke, die dieser "lebende Zwilling" schließt.
+
+---
+
+## React Flow dominiert die Bibliothekslandschaft
+
+Die Evaluation von acht Graph-Bibliotheken (React Flow, G6/AntV, Cytoscape.js, react-force-graph, vis.js, Rete.js, Sigma.js, ELK.js) ergibt ein eindeutiges Bild: **React Flow (@xyflow/react v12.10)** ist die einzige Mainstream-Option, bei der Knoten vollständige React-Komponenten sind. Cytoscape.js, Sigma.js, react-force-graph und vis.js rendern Canvas/WebGL — dort können keine React-Komponenten wie Sparklines oder Health-Badges eingebettet werden. Rete.js unterstützt React-Knoten, ist aber für visuelle Programmierung konzipiert, nicht für Monitoring. G6 von AntV bietet React-Knoten über eine Extension, hat aber überwiegend chinesische Dokumentation und eine kleinere Community außerhalb Asiens.
+
+React Flow überzeugt mit **4,3 Millionen wöchentlichen npm-Downloads**, 35.951 GitHub-Stars und aktivem Maintenance durch die xyflow GmbH. Das gesamte Core-Paket ist MIT-lizenziert — React Flow Pro ist lediglich ein Support-Abo, keine Feature-Gate. Die TypeScript-Integration ist erstklassig mit vollständigen Generics für Node- und Edge-Datentypen.
+
+Für das Layout empfiehlt sich **ELK.js** (Eclipse Layout Kernel) als Plugin. Der `layered`-Algorithmus produziert professionelle hierarchische Layouts mit orthogonaler Edge-Routing — ideal für eine Pipeline wie Chainstack → Bot-Detector → WebSocket → Dashboard. Dagre ist die einfachere Alternative (synchron, zero-config), aber seit 2018 unmaintained und ohne Subgraph-Support. ELK.js unterstützt Port-Constraints, verschachtelte Gruppen und asynchrone Berechnung via Web Workers. React Flow bietet offizielle Integrationsbeispiele für beide.
+
+| Kriterium | React Flow | G6/AntV | Cytoscape | react-force-graph |
+|---|---|---|---|---|
+| React-Komponenten in Knoten | ✅ Nativ | ✅ Extension | ❌ Canvas | ❌ Canvas |
+| Edge-Partikel-Animation | ✅ Custom SVG | ✅ Möglich | ⚠️ Limitiert | ✅ Built-in |
+| Hierarchisches Layout | ✅ dagre/ELK | ✅ Built-in | ✅ Extensions | ❌ Nur Force |
+| Bundle-Größe (gzip) | ~40 KB | ~200 KB | ~200 KB | ~24 MB |
+| npm/Woche | 4,3M | 50-80K | 2,1M | 26K |
+
+---
+
+## So implementieren Netflix, Datadog und Grafana ihre System-Visualisierungen
+
+Die Industrie zeigt drei fundamentale Paradigmen für "lebende Architekturdiagramme", die alle relevanten Patterns für den forensischen Zwilling liefern.
+
+**Datadog** prägte den Begriff "Living Documentation" für ihre Service Map — sie baut sich **vollautomatisch aus APM-Trace-Daten** auf, ohne manuelle Konfiguration. Services, die 30 Tage nicht gesehen werden, verschwinden automatisch. Die Request Flow Map zeigt Echtzeit-Anfragen zwischen Services mit cluster- und flow-basierten Layouts. Datadog nutzt eBPF über Universal Service Monitoring zur instrumentierungslosen Service-Erkennung. Diese "forensische Genauigkeit" entsteht also nicht durch manuelle Dokumentation, sondern durch kernel-level Observation.
+
+**Netflix Vizceral** war Pionier der "Intuition Engineering" — die Idee, dass Operatoren während Ausfällen keine Dashboards parsen können, sondern visuelle Intuition brauchen. Vizcerals **WebGL-basierte Partikel-Animationen** zeigten Traffic-Volumen zwischen Microservices in Echtzeit. Das Projekt ist seit 2020 nicht mehr maintained, aber das Konzept lebt in **Cilium Hubble** weiter, das eBPF-basierte Service Maps mit Traffic-Animation (dichtere/schnellere Dots = mehr Traffic) und L7-Protokoll-Awareness bietet.
+
+**Grafana's Node Graph Panel** verwendet einen custom React-Renderer mit Force-, Layered- und Grid-Layouts, begrenzt auf 1.500 Knoten. Kritisch: **Das Panel kann nicht als standalone React-Komponente außerhalb von Grafana verwendet werden** — trotz Community-Anfragen (GitHub Issue #15920) bleibt es an Grafanas Plugin-Architektur gekoppelt. Das **Novatec Service Dependency Graph Panel** bietet als Plugin die nächste Alternative zu Datadogs Service Map für self-hosted Environments.
+
+**Kein existierendes Tool verbindet C4-Architekturmodelle mit Live-Runtime-Daten.** Dies ist die größte Lücke im Markt. Die nächsten Ansätze sind:
+- **@c4mjs/c4-react**: Purpose-built React-Komponentenbibliothek für C4-Diagramme, gebaut auf React Flow, mit TypeScript-Typdefinitionen und Dark/Light-Themes
+- **LikeC4**: Generiert typisierte React-Views aus einer DSL via `likec4 codegen react` — exportiert `<LikeC4View>` und `<ReactLikeC4>` Komponenten
+- **C4 Modelizer**: Open-Source React 19 + TypeScript + Vite App auf React Flow und Zustand
+
+---
+
+## Partikel-Animationen: CSS schlägt JavaScript
+
+Die "fließenden Datenpunkte" entlang der Edges sind das visuelle Herzstück des forensischen Zwillings. React Flows eingebautes `animated: true` nutzt CSS `stroke-dasharray` — das **verursacht bei 100+ animierten Edges massive Frame-Drops** (~5 Frames, dokumentiert im Liam ERD-Projekt, bestätigt durch Chromium Bug #40958492).
+
+Die State-of-the-Art-Lösung verwendet **SVG `<animateMotion>`** oder **CSS `offset-path`**, beides läuft auf dem GPU-Compositor-Thread und hat null JavaScript-Overhead:
+
+```tsx
+// Offizielle React Flow AnimatedSVGEdge-Methode
+<ellipse rx="5" ry="1.2" fill="url(#gradient)">
+  <animateMotion
+    dur={`${duration}s`}
+    repeatCount="indefinite"
+    rotate="auto"
+    path={edgePath}
+    calcMode="spline"
+    keySplines="0.42, 0, 0.58, 1.0"
+  />
+</ellipse>
+```
+
+Der entscheidende Performance-Trick: **Partikel nur auf aktiven/hervorgehobenen Edges rendern**, nie auf allen gleichzeitig. Throughput-basierte Geschwindigkeit erreicht man durch dynamische Anpassung des `dur`-Attributs — höherer Durchsatz bedeutet kürzere Duration bedeutet schnellere Partikel.
+
+Für die Rendering-Technologie bei 20-50 Knoten und 30-80 Edges gilt: **SVG ist die klare Wahl.** Akademische Benchmarks (Horak et al., yWorks) zeigen, dass SVG 60fps bei bis zu 1.000-2.000 Elementen hält. Bei ~100-200 SVG-Elementen (dieses Projekt) liegt man weit unter der Performance-Grenze. SVG bietet native DOM-Events, CSS-Styling, Screen-Reader-Support und React-JSX-Kompatibilität — Canvas und WebGL opfern all dies für eine Performance, die erst bei 10.000+ Elementen relevant wird.
+
+**Sparklines in Knoten** löst man am besten mit **uPlot** (Canvas-basiert): Cold-Start-Rendering von 166.650 Datenpunkten in 25ms, Streaming bei 60fps mit nur 10% CPU und 12,3 MB RAM. Zum Vergleich: Chart.js braucht 40% CPU und 77 MB bei gleicher Last. Ein Circular-Buffer-Pattern mit 60 Sekunden Fenster pro Knoten (20 Knoten × 60 Punkte × 8 Bytes ≈ 9,6 KB total) hält den Memory-Footprint minimal. Für die React-Integration benötigt uPlot einen dünnen Wrapper mit `React.memo()`.
+
+---
+
+## WebSocket-Integration: Nativer Socket, Zustand-Store, Rolling Window
+
+Für 1Hz-Updates in einem Monitoring-Dashboard ist **Native WebSocket mit Custom Hook** die richtige Wahl — nicht Socket.IO (200 KB Bundle-Overhead, Protokoll-Latenz von ~10ms vs ~5ms, Features wie Rooms und Namespaces werden nicht gebraucht) und nicht react-use-websocket (re-rendert bei jeder Message, kein Message-Batching).
+
+Der Custom Hook folgt einem bewährten Pattern: WebSocket-Instanz in `useRef` (nie `useState` — vermeidet Re-Renders bei Reconnect), Auto-Reconnect mit exponential Backoff plus Jitter (Serie: ~1s, ~2s, ~4s, ~8s, bis max 30s), Heartbeat-Ping alle 30s, und `navigator.onLine`-Events für sofortigen Reconnect nach Netzwerkwechsel. Die Stale-Closure-Falle löst man durch ein Ref-Pattern: `onMessageRef.current = onMessage` aktualisiert den Handler ohne die WebSocket-Verbindung neu aufzubauen.
+
+**Zustand** ist der empfohlene State-Manager für diesen Use Case — mit **57.000 GitHub-Stars, ~24,5M wöchentlichen Downloads und nur ~3 KB Bundle**. Der entscheidende Vorteil: Selector-basierte Subscriptions (`useStore(s => s.nodes[nodeId])`) bewirken, dass nur Komponenten re-rendern, deren spezifische Daten sich geändert haben. Die Vanilla-Store-API erlaubt Updates direkt aus dem WebSocket-Handler außerhalb von React via `store.setState()`.
+
+Jotai wäre eine Alternative für per-Node-Granularität (jeder Knoten ein Atom), aber Zustand's Slice-Pattern mit `subscribeWithSelector`-Middleware erreicht dasselbe mit weniger Komplexität. Valtio bietet die beste Developer Experience durch Proxy-basierte Mutations, aber Zustand-Schöpfer dai-shi empfiehlt Jotai über Valtio wegen des React-näheren Mental Models. Redux Toolkit ist Overkill, Recoil wird von Meta nicht mehr priorisiert, und @preact/signals-react hat bekannte Bugs mit Vite (Signals stoppen nach erstem Update, GitHub Issue #419).
+
+**Memory-Leak-Prävention** erfordert drei Maßnahmen: Erstens, jeder `useEffect` mit WebSocket muss eine Cleanup-Funktion mit `ws.close(1000, "cleanup")` zurückgeben — Trading-Dashboards crashen nachweislich nach 2-3 Stunden durch 200+ nicht geschlossene Connections mit 2 GB Memory-Verbrauch. Zweitens, Rolling-Window-Pattern für Sparkline-Daten (max 300 Punkte = 5 Minuten bei 1Hz). Drittens, Edges als ID-Referenzen (`{ source: string, target: string }`) statt Objekt-Referenzen speichern, um zirkuläre Referenzen zu vermeiden.
+
+Für das Message-Format reicht **JSON vollständig aus** — bei 1Hz sind die Bandbreiten-Einsparungen von MessagePack (~25-30% kleiner) oder Protobuf (~34-68% kleiner) vernachlässigbar, und `JSON.parse()` ist als native C/Zig-Implementierung im Browser überraschend schnell.
+
+---
+
+## Der Referenz-Stack in der Übersicht
+
+Die optimale Architektur für den forensischen System-Zwilling besteht aus sechs Schichten:
+
+**Rendering-Schicht:** React Flow (@xyflow/react) für den Graph mit SVG-Rendering. Alle Custom-Node-Komponenten mit `React.memo()` gewrappt. Edge-Partikel über SVG `<animateMotion>` oder CSS `offset-path` auf dem Compositor-Thread. Framer Motion für Node-Enter/Exit-Transitions und Highlight-Animationen.
+
+**Layout-Schicht:** ELK.js für das initiale hierarchische Layout mit orthogonaler Edge-Routing. Layout wird einmalig berechnet (oder bei Topologie-Änderungen), nie bei Daten-Updates. Positionen werden gelockt — Knoten springen nicht bei jedem Update. Neue Knoten triggern ein animiertes Re-Layout via Framer Motion.
+
+**Daten-Schicht:** Zustand-Store mit drei Slices — `nodes: Record<string, NodeData>`, `edges: Edge[]`, `connectionStatus`. WebSocket-Handler aktualisiert den Store direkt via `store.setState()`. React Flow's `updateNodeData(id, data)` aktualisiert einzelne Knoten ohne Array-Replacement.
+
+**Sparkline-Schicht:** uPlot (Canvas) in jedem Custom Node, gewrappt in `React.memo()`. Circular Buffer mit 60 Sekunden Fenster. Gesamter Memory-Footprint: ~9,6 KB für 20 Knoten.
+
+**Verbindungs-Schicht:** Custom `useWebSocket`-Hook mit exponential Backoff, Heartbeat, und `navigator.onLine`-Integration. Graceful Degradation mit Connection-Banner und Stale-Data-Indikatoren (Knoten dimmen nach 5 Sekunden ohne Update). Fallback auf HTTP-Polling nach Ausschöpfung der Reconnect-Versuche.
+
+**Dokumentations-Schicht:** @c4mjs/c4-react oder LikeC4 für C4-Modell-Integration. Structurizr DSL export als JSON, parsing und Rendering via React Flow. Kroki.io als universeller Server-Side-Renderer für D2, Mermaid oder PlantUML als Fallback-Diagramme.
+
+---
+
+## Accessibility und Dark Mode für 24/7-Betrieb
+
+Für ein Monitoring-Dashboard, das rund um die Uhr betrieben wird, sind drei Accessibility-Aspekte geschäftskritisch.
+
+**Farbblindheit betrifft 8% aller Männer** — Rot/Grün-Unterscheidung als einziger Health-Indikator ist ein Ausschlusskriterium. Die State-of-the-Art-Lösung verwendet die **Wong/Okabe-Ito-Palette** (wissenschaftlich validiert für 8 universell unterscheidbare Farben) mit zusätzlichen Shape-/Icon-Indikatoren: ✓ für healthy, ⚠ für warning, ✕ für critical. Die "Get it right in black and white"-Regel gilt: Wenn die Visualisierung in Graustufen funktioniert, ist sie farbblindheitssicher. Chrome DevTools bietet eingebaute Farbblindheits-Simulation zum Testen.
+
+**Dark Mode** implementiert man über React Flows eingebaute `colorMode`-Prop kombiniert mit Tailwind CSS `dark:`-Varianten. Für 24/7-Operatoren gelten spezifische Regeln: Kein reines Schwarz (#000000) verwenden — es erzeugt exzessiven Kontrast und Augenermüdung. Stattdessen dunkle Grautöne (#1E1E1E). Kein reines Weiß für Text — Off-Whites (#D4D4D4) für weicheren Kontrast. Gesättigte Farben in Dark Mode reduzieren, da sie auf dunklem Hintergrund visuelles "Vibrieren" verursachen. WCAG 2.2 AA fordert mindestens **4,5:1 Kontrastverhältnis** für normalen Text.
+
+**Keyboard-Navigation** ist in React Flow eingebaut: Enter/Space zum Auswählen, Pfeiltasten zum Navigieren, Tab durch den Graph. Für Screen Reader: `role="tree"` und `role="treeitem"` für die hierarchische Struktur, `aria-live="polite"` für Status-Änderungen, und eine alternative Tabellenansicht aller Knoten mit Status als Fallback.
+
+---
+
+## Fazit: Die Architektur-Lücke schließen
+
+Dieser forensische System-Zwilling füllt eine dokumentierte Marktlücke — **kein existierendes Tool verbindet statische Architekturmodelle mit Live-Runtime-Daten**. Datadog kommt dem am nächsten, ist aber proprietär und baut ausschließlich auf APM-Traces auf, nicht auf expliziten Architekturmodellen.
+
+Die empfohlene Implementierung nutzt React Flow als Rendering-Engine, ELK.js für hierarchisches Layout, Zustand für selektive State-Updates, uPlot für High-Performance-Sparklines und CSS-basierte Compositor-Thread-Animationen für Datenfluss-Partikel. Bei 20-50 Knoten und 1Hz-Updates liegt diese Architektur weit unter den Performance-Grenzen von SVG-Rendering (~1.000-2.000 Elemente bei 60fps) und React's Reconciliation-Kapazität.

@@ -1,0 +1,18 @@
+#!/bin/bash
+# ============================================================================
+# KAS PA - AUTOSTART (bei Server-Reboot)
+# ============================================================================
+# Dieses Script wird bei Server-Start automatisch ausgeführt
+
+sleep 10  # Warte auf System-Stabilisierung
+
+SUPERVISOR_SCRIPT="/data/trinity_apex/solana-stream/scripts/24h-supervisor.sh"
+LOG_FILE="/data/trinity_apex/solana-stream/paper-trading/logs/autostart.log"
+
+echo "[$(date)] KAS PA Autostart initiated" >> "$LOG_FILE"
+
+# Starte Supervisor
+cd /data/trinity_apex/solana-stream/paper-trading
+nohup bash "$SUPERVISOR_SCRIPT" > /tmp/supervisor.log 2>&1 &
+
+echo "[$(date)] Supervisor started" >> "$LOG_FILE"

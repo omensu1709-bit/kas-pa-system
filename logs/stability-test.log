@@ -1,0 +1,10 @@
+[2026-04-11T10:29:48.579Z] ⚠️ WebSocket disconnected, reconnecting...
+[2026-04-11T10:29:48.580Z] ⚠️ WebSocket error: WebSocket was closed before the connection was established
+[2026-04-11T10:29:48.580Z] ⚠️ WebSocket closed
+[2026-04-11T10:29:48.584Z] ✅ WebSocket connected
+[2026-04-11T10:55:59.723Z] ⚠️ WebSocket closed
+[2026-04-11T10:56:06.853Z] ⚠️ WebSocket disconnected, reconnecting...
+[2026-04-11T10:56:06.854Z] ⚠️ WebSocket error: connect ECONNREFUSED 127.0.0.1:8080
+[2026-04-11T10:56:06.854Z] ⚠️ WebSocket closed
+[2026-04-11T10:56:36.883Z] ⚠️ WebSocket disconnected, reconnecting...
+[2026-04-11T10:56:36.884Z] ✅ WebSocket connected

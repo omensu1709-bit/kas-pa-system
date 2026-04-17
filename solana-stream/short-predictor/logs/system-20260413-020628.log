@@ -1,0 +1,193 @@
+============================================================
+ULTIMATE SPL SHORT PREDICTION & PAPER TRADING SYSTEM
+============================================================
+Starting at 2026-04-13T00:06:29.247Z
+Update interval: 30s
+Ranking interval: 30min
+
+[WebSocket] Server started on ws://0.0.0.0:8080
+
+[2026-04-13T00:06:29.248Z] Running ranking cycle...
+
+[2026-04-13T00:06:29.248Z] Fetching top coins from DexScreener...
+[Ranking] Found 3 candidates
+  1. SNIGGA: $0.000064 | 24h: -99.5%
+  2. Peepa: $0.000063 | 24h: -60.6%
+  3. DECENT: $0.000027 | 24h: -20.2%
+[Ranking] Tracking 3 coins
+
+============================================================
+[2026-04-13T00:06:29.450Z] CYCLE #1
+============================================================
+[Consensus] SNIGGA: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+[Consensus] Peepa: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+[Consensus] DECENT: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+
+============================================================
+[2026-04-13T00:07:02.848Z] CYCLE #2
+============================================================
+[Consensus] SNIGGA: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+[Consensus] Peepa: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+[Consensus] DECENT: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+
+============================================================
+[2026-04-13T00:07:36.207Z] CYCLE #3
+============================================================
+[Consensus] SNIGGA: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+[Consensus] Peepa: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+[Consensus] DECENT: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+
+============================================================
+[2026-04-13T00:08:09.428Z] CYCLE #4
+============================================================
+[Consensus] SNIGGA: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+[Consensus] Peepa: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+[Consensus] DECENT: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+[WS] Client connected: 127.0.0.1
+[WS] Client connected: 127.0.0.1
+
+============================================================
+[2026-04-13T00:08:42.007Z] CYCLE #5
+============================================================
+[Consensus] SNIGGA: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+[Consensus] Peepa: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+[Consensus] DECENT: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+
+============================================================
+[2026-04-13T00:09:14.576Z] CYCLE #6
+============================================================
+[Consensus] SNIGGA: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+[Consensus] Peepa: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+[Consensus] DECENT: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+
+============================================================
+[2026-04-13T00:09:47.708Z] CYCLE #7
+============================================================
+[Consensus] SNIGGA: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+[Consensus] Peepa: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+[Consensus] DECENT: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+[WS] Client connected: 127.0.0.1
+
+============================================================
+[2026-04-13T00:10:20.261Z] CYCLE #8
+============================================================
+[WS] Client connected: 127.0.0.1
+[Consensus] SNIGGA: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+[Consensus] Peepa: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+[Consensus] DECENT: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+
+============================================================
+[2026-04-13T00:10:53.194Z] CYCLE #9
+============================================================
+[Consensus] SNIGGA: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+[Consensus] Peepa: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+[Consensus] DECENT: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+
+============================================================
+[2026-04-13T00:11:25.565Z] CYCLE #10
+============================================================
+[Consensus] SNIGGA: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+[Consensus] Peepa: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+[Consensus] DECENT: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+==================================================
+PAPER TRADING PERFORMANCE REPORT
+==================================================
+Capital: 100.00 SOL
+Open Positions: 0
+Total Trades: 0
+Win Rate: 0.0%
+Avg Return: 0.00%
+Total P&L: 0.0000 SOL
+Max Drawdown: 0.00%
+Sharpe Ratio: 0.00
+
+
+============================================================
+[2026-04-13T00:11:58.946Z] CYCLE #11
+============================================================
+[Consensus] SNIGGA: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+[Consensus] Peepa: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+[Consensus] DECENT: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+
+============================================================
+[2026-04-13T00:12:31.540Z] CYCLE #12
+============================================================
+[Consensus] SNIGGA: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+[Consensus] Peepa: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+[Consensus] DECENT: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+
+============================================================
+[2026-04-13T00:13:04.154Z] CYCLE #13
+============================================================
+[Consensus] SNIGGA: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+[Consensus] Peepa: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+[Consensus] DECENT: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+
+============================================================
+[2026-04-13T00:13:37.230Z] CYCLE #14
+============================================================
+[Consensus] SNIGGA: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+[Consensus] Peepa: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+[Consensus] DECENT: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+
+============================================================
+[2026-04-13T00:14:10.167Z] CYCLE #15
+============================================================
+[Consensus] SNIGGA: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+[Consensus] Peepa: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+[Consensus] DECENT: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+
+============================================================
+[2026-04-13T00:14:43.628Z] CYCLE #16
+============================================================
+[Consensus] SNIGGA: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+[Consensus] Peepa: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals
+[Consensus] DECENT: IGNORE | Confidence: 0% | Layers: 1/3
+  Reasons: 1 layer(s) showing signals

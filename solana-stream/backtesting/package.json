@@ -1,0 +1,11 @@
+{
+  "name": "backtesting",
+  "version": "1.0.0",
+  "description": "CPCV backtesting and walk-forward analysis",
+  "scripts": {
+    "cpcv": "python3 -m backtesting.src.cpcv",
+    "risk": "python3 -m backtesting.src.risk_manager"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

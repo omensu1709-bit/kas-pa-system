@@ -1,0 +1,130 @@
+[Ranking] Using REST API for prices (WebSocket disabled)
+[24h] Test logs initialized at /data/trinity_apex/solana-stream/paper-trading/logs/24h-test
+================================================================================
+KAS PA v4.0 - MULTI-COIN CRASH PREDICTION SYSTEM
+================================================================================
+Starting Capital: 100 SOL
+Update Interval: 30s
+Ranking Interval: 30min
+
+[WebSocket] Server started on ws://0.0.0.0:8080
+[Helius] REST Service initialized for swap signal analysis
+[BotDetection] Starting Comprehensive Bot Detection...
+[BotDetection] Monitoring: Jito, Sandwich, Liquidation, Sniper, Arbitrage, Backrun
+[WS] Client connected: 2.213.134.8
+
+[2026-04-14T18:47:12.027Z] Running ranking cycle...
+[Ranking] Cycle #1 - Fetching LIVE data...
+[DexScreener] Pool: 30 boosted + 30 recent
+[DexScreener] Unique mints: 57
+[DexScreener] Fetching 57 tokens in batches of 20...
+[DexScreener] Batch 1/3: 17 tokens fetched
+[DexScreener] Batch 2/3: 18 tokens fetched
+[DexScreener] Batch 3/3: 17 tokens fetched
+[DexScreener] Total fetched: 52/57 tokens
+[DexScreener] Got data for 52 tokens
+[DexScreener] After filters: 17 candidates
+[Ranking] Synced 17 tokens from DexScreener. Total candidates: 51
+[Ranking] Cycle #1 complete. Total candidates: 51
+[Ranking] Top 3:
+  1. TANK: 100.0% (Vol: 85, Change: -92.7%)
+  2. ROTJAK: 100.0% (Vol: 85, Change: -94.3%)
+  3. Mooner: 100.0% (Vol: 85, Change: -93.8%)
+[Ranking] Top 10 selected:
+  1. TANK: Score=100 | Price=0.000002587 | 24h=-92.7%
+  2. ROTJAK: Score=100 | Price=0.000002023 | 24h=-94.3%
+  3. Mooner: Score=100 | Price=0.000002157 | 24h=-93.8%
+  4. Poong: Score=100 | Price=0.0000028 | 24h=-92.1%
+  5. unctire: Score=100 | Price=0.000002945 | 24h=-91.7%
+[Helius] Fetching swap signals for 10 mints...
+
+[2026-04-14T18:47:13.580Z] Cycle #1
+[CrashDetector] fetchNetworkData START
+[CrashDetector] Calling getRecentSignatures...
+[Chainstack] Calling getSignaturesForAddress...
+[Chainstack] getSignaturesForAddress SUCCESS
+[CrashDetector] Got 20 signatures
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413221463, fee=6000
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413221463, fee=13120
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413221463, fee=16163
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413221463, fee=14177
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413221463, fee=17902
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413221463, fee=10932
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413221463, fee=6994
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413221463, fee=16161
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413221463, fee=6994
+[Chainstack] Calling getTransaction...
+[Chainstack] getTransaction SUCCESS
+[CrashDetector] Updating SOL metrics: slot=413221463, fee=18975
+[CrashDetector] fetchNetworkData COMPLETE. Processed 10 transactions
+[Entropy-DEBUG] TANK: price=0.000002593449302818569, entropy_prices=2
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.5000
+[PaperTrading] ✅ OPEN: TANK | 0.50 SOL | Entry: $2.61e-6 | Slippage: 0.60% | Fee: 0.0005
+[FORENSIC-DEBUG] {"ts":1776192434523,"action":"OPEN","symbol":"TANK","amount":0.5,"entryPrice":0.0000026090099986354805,"slippagePercent":0.006,"slippageCost":0.003,"tradingFee":0.0005,"totalCost":0.5035}
+[Entropy-DEBUG] ROTJAK: price=0.000002029924667167898, entropy_prices=2
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: ROTJAK | 3.75 SOL | Entry: $2.04e-6 | Slippage: 0.70% | Fee: 0.0037
+[FORENSIC-DEBUG] {"ts":1776192434524,"action":"OPEN","symbol":"ROTJAK","amount":3.75,"entryPrice":0.0000020441341398380734,"slippagePercent":0.007,"slippageCost":0.02625,"tradingFee":0.00375,"totalCost":3.7800000000000002}
+[Entropy-DEBUG] Mooner: price=0.000002159720987888017, entropy_prices=2
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.5000
+[PaperTrading] ✅ OPEN: Mooner | 0.50 SOL | Entry: $2.17e-6 | Slippage: 0.70% | Fee: 0.0005
+[FORENSIC-DEBUG] {"ts":1776192434524,"action":"OPEN","symbol":"Mooner","amount":0.5,"entryPrice":0.0000021748390348032327,"slippagePercent":0.007,"slippageCost":0.0035,"tradingFee":0.0005,"totalCost":0.5039999999999999}
+[Entropy-DEBUG] Poong: price=0.000002807819473122613, entropy_prices=2
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.5000
+[PaperTrading] ✅ OPEN: Poong | 0.50 SOL | Entry: $2.83e-6 | Slippage: 0.70% | Fee: 0.0005
+[FORENSIC-DEBUG] {"ts":1776192434524,"action":"OPEN","symbol":"Poong","amount":0.5,"entryPrice":0.000002827474209434471,"slippagePercent":0.007,"slippageCost":0.0035,"tradingFee":0.0005,"totalCost":0.5039999999999999}
+[Entropy-DEBUG] unctire: price=0.0000029487185866773868, entropy_prices=2
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.5000
+[PaperTrading] ✅ OPEN: unctire | 0.50 SOL | Entry: $2.97e-6 | Slippage: 0.70% | Fee: 0.0005
+[FORENSIC-DEBUG] {"ts":1776192434524,"action":"OPEN","symbol":"unctire","amount":0.5,"entryPrice":0.000002969359616784128,"slippagePercent":0.007,"slippageCost":0.0035,"tradingFee":0.0005,"totalCost":0.5039999999999999}
+[Entropy-DEBUG] AngryCat: price=0.000002010351013434317, entropy_prices=2
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: AngryCat | 3.75 SOL | Entry: $2.02e-6 | Slippage: 0.70% | Fee: 0.0037
+[FORENSIC-DEBUG] {"ts":1776192434524,"action":"OPEN","symbol":"AngryCat","amount":3.75,"entryPrice":0.000002024423470528357,"slippagePercent":0.007,"slippageCost":0.02625,"tradingFee":0.00375,"totalCost":3.7800000000000002}
+[Entropy-DEBUG] GOAT: price=0.000003309249866394169, entropy_prices=2
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.5000
+[PaperTrading] ✅ OPEN: GOAT | 0.50 SOL | Entry: $3.33e-6 | Slippage: 0.70% | Fee: 0.0005
+[FORENSIC-DEBUG] {"ts":1776192434525,"action":"OPEN","symbol":"GOAT","amount":0.5,"entryPrice":0.000003332414615458928,"slippagePercent":0.007,"slippageCost":0.0035,"tradingFee":0.0005,"totalCost":0.5039999999999999}
+[Entropy-DEBUG] bullunc: price=0.0000035795831414112207, entropy_prices=2
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.5000
+[PaperTrading] ✅ OPEN: bullunc | 0.50 SOL | Entry: $3.60e-6 | Slippage: 0.70% | Fee: 0.0005
+[FORENSIC-DEBUG] {"ts":1776192434525,"action":"OPEN","symbol":"bullunc","amount":0.5,"entryPrice":0.000003604640223401099,"slippagePercent":0.007,"slippageCost":0.0035,"tradingFee":0.0005,"totalCost":0.5039999999999999}
+[Entropy-DEBUG] HUTT: price=0.0000028188782953632623, entropy_prices=2
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.5000
+[PaperTrading] ✅ OPEN: HUTT | 0.50 SOL | Entry: $2.84e-6 | Slippage: 0.70% | Fee: 0.0005
+[FORENSIC-DEBUG] {"ts":1776192434525,"action":"OPEN","symbol":"HUTT","amount":0.5,"entryPrice":0.000002838610443430805,"slippagePercent":0.007,"slippageCost":0.0035,"tradingFee":0.0005,"totalCost":0.5039999999999999}
+[Entropy-DEBUG] nigga: price=0.0000031131910825461247, entropy_prices=2
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[Exploration] Consensus IGNORE overridden - positionSize=0.5000
+[PaperTrading] ✅ OPEN: nigga | 0.50 SOL | Entry: $3.13e-6 | Slippage: 0.70% | Fee: 0.0005
+[FORENSIC-DEBUG] {"ts":1776192434525,"action":"OPEN","symbol":"nigga","amount":0.5,"entryPrice":0.0000031349834201239472,"slippagePercent":0.007,"slippageCost":0.0035,"tradingFee":0.0005,"totalCost":0.5039999999999999}
+[Main] Cycle #1 complete, sleeping 30000ms...
+[Main] DEBUG: About to call this.sleep()
+[Main] DEBUG: iteration=1, isRunning=true
+[Main] DEBUG: Calling blocking sleep for 30000ms...
+[Sleep] async wait for 30000ms starting...

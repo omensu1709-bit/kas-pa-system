@@ -1,0 +1,16 @@
+[UnifiedStatus] Connecting to backend at ws://localhost:8080...
+[UnifiedStatus] KAS PA v4.2 Unified Status Server initialized
+[UnifiedStatus] HTTP Server listening on http://0.0.0.0:3000
+[UnifiedStatus] Dashboard: http://localhost:3000/dashboard
+[UnifiedStatus] Simple: http://localhost:3000/simple
+[UnifiedStatus] Metrics: http://localhost:3000/metrics
+[UnifiedStatus] SSE: http://localhost:3000/events
+[UnifiedStatus] Connected to backend WebSocket
+[UnifiedStatus] Connecting to backend at ws://localhost:8080...
+[UnifiedStatus] KAS PA v4.2 Unified Status Server initialized
+[UnifiedStatus] HTTP Server listening on http://0.0.0.0:3000
+[UnifiedStatus] Dashboard: http://localhost:3000/dashboard
+[UnifiedStatus] Simple: http://localhost:3000/simple
+[UnifiedStatus] Metrics: http://localhost:3000/metrics
+[UnifiedStatus] SSE: http://localhost:3000/events
+[UnifiedStatus] Connected to backend WebSocket

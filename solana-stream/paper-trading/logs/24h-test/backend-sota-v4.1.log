@@ -1,0 +1,60 @@
+[Ranking] Using REST API for prices (WebSocket disabled)
+[24h] Test logs initialized at /data/trinity_apex/solana-stream/paper-trading/logs/24h-test
+================================================================================
+KAS PA v4.0 - MULTI-COIN CRASH PREDICTION SYSTEM
+================================================================================
+Starting Capital: 100 SOL
+Update Interval: 30s
+Ranking Interval: 30min
+
+[WebSocket] Server started on ws://0.0.0.0:8080
+[Helius] REST Service initialized for swap signal analysis
+
+[2026-04-13T12:32:07.486Z] Running ranking cycle...
+[Ranking] Cycle #1 - Fetching LIVE data...
+[DexScreener] Pool: 30 boosted + 30 recent
+[DexScreener] Unique mints: 57
+[DexScreener] Fetching 57 tokens in batches of 20...
+[DexScreener] Batch 1/3: 20 tokens fetched
+[DexScreener] Batch 2/3: 19 tokens fetched
+[WS] Client connected: 127.0.0.1
+[DexScreener] Batch 3/3: 17 tokens fetched
+[DexScreener] Total fetched: 56/57 tokens
+[DexScreener] Got data for 56 tokens
+[DexScreener] After filters: 19 candidates
+[Ranking] Synced 19 tokens from DexScreener. Total candidates: 52
+[WS] Client connected: 127.0.0.1
+[Ranking] Cycle #1 complete. Total candidates: 52
+[Ranking] Top 3:
+  1. SNIGGA: 100.0% (Vol: 85, Change: -99.6%)
+  2. Autism: 100.0% (Vol: 85, Change: -94.2%)
+  3. CHOP: 100.0% (Vol: 85, Change: -94.1%)
+[Ranking] Top 10 selected:
+  1. SNIGGA: Score=100 | Price=0.00003461 | 24h=-99.6%
+  2. Autism: Score=100 | Price=0.000001994 | 24h=-94.2%
+  3. CHOP: Score=100 | Price=0.000002004 | 24h=-94.1%
+  4. MARUN: Score=100 | Price=0.000002356 | 24h=-93.7%
+  5. BTCBULL: Score=100 | Price=0.000002444 | 24h=-92.9%
+[Helius] Fetching swap signals for 10 mints...
+
+[2026-04-13T12:32:13.633Z] Cycle #1
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: SNIGGA | 5.00 SOL @ $0.00003461363260197438
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: Autism | 5.00 SOL @ $0.0000019970566312462746
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: CHOP | 5.00 SOL @ $0.0000020056794520576937
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: MARUN | 5.00 SOL @ $0.0000023565773759597656
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: BTCBULL | 5.00 SOL @ $0.000002445131894926995
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: REDBULL | 5.00 SOL @ $0.0000029199133249329105
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: Reaper | 5.00 SOL @ $0.0000032383468964134387
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: Hairlines | 5.00 SOL @ $0.000002229755949252197
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: DEEZNUTS | 5.00 SOL @ $0.0000042020786236892875
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: Alive | 5.00 SOL @ $0.0000060668074916856235

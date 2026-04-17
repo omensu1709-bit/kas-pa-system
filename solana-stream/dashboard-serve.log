@@ -1,0 +1,25 @@
+ INFO  Accepting connections at http://localhost:5173
+ HTTP  4/13/2026 10:11:37 PM 2.213.134.8 GET /
+ HTTP  4/13/2026 10:11:37 PM 2.213.134.8 Returned 200 in 8 ms
+ HTTP  4/13/2026 10:11:37 PM 2.213.134.8 GET /assets/index-B9rrrK9S.js
+ HTTP  4/13/2026 10:11:37 PM 2.213.134.8 GET /assets/index-21kveVYC.css
+ HTTP  4/13/2026 10:11:37 PM 2.213.134.8 Returned 304 in 1 ms
+ HTTP  4/13/2026 10:11:37 PM 2.213.134.8 Returned 304 in 2 ms
+ HTTP  4/13/2026 10:11:37 PM 2.213.134.8 GET /favicon.svg
+ HTTP  4/13/2026 10:11:37 PM 2.213.134.8 Returned 200 in 2 ms
+ HTTP  4/13/2026 10:54:46 PM 2.213.134.8 GET /
+ HTTP  4/13/2026 10:54:46 PM 2.213.134.8 Returned 304 in 1 ms
+ HTTP  4/13/2026 10:54:46 PM 2.213.134.8 GET /assets/index-21kveVYC.css
+ HTTP  4/13/2026 10:54:46 PM 2.213.134.8 GET /assets/index-B9rrrK9S.js
+ HTTP  4/13/2026 10:54:46 PM 2.213.134.8 Returned 304 in 1 ms
+ HTTP  4/13/2026 10:54:46 PM 2.213.134.8 Returned 304 in 1 ms
+ HTTP  4/13/2026 10:54:47 PM 2.213.134.8 GET /favicon.svg
+ HTTP  4/13/2026 10:54:47 PM 2.213.134.8 Returned 304 in 1 ms
+ HTTP  4/13/2026 11:48:18 PM 127.0.0.1 GET /
+ HTTP  4/13/2026 11:48:18 PM 127.0.0.1 Returned 200 in 1 ms
+ HTTP  4/13/2026 11:48:18 PM 127.0.0.1 GET /assets/index-B9rrrK9S.js
+ HTTP  4/13/2026 11:48:18 PM 127.0.0.1 GET /assets/index-21kveVYC.css
+ HTTP  4/13/2026 11:48:18 PM 127.0.0.1 Returned 200 in 1 ms
+ HTTP  4/13/2026 11:48:18 PM 127.0.0.1 Returned 304 in 1 ms
+
+ INFO  Gracefully shutting down. Please wait...

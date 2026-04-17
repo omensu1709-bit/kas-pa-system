@@ -1,0 +1,85 @@
+[Ranking] Using REST API for prices (WebSocket disabled)
+[24h] Test logs initialized at /data/trinity_apex/solana-stream/paper-trading/logs/24h-test
+================================================================================
+KAS PA v4.0 - MULTI-COIN CRASH PREDICTION SYSTEM
+================================================================================
+Starting Capital: 100 SOL
+Update Interval: 30s
+Ranking Interval: 30min
+
+[WebSocket] Server started on ws://0.0.0.0:8080
+[Helius] REST Service initialized for swap signal analysis
+
+[2026-04-13T09:33:58.620Z] Running ranking cycle...
+[Ranking] Cycle #1 - Fetching LIVE data...
+[DexScreener] Pool: 30 boosted + 30 recent
+[DexScreener] Unique mints: 58
+[DexScreener] Fetching 58 tokens in batches of 20...
+[DexScreener] Batch 1/3: 19 tokens fetched
+[DexScreener] Batch 2/3: 20 tokens fetched
+[DexScreener] Batch 3/3: 18 tokens fetched
+[DexScreener] Total fetched: 57/58 tokens
+[DexScreener] Got data for 57 tokens
+[DexScreener] After filters: 16 candidates
+[Ranking] Synced 16 tokens from DexScreener. Total candidates: 50
+[Ranking] Cycle #1 complete. Total candidates: 50
+[Ranking] Top 3:
+  1. SNIGGA: 100.0% (Vol: 85, Change: -99.6%)
+  2. Autism: 100.0% (Vol: 85, Change: -93.8%)
+  3. CHOP: 100.0% (Vol: 85, Change: -94.0%)
+[Ranking] Top 10 selected:
+  1. SNIGGA: Score=100 | Price=0.00003417 | 24h=-99.6%
+  2. Autism: Score=100 | Price=0.000002151 | 24h=-93.8%
+  3. CHOP: Score=100 | Price=0.000002026 | 24h=-94.0%
+  4. REXIE: Score=100 | Price=0.000002006 | 24h=-94.1%
+  5. Papa: Score=100 | Price=0.000002037 | 24h=-94.7%
+[Helius] Fetching swap signals for 10 mints...
+
+[2026-04-13T09:34:00.686Z] Cycle #1
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: SNIGGA | 5.00 SOL @ $0.000034181467004306466
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: Autism | 5.00 SOL @ $0.000002151832851949036
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: CHOP | 5.00 SOL @ $0.0000020269925718047136
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: REXIE | 5.00 SOL @ $0.000002011250668036776
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: Papa | 5.00 SOL @ $0.0000020371329597158696
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: MARUN | 5.00 SOL @ $0.0000024932558643955135
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: BTCBULL | 5.00 SOL @ $0.0000027992506729760943
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: YN | 5.00 SOL @ $0.0000030566833814814947
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: Reaper | 5.00 SOL @ $0.000003898720587752278
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: DEEZNUTS | 5.00 SOL @ $0.0000060695327282694626
+[WS] Client connected: 127.0.0.1
+[WS] Client connected: 127.0.0.1
+[WS] Client connected: 127.0.0.1
+
+[2026-04-13T09:34:31.203Z] Cycle #2
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] Max positions reached: 10
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] Max positions reached: 10
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] Max positions reached: 10
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] Max positions reached: 10
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] Max positions reached: 10
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] Max positions reached: 10
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] Max positions reached: 10
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] Max positions reached: 10
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] Max positions reached: 10
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] Max positions reached: 10
+
+[2026-04-13T09:35:01.834Z] Cycle #3

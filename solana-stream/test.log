@@ -1,0 +1,189 @@
+Initializing 24-hour production test...
+
+================================================================================
+24-STUNDEN PRODUCTION TEST - STARTING
+================================================================================
+Started: 2026-04-11T18:24:50.926Z
+Target Duration: 24 hours
+
+[WS] Connecting...
+[WS] Connected to backend
+[ALERT] ERROR: Connection lost (loss #1)
+[WS] Disconnected from backend
+[WS] Reconnecting in 2000ms...
+[WS] Connecting...
+[WS] Error: ErrorEvent {
+  [Symbol(kTarget)]: WebSocket {
+    _events: [Object: null prototype] {
+      open: [Function],
+      close: [Function],
+      error: [Function],
+      message: [Function]
+    },
+    _eventsCount: 4,
+    _maxListeners: undefined,
+    _binaryType: 'nodebuffer',
+    _closeCode: 1006,
+    _closeFrameReceived: false,
+    _closeFrameSent: false,
+    _closeMessage: <Buffer >,
+    _closeTimer: null,
+    _errorEmitted: true,
+    _extensions: {},
+    _paused: false,
+    _protocol: '',
+    _readyState: 2,
+    _receiver: null,
+    _sender: null,
+    _socket: null,
+    _bufferedAmount: 0,
+    _isServer: false,
+    _redirects: 0,
+    _autoPong: true,
+    _closeTimeout: 30000,
+    _url: 'ws://localhost:8080/',
+    _req: null,
+    [Symbol(shapeMode)]: false,
+    [Symbol(kCapture)]: false
+  },
+  [Symbol(kType)]: 'error',
+  [Symbol(kError)]: Error: connect ECONNREFUSED 127.0.0.1:8080
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1611:16) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8080
+  },
+  [Symbol(kMessage)]: 'connect ECONNREFUSED 127.0.0.1:8080'
+}
+[ALERT] ERROR: Connection lost (loss #2)
+[WS] Disconnected from backend
+[WS] Reconnecting in 4000ms...
+[WS] Connecting...
+[WS] Connected to backend
+[ALERT] ERROR: Connection lost (loss #3)
+[WS] Disconnected from backend
+[WS] Reconnecting in 8000ms...
+[WS] Connecting...
+[WS] Error: ErrorEvent {
+  [Symbol(kTarget)]: WebSocket {
+    _events: [Object: null prototype] {
+      open: [Function],
+      close: [Function],
+      error: [Function],
+      message: [Function]
+    },
+    _eventsCount: 4,
+    _maxListeners: undefined,
+    _binaryType: 'nodebuffer',
+    _closeCode: 1006,
+    _closeFrameReceived: false,
+    _closeFrameSent: false,
+    _closeMessage: <Buffer >,
+    _closeTimer: null,
+    _errorEmitted: true,
+    _extensions: {},
+    _paused: false,
+    _protocol: '',
+    _readyState: 2,
+    _receiver: null,
+    _sender: null,
+    _socket: null,
+    _bufferedAmount: 0,
+    _isServer: false,
+    _redirects: 0,
+    _autoPong: true,
+    _closeTimeout: 30000,
+    _url: 'ws://localhost:8080/',
+    _req: null,
+    [Symbol(shapeMode)]: false,
+    [Symbol(kCapture)]: false
+  },
+  [Symbol(kType)]: 'error',
+  [Symbol(kError)]: Error: connect ECONNREFUSED 127.0.0.1:8080
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1611:16) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8080
+  },
+  [Symbol(kMessage)]: 'connect ECONNREFUSED 127.0.0.1:8080'
+}
+[ALERT] ERROR: Connection lost (loss #4)
+[WS] Disconnected from backend
+[WS] Reconnecting in 16000ms...
+[WS] Connecting...
+[WS] Error: ErrorEvent {
+  [Symbol(kTarget)]: WebSocket {
+    _events: [Object: null prototype] {
+      open: [Function],
+      close: [Function],
+      error: [Function],
+      message: [Function]
+    },
+    _eventsCount: 4,
+    _maxListeners: undefined,
+    _binaryType: 'nodebuffer',
+    _closeCode: 1006,
+    _closeFrameReceived: false,
+    _closeFrameSent: false,
+    _closeMessage: <Buffer >,
+    _closeTimer: null,
+    _errorEmitted: true,
+    _extensions: {},
+    _paused: false,
+    _protocol: '',
+    _readyState: 2,
+    _receiver: null,
+    _sender: null,
+    _socket: null,
+    _bufferedAmount: 0,
+    _isServer: false,
+    _redirects: 0,
+    _autoPong: true,
+    _closeTimeout: 30000,
+    _url: 'ws://localhost:8080/',
+    _req: null,
+    [Symbol(shapeMode)]: false,
+    [Symbol(kCapture)]: false
+  },
+  [Symbol(kType)]: 'error',
+  [Symbol(kError)]: Error: connect ECONNREFUSED 127.0.0.1:8080
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1611:16) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8080
+  },
+  [Symbol(kMessage)]: 'connect ECONNREFUSED 127.0.0.1:8080'
+}
+[ALERT] ERROR: Connection lost (loss #5)
+[WS] Disconnected from backend
+[WS] Reconnecting in 30000ms...
+[WS] Connecting...
+[WS] Connected to backend
+[ALERT] ERROR: Connection lost (loss #6)
+[WS] Disconnected from backend
+[WS] Reconnecting in 30000ms...
+[WS] Connecting...
+[WS] Connected to backend
+
+[SHUTDOWN] Stopping test...
+[CSV] Saved 598 predictions to ./logs/24h-test/data/predictions_1775932581057.csv
+[CSV] Saved 69 metrics to ./logs/24h-test/data/metrics_1775932581058.csv
+/data/trinity_apex/solana-stream/scripts/24h-production-test.ts:264
+  report += checks.map(c => `  [${c.pass ? 'PASS' : 'FAIL'}] ${c.name}`).join('\n');
+  ^
+
+
+TypeError: Assignment to constant variable.
+    at generateReport (/data/trinity_apex/solana-stream/scripts/24h-production-test.ts:264:3)
+    at saveReport (/data/trinity_apex/solana-stream/scripts/24h-production-test.ts:277:18)
+    at process.shutdown (/data/trinity_apex/solana-stream/scripts/24h-production-test.ts:557:5)
+    at process.emit (node:events:536:35)
+    at process.emit (/data/trinity_apex/node_modules/tsx/dist/suppress-warnings.cjs:1:472)
+
+Node.js v20.20.2

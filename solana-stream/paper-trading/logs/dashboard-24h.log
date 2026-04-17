@@ -1,0 +1,23 @@
+
+> dashboard@0.0.0 dev
+> vite
+
+
+  VITE v8.0.8  ready in 117 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://178.63.205.37:5173/
+  ➜  Network: http://10.0.1.1:5173/
+  ➜  Network: http://172.17.0.1:5173/
+1:22:05 PM [vite] (client) [console.error] [WS] Error: {"isTrusted":true}
+1:26:12 PM [vite] (client) hmr update /src/App.tsx, /src/index.css
+1:26:12 PM [vite] (client) [console.error] [vite] SyntaxError: The requested module '/src/components/nodes/nodesIndex.ts' does not provide an export named 'BayesianNode'
+1:26:12 PM [vite] (client) [console.error] [vite] Failed to reload /src/App.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+1:27:53 PM [vite] (client) hmr update /src/App.tsx, /src/index.css
+1:27:55 PM [vite] (client) [console.warn] [React Flow]: Node type "crashDetection" not found. Using fallback type "default". Help: https://reactflow.dev/error#003
+1:27:55 PM [vite] (client) [console.warn] [React Flow]: Node type "crashDetection" not found. Using fallback type "default". Help: https://reactflow.dev/error#003
+1:27:55 PM [vite] (client) [console.warn] [React Flow]: It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them. Help: https://reactflow.dev/error#002
+1:27:55 PM [vite] (client) [console.warn] [React Flow]: Node type "crashDetection" not found. Using fallback type "default". Help: https://reactflow.dev/error#003
+1:27:55 PM [vite] (client) [console.warn] [React Flow]: Node type "crashDetection" not found. Using fallback type "default". Help: https://reactflow.dev/error#003
+1:27:55 PM [vite] (client) [console.warn] [React Flow]: Node type "crashDetection" not found. Using fallback type "default". Help: https://reactflow.dev/error#003
+1:27:55 PM [vite] (client) [console.warn] [React Flow]: Node type "crashDetection" not found. Using fallback type "default". Help: https://reactflow.dev/error#003

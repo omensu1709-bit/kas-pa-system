@@ -1,0 +1,63 @@
+[Ranking] Using REST API for prices (WebSocket disabled)
+[24h] Test logs initialized at /data/trinity_apex/solana-stream/paper-trading/logs/24h-test
+================================================================================
+KAS PA v4.0 - MULTI-COIN CRASH PREDICTION SYSTEM
+================================================================================
+Starting Capital: 100 SOL
+Update Interval: 30s
+Ranking Interval: 30min
+
+[WebSocket] Server started on ws://0.0.0.0:8080
+[Helius] REST Service initialized for swap signal analysis
+
+[2026-04-13T00:25:38.558Z] Running ranking cycle...
+[Ranking] Cycle #1 - Fetching LIVE data...
+[DexScreener] Pool: 30 boosted + 30 recent
+[DexScreener] Unique mints: 56
+[WS] Client connected: 127.0.0.1
+[DexScreener] getTokenData error: Error: HTTP 400
+    at DexScreenerService.getTokenData (/data/trinity_apex/solana-stream/paper-trading/src/dexscreener-service.ts:143:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async DexScreenerService.getTopShortCandidates (/data/trinity_apex/solana-stream/paper-trading/src/dexscreener-service.ts:262:20)
+    at async ShortTargetRankingService.syncDexScreenerTokens (/data/trinity_apex/solana-stream/paper-trading/src/ranking-service.ts:455:25)
+    at async ShortTargetRankingService.runRankingCycle (/data/trinity_apex/solana-stream/paper-trading/src/ranking-service.ts:525:5)
+    at async KasPAV4.runRankingCycle (/data/trinity_apex/solana-stream/paper-trading/src/live-paper-trading-v4.ts:577:22)
+    at async KasPAV4.start (/data/trinity_apex/solana-stream/paper-trading/src/live-paper-trading-v4.ts:564:5)
+    at async main (/data/trinity_apex/solana-stream/paper-trading/src/live-paper-trading-v4.ts:909:3)
+[DexScreener] Got data for 0 tokens
+[DexScreener] After filters: 0 candidates
+[Ranking] Synced 0 tokens from DexScreener. Total candidates: 34
+[Ranking] Cycle #1 complete. Total candidates: 34
+[Ranking] Top 3:
+  1. BONK: 69.6% (Vol: 85, Change: -4.4%)
+  2. MEW: 63.9% (Vol: 50, Change: -5.9%)
+  3. POPCAT: 63.0% (Vol: 85, Change: 0.0%)
+[Ranking] Top 10 selected:
+  1. BONK: Score=69.57116754257883 | Price=0.0000056556672118852795 | 24h=-4.4%
+  2. MEW: Score=63.896114672426606 | Price=0.0005647466282588309 | 24h=-5.9%
+  3. POPCAT: Score=63 | Price=0 | 24h=0.0%
+  4. MOG: Score=63 | Price=0 | 24h=0.0%
+  5. FWOG: Score=63 | Price=0 | 24h=0.0%
+[Helius] Fetching swap signals for 10 mints...
+
+[2026-04-13T00:25:40.015Z] Cycle #1
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: BONK | 5.00 SOL @ $0.000005657705183704405
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: MEW | 5.00 SOL @ $0.0005647466282588309
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: POPCAT | 5.00 SOL @ $0
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: MOG | 5.00 SOL @ $0
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: FWOG | 5.00 SOL @ $0
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: PNUT | 5.00 SOL @ $0
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: AI16Z | 5.00 SOL @ $0
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: CHEX | 5.00 SOL @ $0
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: TNSR | 5.00 SOL @ $0
+[Forensic] EXCL. EXPLORATION MODE - Forced SHORT signal for testing.
+[PaperTrading] ✅ OPEN: RLB | 5.00 SOL @ $0
