@@ -110,7 +110,7 @@ export interface LightGbmFeatures {
   // Diese werden 24h nach Prediction gesetzt
   actualCrashOccurred?: boolean;  // TRUE LABEL: Preis drop >= 3%?
   actualDrop24h?: number;         // Tatsächlicher Preissturz in %
-  verificationStatus?: 'PENDING' | 'VERIFIED' | 'FALSE_POSITIVE' | 'TRUE_POSITIVE' | 'TRUE_NEGATIVE';
+  verificationStatus?: 'PENDING' | 'VERIFIED' | 'FALSE_POSITIVE' | 'TRUE_POSITIVE' | 'TRUE_NEGATIVE' | 'FALSE_NEGATIVE';
 }
 
 export interface TrainingDataConfig {

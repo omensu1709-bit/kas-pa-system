@@ -8,6 +8,9 @@
 
 import { METRIC_COEFFICIENTS } from '../metrics/index.js';
 
+// Metric name type for type-safe access
+export type MetricName = 'n' | 'PE' | 'kappa' | 'fragmentation' | 'rt' | 'bValue' | 'CTE' | 'SSI' | 'LFI';
+
 export interface MetricBaselines {
   // Mittelwerte (µ) für jede Metrik
   mean_n: number;
@@ -140,8 +143,8 @@ export class ZScoreNormalizer {
     }
   }
 
-  private addToSamples(metric: keyof typeof DEFAULT_BASELINES, value: number): void {
-    const samples = this.baselines[`samples_${metric.toLowerCase()}` as keyof MetricBaselines] as number[];
+  private addToSamples(metric: MetricName, value: number): void {
+    const samples = (this.baselines as any)[`samples_${metric}`] as number[];
     if (Array.isArray(samples)) {
       samples.push(value);
       if (samples.length > this.MAX_SAMPLES) {
@@ -154,17 +157,17 @@ export class ZScoreNormalizer {
    * Berechnet Statistiken neu aus den Samples
    */
   private recomputeStatistics(): void {
-    const metrics = ['n', 'PE', 'kappa', 'fragmentation', 'rt', 'bValue', 'CTE', 'SSI', 'LFI'] as const;
+    const metrics: MetricName[] = ['n', 'PE', 'kappa', 'fragmentation', 'rt', 'bValue', 'CTE', 'SSI', 'LFI'];
 
     for (const metric of metrics) {
-      const samples = this.baselines[`samples_${metric}` as keyof MetricBaselines] as number[];
+      const samples = (this.baselines as any)[`samples_${metric}`] as number[];
       if (samples && samples.length >= this.MIN_SAMPLES_FOR_ADAPTIVE) {
         const mean = samples.reduce((a, b) => a + b, 0) / samples.length;
         const variance = samples.reduce((a, b) => a + (b - mean) ** 2, 0) / samples.length;
         const std = Math.sqrt(variance);
 
-        this.baselines[`mean_${metric}` as keyof MetricBaselines] = mean;
-        this.baselines[`std_${metric}` as keyof MetricBaselines] = Math.max(std, 0.001); // Prevent division by zero
+        (this.baselines as any)[`mean_${metric}`] = mean;
+        (this.baselines as any)[`std_${metric}`] = Math.max(std, 0.001); // Prevent division by zero
       }
     }
   }
@@ -222,9 +225,9 @@ export class ZScoreNormalizer {
     };
   }
 
-  private zScore(value: number, metric: string): number {
-    const mean = this.baselines[`mean_${metric}` as keyof MetricBaselines] as number;
-    const std = this.baselines[`std_${metric}` as keyof MetricBaselines] as number;
+  private zScore(value: number, metric: MetricName): number {
+    const mean = (this.baselines as any)[`mean_${metric}`] as number;
+    const std = (this.baselines as any)[`std_${metric}`] as number;
 
     if (std === 0 || !isFinite(std)) {
       return 0;
