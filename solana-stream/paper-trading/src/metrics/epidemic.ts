@@ -110,15 +110,23 @@ export class EpidemicMetric {
     // If events cluster in time, R_t > 1
     let totalWeight = 0;
     let weightedChildWeight = 0;
-    
+
+    // TIME-INTEGRITY FIX: Use causal cascade detection
+    // Only count transmissions where all data is historical (no future leakage)
+    // Children must have targetSlot <= current max observed slot
+    const currentSlot = sorted[sorted.length - 1].targetSlot;
+
     for (const inf of sorted) {
       totalWeight += inf.weight;
-      
+
       // Find "children" - events within one mean generation time after this event
+      // CRITICAL: Only count children where targetSlot <= currentSlot (all observed)
+      // This prevents lookahead bias in cascade detection
       const children = sorted.filter(
-        other => 
-          other.sourceSlot >= inf.targetSlot && 
-          other.sourceSlot - inf.targetSlot <= meanGen * 2
+        other =>
+          other.sourceSlot >= inf.targetSlot &&
+          other.sourceSlot - inf.targetSlot <= meanGen * 2 &&
+          other.targetSlot <= currentSlot  // Only historical data
       );
       weightedChildWeight += children.reduce((sum, c) => sum + c.weight, 0);
     }

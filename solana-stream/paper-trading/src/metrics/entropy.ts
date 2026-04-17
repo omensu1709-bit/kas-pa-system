@@ -68,12 +68,19 @@ export class PermutationEntropyMetric {
     }
 
     // Build delay vectors and count permutations
+    // CRITICAL: Only use backward-looking vectors to avoid lookahead leakage
+    // At time t, we can only use prices up to index t-1 (strictly past), not future prices
     const permutationCounts: Map<number, number> = new Map();
     let totalVectors = 0;
-    const maxIndex = this.prices.length - 1;
+    // Last valid start index: i + (n-1)*delay <= (N-1)-1 = N-2
+    // => i <= N - (n-1)*delay - 2
+    const maxStartIndex = this.prices.length - (n - 1) * delay - 2;
 
-    for (let i = 0; i <= maxIndex - (n - 1) * delay; i++) {
-      // Extract delay vector
+    for (let i = 0; i <= maxStartIndex; i++) {
+      // Extract delay vector - only uses prices up to current index
+      // Vector contains: prices[i], prices[i+delay], ..., prices[i+(n-1)*delay]
+      // Last element is at index i+(n-2)*delay <= maxStartIndex+(n-2)*delay < maxIndex
+      // This ensures all data is at or before "current" time
       const vector: number[] = [];
       for (let j = 0; j < n; j++) {
         vector.push(this.prices[i + j * delay]);
