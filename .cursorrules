@@ -358,6 +358,50 @@ if (crashSignal.zone === 'IMMEDIATE_SHORT' && posterior >= 0.5) {
 
 # RULES FOR ALL AGENTS
 
+## SOTA KAFKA INTEGRATION (2026-04-17)
+
+### Kafka Topics
+
+| Topic | Key | Partitionierung | Retention |
+|-------|-----|-----------------|-----------|
+| `kaspa.crash-signals` | coin | Per Coin | 7 days |
+| `kaspa.trade-events` | symbol | Per Asset | 30 days |
+| `kaspa.telemetry` | cycleNumber | Random | 1 day |
+| `kaspa.bot-signals` | botType | Per Bot Type | 7 days |
+
+### Event Schema (TypeScript)
+
+```typescript
+interface KASPAEvent {
+  type: 'CRASH_SIGNAL' | 'TRADE_EVENT' | 'TELEMETRY' | 'BOT_SIGNAL';
+  timestamp: number;
+}
+```
+
+### Producer Regeln
+
+1. **IMMER async mit Try-Catch**: `await producer.sendXxx(event)` in try-catch
+2. **Fallback bei Kafka-Ausfall**: Lokales Log schreiben
+3. **traceId Header**: Für Tracing in Telemetry-Events
+4. **symbol als Key für TRADE_EVENTS**: Partition Affinity pro Asset
+
+### Consumer Regeln
+
+1. **Idempotent**: Events können mehrfach kommen
+2. **DLQ bei Fehler**: `KASPAConsumerWithDLQ` verwenden
+3. **maxRetries: 3**: Dann in `.dlq` Topic
+4. **Consumer Groups**: Skalierung über `groupId`
+
+### Dateien
+
+```
+src/messaging/kafka/
+├── producer.ts          # KAFKAProducer Klasse
+├── consumer.ts          # Basis Consumer
+├── consumer-dlq.ts      # DLQ-fähiger Consumer
+└── index.ts            # Export
+```
+
 ## UNVERAENDERLICH!
 
 1. **CONFIG.TSX IST LAW**: Alle Konfigurationswerte muessen aus `config.ts` kommen. Keine Hardcoding.

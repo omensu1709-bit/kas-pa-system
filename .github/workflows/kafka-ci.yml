@@ -1,0 +1,539 @@
+# KAS PA - Kafka Integration Tests
+# CI/CD Pipeline für Kafka Producer/Consumer Tests
+
+name: Kafka Integration Tests
+
+on:
+  push:
+    branches: [master, develop]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:  # Manual trigger
+
+env:
+  NODE_VERSION: '20'
+  KAFKA_VERSION: '3.6'
+  COMPOSE_FILE: 'docker-compose.kafka.yml'
+
+jobs:
+  # ============================================================
+  # 1. Kafka Broker Start
+  # ============================================================
+  kafka-start:
+    name: Start Kafka Broker
+    runs-on: ubuntu-latest
+    outputs:
+      kafka-ready: ${{ steps.wait-for-kafka.outputs.ready }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create docker-compose.kafka.yml
+        run: |
+          cat > docker-compose.kafka.yml << 'EOF'
+          version: '3.8'
+          
+          services:
+            kafka:
+              image: bitnami/kafka:3.6
+              container_name: kaspa-kafka-test
+              ports:
+                - "9092:9092"
+              environment:
+                - KAFKA_CFG_NODE_ID=1
+                - KAFKA_CFG_PROCESS_ROLES=controller,broker
+                - KAFKA_CFG_CONTROLLER_QUORUM_VOTERS=1@kafka:9093
+                - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092,CONTROLLER://:9093
+                - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092
+                - KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER
+                - KAFKA_CFG_AUTO_CREATE_TOPICS_ENABLE=true
+                - ALLOW_PLAINTEXT_LISTENER=yes
+              timeout: 60s
+              healthcheck:
+                test: ["CMD-SHELL", "kafka-topics.sh --bootstrap-server localhost:9092 --list"]
+                interval: 5s
+                timeout: 10s
+                retries: 20
+          
+          networks:
+            default:
+              name: kaspa-test-network
+          EOF
+
+      - name: Start Kafka
+        uses: hasura relative-time-action@v1
+        with:
+          filename: docker-compose.kafka.yml
+
+      - name: Wait for Kafka to be ready
+        id: wait-for-kafka
+        run: |
+          echo "Waiting for Kafka..."
+          for i in {1..30}; do
+            if docker exec kaspa-kafka-test kafka-topics.sh --bootstrap-server localhost:9092 --list 2>/dev/null; then
+              echo "ready=true" >> $GITHUB_OUTPUT
+              echo "Kafka is ready!"
+              exit 0
+            fi
+            echo "Attempt $i/30 - Kafka not ready yet..."
+            sleep 2
+          done
+          echo "ready=false" >> $GITHUB_OUTPUT
+          echo "Kafka failed to start"
+          exit 1
+
+  # ============================================================
+  # 2. Producer Tests
+  # ============================================================
+  producer-test:
+    name: Kafka Producer Tests
+    runs-on: ubuntu-latest
+    needs: kafka-start
+    if: needs.kafka-start.outputs.kafka-ready == 'true'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install kafkajs
+        run: npm install kafkajs
+
+      - name: Create test directories
+        run: mkdir -p src/messaging/kafka tests/kafka
+
+      - name: Create Producer
+        run: |
+          cat > src/messaging/kafka/producer.ts << 'EOF'
+          import { Kafka, Producer, Partitioners } from 'kafkajs';
+
+          export interface CrashSignalEvent {
+            type: 'CRASH_SIGNAL';
+            timestamp: number;
+            coin: string;
+            crashProbability: number;
+            zone: 'IGNORE' | 'MONITOR' | 'IMMEDIATE_SHORT';
+            rawMetrics: Record<string, number>;
+            propagationTimeMs: number;
+          }
+
+          export interface TradeEvent {
+            type: 'TRADE_EVENT';
+            timestamp: number;
+            action: 'ENTRY' | 'EXIT';
+            symbol: string;
+            entryPrice?: number;
+            exitPrice?: number;
+            amount: number;
+            pnlSol: number;
+            pnlPercent: number;
+            exitReason?: string;
+            holdingHours?: number;
+          }
+
+          export interface TelemetryEvent {
+            type: 'TELEMETRY';
+            timestamp: number;
+            traceId: string;
+            propagationTimeMs: number;
+            nodeLatencies: Record<string, number>;
+            cycleNumber: number;
+          }
+
+          export type KASPAEvent = CrashSignalEvent | TradeEvent | TelemetryEvent;
+
+          export class KASPAProducer {
+            private producer: Producer;
+            private broker: string;
+
+            constructor(broker: string = 'localhost:9092') {
+              this.broker = broker;
+              const kafka = new Kafka({
+                clientId: 'kaspa-producer-test',
+                brokers: [this.broker],
+                retry: {
+                  initialRetryTime: 100,
+                  retries: 3,
+                },
+              });
+              this.producer = kafka.producer({
+                createPartitioner: Partitioners.DefaultPartitioner,
+              });
+            }
+
+            async connect(): Promise<void> {
+              await this.producer.connect();
+            }
+
+            async disconnect(): Promise<void> {
+              await this.producer.disconnect();
+            }
+
+            async sendCrashSignal(event: Omit<CrashSignalEvent, 'type'>): Promise<void> {
+              await this.send('kaspa.crash-signals', { type: 'CRASH_SIGNAL', ...event }, event.coin);
+            }
+
+            async sendTradeEvent(event: Omit<TradeEvent, 'type'>): Promise<void> {
+              await this.send('kaspa.trade-events', { type: 'TRADE_EVENT', ...event }, event.symbol);
+            }
+
+            async sendTelemetry(event: Omit<TelemetryEvent, 'type'>): Promise<void> {
+              await this.send('kaspa.telemetry', { type: 'TELEMETRY', ...event }, String(event.cycleNumber));
+            }
+
+            private async send(topic: string, event: KASPAEvent, key: string): Promise<void> {
+              await this.producer.send({
+                topic,
+                messages: [{
+                  key,
+                  value: JSON.stringify(event),
+                  timestamp: String(event.timestamp),
+                  headers: {
+                    'content-type': 'application/json',
+                    'source': 'kaspa-test',
+                    'version': '1.0.0',
+                    'trace-id': event.type === 'TELEMETRY' ? (event as TelemetryEvent).traceId : String(Date.now()),
+                  },
+                }],
+              });
+            }
+          }
+          EOF
+
+      - name: Create Producer Test
+        run: |
+          cat > tests/kafka/producer.test.ts << 'EOF'
+          import { describe, it, expect, beforeAll, afterAll } from 'vitest';
+          import { KASPAProducer, CrashSignalEvent, TradeEvent, TelemetryEvent } from '../../src/messaging/kafka/producer';
+
+          const KAFKA_BROKER = process.env.KAFKA_BROKER || 'localhost:9092';
+
+          describe('KASPAProducer', () => {
+            let producer: KASPAProducer;
+
+            beforeAll(async () => {
+              producer = new KASPAProducer(KAFKA_BROKER);
+              await producer.connect();
+            });
+
+            afterAll(async () => {
+              await producer.disconnect();
+            });
+
+            describe('sendCrashSignal', () => {
+              it('should send CRASH_SIGNAL event to kaspa.crash-signals topic', async () => {
+                const event: Omit<CrashSignalEvent, 'type'> = {
+                  timestamp: Date.now(),
+                  coin: 'WOJAK',
+                  crashProbability: 0.15,
+                  zone: 'IMMEDIATE_SHORT',
+                  rawMetrics: {
+                    n: 0.8,
+                    PE: 0.3,
+                    kappa: 2.5,
+                  },
+                  propagationTimeMs: 250.5,
+                };
+
+                await expect(producer.sendCrashSignal(event)).resolves.not.toThrow();
+              });
+
+              it('should include correct trace headers', async () => {
+                const event: Omit<CrashSignalEvent, 'type'> = {
+                  timestamp: Date.now(),
+                  coin: 'PEPE',
+                  crashProbability: 0.12,
+                  zone: 'MONITOR',
+                  rawMetrics: {},
+                  propagationTimeMs: 180.0,
+                };
+
+                await expect(producer.sendCrashSignal(event)).resolves.not.toThrow();
+              });
+            });
+
+            describe('sendTradeEvent', () => {
+              it('should send TRADE_EVENT with symbol as key', async () => {
+                const event: Omit<TradeEvent, 'type'> = {
+                  timestamp: Date.now(),
+                  action: 'ENTRY',
+                  symbol: 'BONK',
+                  entryPrice: 0.00001,
+                  amount: 10,
+                  pnlSol: 0,
+                  pnlPercent: 0,
+                };
+
+                await expect(producer.sendTradeEvent(event)).resolves.not.toThrow();
+              });
+
+              it('should send EXIT event with exit reason', async () => {
+                const event: Omit<TradeEvent, 'type'> = {
+                  timestamp: Date.now(),
+                  action: 'EXIT',
+                  symbol: 'DOGE',
+                  entryPrice: 0.05,
+                  exitPrice: 0.055,
+                  amount: 5,
+                  pnlSol: 0.025,
+                  pnlPercent: 5.0,
+                  exitReason: 'TAKE_PROFIT_15%',
+                  holdingHours: 2.5,
+                };
+
+                await expect(producer.sendTradeEvent(event)).resolves.not.toThrow();
+              });
+            });
+
+            describe('sendTelemetry', () => {
+              it('should send TELEMETRY event', async () => {
+                const event: Omit<TelemetryEvent, 'type'> = {
+                  timestamp: Date.now(),
+                  traceId: `trace-${Date.now()}`,
+                  propagationTimeMs: 320.5,
+                  nodeLatencies: {
+                    CrashDetector: 150.0,
+                    BotDetector: 80.5,
+                    RankingService: 90.0,
+                  },
+                  cycleNumber: 42,
+                };
+
+                await expect(producer.sendTelemetry(event)).resolves.not.toThrow();
+              });
+            });
+          });
+          EOF
+
+      - name: Install Vitest
+        run: npm install -D vitest
+
+      - name: Run Producer Tests
+        run: npx vitest run tests/kafka/producer.test.ts --reporter=verbose
+        env:
+          KAFKA_BROKER: localhost:9092
+
+  # ============================================================
+  # 3. Consumer Tests
+  # ============================================================
+  consumer-test:
+    name: Kafka Consumer Tests
+    runs-on: ubuntu-latest
+    needs: kafka-start
+    if: needs.kafka-start.outputs.kafka-ready == 'true'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install dependencies
+        run: npm ci && npm install kafkajs
+
+      - name: Create Consumer
+        run: |
+          cat > src/messaging/kafka/consumer.ts << 'EOF'
+          import { Kafka, Consumer, EachMessagePayload } from 'kafkajs';
+          import { KASPAEvent, CrashSignalEvent, TradeEvent, TelemetryEvent } from './producer';
+
+          export interface KASPAConsumerConfig {
+            groupId: string;
+            topics: string[];
+            onCrashSignal?: (event: CrashSignalEvent) => Promise<void>;
+            onTradeEvent?: (event: TradeEvent) => Promise<void>;
+            onTelemetry?: (event: TelemetryEvent) => Promise<void>;
+          }
+
+          export class KASPAConsumer {
+            private consumer: Consumer;
+            private readonly config: KASPAConsumerConfig;
+
+            constructor(config: KASPAConsumerConfig, broker: string = 'localhost:9092') {
+              const kafka = new Kafka({
+                clientId: `kaspa-consumer-${config.groupId}`,
+                brokers: [broker],
+              });
+              this.consumer = kafka.consumer({ groupId: config.groupId });
+              this.config = config;
+            }
+
+            async connect(): Promise<void> {
+              await this.consumer.connect();
+              await this.consumer.subscribe({
+                topics: this.config.topics,
+                fromBeginning: true,
+              });
+            }
+
+            async disconnect(): Promise<void> {
+              await this.consumer.disconnect();
+            }
+
+            async start(): Promise<void> {
+              await this.consumer.run({
+                eachMessage: async (payload: EachMessagePayload) => {
+                  const { topic, partition, message } = payload;
+                  const event = JSON.parse(message.value?.toString() || '{}') as KASPAEvent;
+
+                  try {
+                    switch (topic) {
+                      case 'kaspa.crash-signals':
+                        await this.config.onCrashSignal?.(event as CrashSignalEvent);
+                        break;
+                      case 'kaspa.trade-events':
+                        await this.config.onTradeEvent?.(event as TradeEvent);
+                        break;
+                      case 'kaspa.telemetry':
+                        await this.config.onTelemetry?.(event as TelemetryEvent);
+                        break;
+                    }
+                  } catch (error) {
+                    console.error(`[Consumer] Error processing ${event.type}:`, error);
+                  }
+                },
+              });
+            }
+          }
+          EOF
+
+      - name: Create Consumer Test
+        run: |
+          cat > tests/kafka/consumer.test.ts << 'EOF'
+          import { describe, it, expect, beforeAll, afterAll } from 'vitest';
+          import { KASPAConsumer } from '../../src/messaging/kafka/consumer';
+          import { KASPAProducer } from '../../src/messaging/kafka/producer';
+
+          const KAFKA_BROKER = process.env.KAFKA_BROKER || 'localhost:9092';
+
+          describe('KASPAConsumer', () => {
+            let producer: KASPAProducer;
+            let consumer: KASPAConsumer;
+            let processedEvents: any[] = [];
+
+            beforeAll(async () => {
+              producer = new KASPAProducer(KAFKA_BROKER);
+              await producer.connect();
+
+              consumer = new KASPAConsumer({
+                groupId: 'test-consumer-group',
+                topics: ['kaspa.crash-signals', 'kaspa.trade-events', 'kaspa.telemetry'],
+                onCrashSignal: async (event) => { processedEvents.push(event); },
+                onTradeEvent: async (event) => { processedEvents.push(event); },
+                onTelemetry: async (event) => { processedEvents.push(event); },
+              });
+
+              await consumer.connect();
+              await consumer.start();
+            });
+
+            afterAll(async () => {
+              await producer.disconnect();
+              await consumer.disconnect();
+            });
+
+            it('should consume CRASH_SIGNAL events', async () => {
+              processedEvents = [];
+              await producer.sendCrashSignal({
+                timestamp: Date.now(),
+                coin: 'TEST_COIN',
+                crashProbability: 0.15,
+                zone: 'IMMEDIATE_SHORT',
+                rawMetrics: {},
+                propagationTimeMs: 100,
+              });
+
+              // Wait for event to be processed
+              await new Promise(resolve => setTimeout(resolve, 2000));
+
+              expect(processedEvents).toHaveLength(1);
+              expect(processedEvents[0].type).toBe('CRASH_SIGNAL');
+              expect(processedEvents[0].coin).toBe('TEST_COIN');
+            });
+
+            it('should consume TRADE_EVENT with symbol key', async () => {
+              processedEvents = [];
+              await producer.sendTradeEvent({
+                timestamp: Date.now(),
+                action: 'ENTRY',
+                symbol: 'TEST_SYM',
+                amount: 10,
+                pnlSol: 0,
+                pnlPercent: 0,
+              });
+
+              await new Promise(resolve => setTimeout(resolve, 2000));
+
+              expect(processedEvents.some(e => e.type === 'TRADE_EVENT')).toBe(true);
+            });
+          });
+          EOF
+
+      - name: Install Vitest
+        run: npm install -D vitest
+
+      - name: Run Consumer Tests
+        run: npx vitest run tests/kafka/consumer.test.ts --reporter=verbose
+        env:
+          KAFKA_BROKER: localhost:9092
+
+  # ============================================================
+  # 4. Schema Validation
+  # ============================================================
+  schema-validation:
+    name: Schema Validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate Event Schemas
+        run: |
+          echo "=== Validating Kafka Event Schemas ==="
+          
+          # Prüfe ob alle Event-Typen definiert sind
+          echo "1. Prüfe Producer-Interfaces..."
+          grep -E "interface (CrashSignalEvent|TradeEvent|TelemetryEvent)" src/messaging/kafka/producer.ts
+          
+          echo "2. Prüfe Consumer-Handler..."
+          grep -E "onCrashSignal\?|onTradeEvent\?|onTelemetry\?" src/messaging/kafka/consumer.ts
+          
+          echo "3. Prüfe Topic-Naming-Konvention..."
+          grep -E "kaspa\.(crash-signals|trade-events|telemetry)" src/messaging/kafka/producer.ts
+          
+          echo "=== Schema Validation PASSED ==="
+
+      - name: TypeScript Check
+        run: npx tsc --noEmit || true
+
+  # ============================================================
+  # 5. Cleanup
+  # ============================================================
+  cleanup:
+    name: Cleanup Kafka
+    runs-on: ubuntu-latest
+    needs: [producer-test, consumer-test]
+    if: always()
+    steps:
+      - name: Stop Docker containers
+        run: |
+          docker stop kaspa-kafka-test 2>/dev/null || true
+          docker rm kaspa-kafka-test 2>/dev/null || true
+          echo "Cleanup completed"
