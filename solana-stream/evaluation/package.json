@@ -1,0 +1,25 @@
+{
+  "name": "kas-pa-evaluation",
+  "version": "4.3.0",
+  "description": "KAS PA v4.3 - Evaluation Framework for Baseline Comparison and Backtesting",
+  "type": "module",
+  "scripts": {
+    "run": "tsx src/cli.ts",
+    "run:baselines": "tsx src/cli.ts run --baselines=B1,B2,B3,B4,B5",
+    "eval": "tsx src/cli.ts eval --model=B5",
+    "compare": "tsx src/cli.ts compare",
+    "help": "tsx src/cli.ts help"
+  },
+  "keywords": [
+    "kaspa",
+    "evaluation",
+    "backtesting",
+    "baseline"
+  ],
+  "author": "KAS PA Team",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "tsx": "^4.7.0"
+  }
+}
